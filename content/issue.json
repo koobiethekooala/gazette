@@ -8,58 +8,213 @@
     {
       "id": "harbor-ferry",
       "headline": "Harbor lights return as the night ferry resumes weekend runs",
-      "dek": "After a three-month pause for pier repairs, the Saturday crossing is back — and the waterfront with it.",
+      "dek": "After pier repairs, the Saturday crossing is back",
       "category": "City",
       "byline": "Mara Ellison",
-      "featured": true,
-      "body": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd — couples with paper cups, cyclists rolling onto the lower deck, a brass trio warming up near the ticket booth — filled the waiting shed as if the summer never left.\n\nDockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning. By evening, the ferry schedule boards at Market Slip and East Wharf had been wiped clean of the amber “suspended” notices that had become as familiar as the gulls.\n\n“People kept asking when the lights would come back,” said harbor master Leo Kwon. “They meant the ferry, but also the whole strip — the oyster stall, the late bookstore, the kids leaning over the rail. The boat is the switch.”\n\nRidership on the first weekend run reached eighty-four percent of last October’s average, transit officials said. A second Saturday sailing may be added if demand holds through November.\n\nAlong the promenade, shopkeepers left awnings up an hour longer. The ferry’s horn — two short blasts, then a long — rolled across the water and into the side streets, where apartment windows opened a little wider against the cool."
+      "template": "lead",
+      "body": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd filled the waiting shed as if the summer never left. Dockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning."
     },
     {
       "id": "library-wing",
-      "headline": "Central Library opens the glass reading wing to the public",
-      "dek": "A decade of fundraising ends with skylights, quiet rooms, and a view of the plane trees.",
+      "headline": "Central Library opens the glass reading wing",
+      "dek": "Skylights, quiet rooms, plane trees",
       "category": "Culture",
       "byline": "Jonah Reed",
+      "template": "standard",
       "sections": [
         {
           "heading": "What opened",
-          "body": "The new east wing of Central Library opened its doors Monday after ten years of capital campaigns, design revisions, and a pandemic pause. Visitors walk into a double-height reading hall lit by north-facing glass and a lattice of pale oak baffles that keep the room hush without feeling sealed."
+          "body": "The new east wing of Central Library opened Monday after ten years of capital campaigns. Visitors walk into a double-height reading hall lit by north-facing glass and pale oak baffles."
         },
         {
           "heading": "What stays free",
-          "body": "All stacks, study carrels, and the children’s mezzanine remain free. Timed tickets are only for the rare-book gallery on the mezzanine balcony. The café at the garden door accepts library cards for a small discount through the end of the year."
+          "body": "All stacks and study carrels remain free. Timed tickets are only for the rare-book gallery."
         }
       ]
     },
     {
       "id": "grid-upgrade",
       "headline": "Neighborhood substations finish the quiet grid upgrade",
-      "dek": "Overnight work ends; outage risk in heat waves drops, officials say.",
+      "dek": "Overnight work ends; heat-wave risk drops",
       "category": "Infrastructure",
       "byline": "Priya Nair",
-      "body": "The last of twelve neighborhood substations completed a multi-year hardening project on Wednesday, swapping aging transformers for units rated for longer heat waves and sharper evening peaks.\n\nUtility crews worked mostly between midnight and dawn to keep daytime service intact. Residents near Maple and 14th reported a few nights of generator hum; the city posted a completion notice and a final weekend of pavement restoration.\n\nSystem planners project fewer rolling brownouts in July and August, though they caution that extreme demand days can still strain the regional interconnect. A public dashboard of feeder load will launch before next summer."
+      "body": "The last of twelve neighborhood substations completed a multi-year hardening project on Wednesday, swapping aging transformers for units rated for longer heat waves and sharper evening peaks. Utility crews worked mostly between midnight and dawn."
     },
     {
       "id": "market-season",
-      "headline": "Farmers’ market extends into November with late squash and cider",
+      "headline": "Farmers’ market extends into November",
+      "dek": "Late squash, cellar apples, pressed cider",
       "category": "Food",
       "byline": "Ellis Cho",
-      "body": "The Saturday market on Civic Plaza will run three extra weeks this year, organizers announced, citing milder forecasts and strong September attendance. Vendors plan late-season squash, cellar apples, and pressed cider through the week of November 15.\n\nLive music moves indoors to the arcade if rain arrives. The winter indoor market at the armory still opens the first Sunday of December."
+      "body": "The Saturday market on Civic Plaza will run three extra weeks this year, organizers announced, citing milder forecasts and strong September attendance. Live music moves indoors to the arcade if rain arrives."
     },
     {
       "id": "school-bond",
-      "headline": "Voters clear a school bond for science labs and bus shelters",
-      "dek": "Narrow margin; construction expected to start after the spring term.",
+      "headline": "Voters clear a school bond for science labs",
+      "dek": "Narrow margin; work after spring term",
       "category": "Politics",
       "byline": "Sam Ortiz",
-      "body": "A $48 million school facilities bond passed by just under two points Tuesday night, funding science lab renovations at three middle schools and covered bus shelters at every elementary campus.\n\nDistrict staff said bidding would open in January, with the first lab gut-renovations scheduled once students leave for summer. Opponents had argued for a smaller package focused only on roofs; the broader measure held in precincts near the waterfront and the college hill."
+      "body": "A $48 million school facilities bond passed by just under two points Tuesday night, funding science lab renovations at three middle schools and covered bus shelters at every elementary campus."
     },
     {
       "id": "choir-tour",
-      "headline": "Community choir books the old theater for a winter tour stop",
+      "headline": "Community choir books the old Lyric Theater",
+      "dek": "Two December evenings; youth ushers benefit",
       "category": "Arts",
       "byline": "Nina Bloch",
-      "body": "The Harbor Community Choir will perform two December evenings at the restored Lyric Theater, its first local appearance since the building’s marquee relit last spring. Tickets go on sale Friday; a portion of proceeds supports the theater’s youth usher program."
+      "body": "The Harbor Community Choir will perform two December evenings at the restored Lyric Theater, its first local appearance since the marquee relit last spring. Tickets go on sale Friday."
+    },
+    {
+      "id": "bridge-paint",
+      "headline": "Crews begin the decade’s bridge paint cycle",
+      "dek": "Lane shifts overnight through March",
+      "category": "City",
+      "byline": "Theo Marsh",
+      "body": "Scaffolding went up on the west approach Monday as painters start a ten-year maintenance cycle. Night lane closures begin next week; daytime traffic remains two ways with a temporary zipper merge."
+    },
+    {
+      "id": "clinic-hours",
+      "headline": "Walk-in clinic adds Sunday morning hours",
+      "dek": "Pilot through the holidays",
+      "category": "Health",
+      "byline": "Ava Kim",
+      "body": "The Eastside walk-in clinic will open Sundays from eight to noon through early January, a pilot aimed at parents who miss weekday slots. Flu shots and basic labs are included; specialists still require weekday referral."
+    },
+    {
+      "id": "rail-delay",
+      "headline": "Commuter rail trims weekend delays after switch work",
+      "dek": "On-time rate climbs above ninety percent",
+      "category": "Transit",
+      "byline": "Carl Mehta",
+      "body": "Weekend on-time performance on the coastal line rose above ninety percent after crews replaced a stubborn interlocking near Mile 14. Officials caution holiday crowds may still bunch trains after noon."
+    },
+    {
+      "id": "museum-gift",
+      "headline": "Anonymous gift funds free first Sundays at the museum",
+      "dek": "Three years covered; memberships unchanged",
+      "category": "Culture",
+      "byline": "Rina Patel",
+      "body": "The city museum will waive general admission every first Sunday for the next three years after an anonymous gift covered the projected shortfall. Special exhibitions may still carry a surcharge."
+    },
+    {
+      "id": "river-cleanup",
+      "headline": "Volunteers pull a ton of trash from the river bend",
+      "dek": "Annual sweep draws a record turnout",
+      "category": "Environment",
+      "byline": "Gus Ortega",
+      "body": "More than four hundred volunteers lined the south bend Saturday, filling dumpsters with bottles, tires, and shopping carts. Organizers said it was the largest turnout since the sweep began in 2011."
+    },
+    {
+      "id": "bakery-reopen",
+      "headline": "Corner bakery reopens with the original ovens",
+      "dek": "Sourdough at dawn; lines by seven",
+      "category": "Food",
+      "byline": "Helen Park",
+      "body": "After a fire last winter, the corner bakery on Oak lit its rebuilt deck ovens Monday. The first loaves sold out before eight; afternoon pastry slots now require a paper ticket from the counter."
+    },
+    {
+      "id": "zoning-vote",
+      "headline": "Council softens height caps near the station",
+      "dek": "Six stories allowed on two corridors",
+      "category": "Politics",
+      "byline": "Ivy Brooks",
+      "body": "The council voted 5–2 to allow six-story residential buildings within two blocks of the central station, reversing a 2018 cap. Neighbors won deeper setbacks and a shadow study for winter sun."
+    },
+    {
+      "id": "park-lights",
+      "headline": "Park path lights switch to warmer LEDs",
+      "dek": "Fewer glare complaints; same brightness",
+      "category": "City",
+      "byline": "Jon Hale",
+      "body": "Recreation staff finished swapping path fixtures for warmer LEDs along the lake loop. Astronomers and night walkers both lobbied for the change; motion sensors dim stretches after midnight."
+    },
+    {
+      "id": "startup-hire",
+      "headline": "Local logistics startup adds a night warehouse shift",
+      "dek": "Eighty roles; transit stipends included",
+      "category": "Business",
+      "byline": "Kira Dunn",
+      "body": "A Harbor Point logistics firm posted eighty night-shift roles with transit stipends after winning a regional grocery contract. Training starts in two cohorts; bilingual supervisors are prioritized."
+    },
+    {
+      "id": "poetry-prize",
+      "headline": "High school senior wins the regional poetry prize",
+      "dek": "Reading set for the Lyric lobby",
+      "category": "Arts",
+      "byline": "Lena Cho",
+      "body": "A Harbor High senior took the regional poetry prize with a sequence about ferry foghorns. A free reading is scheduled in the Lyric lobby next Thursday; chapbooks print in a run of two hundred."
+    },
+    {
+      "id": "storm-drain",
+      "headline": "City clears blocked storm drains before the next front",
+      "dek": "Leaf crews work the lower wards",
+      "category": "Infrastructure",
+      "byline": "Omar Singh",
+      "body": "Public works crews cleared leaf mats from storm drains across the lower wards ahead of a wet weekend. Residents can still report standing water through the city’s text tip line."
+    },
+    {
+      "id": "daycare-spots",
+      "headline": "New daycare opens twenty sliding-scale spots",
+      "dek": "Lottery draws Friday at noon",
+      "category": "Family",
+      "byline": "Pia Novak",
+      "body": "A nonprofit daycare near the college hill will open twenty sliding-scale infant and toddler spots next month. Families enter a Friday noon lottery; income verification follows for winners."
+    },
+    {
+      "id": "radio-tower",
+      "headline": "College radio returns to the air after antenna repair",
+      "dek": "Student DJs reclaim the midnight slot",
+      "category": "Media",
+      "byline": "Quinn Adler",
+      "body": "Campus radio signed back on at 91.7 after a month of antenna work. The midnight experimental slot returns this weekend; streaming stayed up throughout the outage."
+    },
+    {
+      "id": "trail-link",
+      "headline": "Missing trail link finally stitches the waterfront path",
+      "dek": "Ribbon cutting Saturday at ten",
+      "category": "Outdoors",
+      "byline": "Ruth Vega",
+      "body": "A half-mile missing link in the waterfront trail opens Saturday, connecting the ferry plaza to the bird sanctuary without a street detour. Bikes share the path; a painted slow zone marks the sanctuary edge."
+    },
+    {
+      "id": "tax-clinic",
+      "headline": "Free tax clinic expands to evenings in November",
+      "dek": "Appointments open Monday",
+      "category": "Money",
+      "byline": "Seth Wu",
+      "body": "The volunteer tax clinic will add Tuesday and Thursday evenings in November for seasonal workers. Appointments open Monday; bring last year’s return and a photo ID."
+    },
+    {
+      "id": "harbor-fog",
+      "headline": "Fog advisory returns with the early cold snap",
+      "dek": "Ferries on visual approach till noon",
+      "category": "Weather",
+      "byline": "Tara Gill",
+      "body": "A dense fog advisory is in effect through midmorning as the first cold snap settles over the harbor. Ferries will run on visual approach; drivers are asked to use low beams on the bridge."
+    },
+    {
+      "id": "mural-wall",
+      "headline": "Alley mural wall gets a fresh coat and new map",
+      "dek": "Walking tour QR codes installed",
+      "category": "Arts",
+      "byline": "Uma Freitas",
+      "body": "Artists finished a refreshed alley mural wall behind Market Street, adding a small map of past commissions and QR codes for a self-guided walking tour. The city funded primer and scaffolding only."
+    },
+    {
+      "id": "bus-shelter",
+      "headline": "Glass bus shelter pilots heat for winter waits",
+      "dek": "Three stops in the north wards",
+      "category": "Transit",
+      "byline": "Vince Ortega",
+      "body": "Transit authority installed heated glass shelters at three north-ward stops as a winter pilot. Sensors shut heat off when the shelter is empty; results will decide a wider rollout."
+    },
+    {
+      "id": "orchard-fair",
+      "headline": "Orchard fair brings cider presses to the fairgrounds",
+      "dek": "Saturday only; dogs welcome on leash",
+      "category": "Food",
+      "byline": "Willa Frost",
+      "body": "Growers haul presses and late pears to the fairgrounds Saturday for the annual orchard fair. Admission is a canned good for the food bank; leashed dogs are welcome outside the tasting tent."
     }
   ]
 }

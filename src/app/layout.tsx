@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Libre_Baskerville, Source_Serif_4, IBM_Plex_Sans } from "next/font/google";
+import {
+  Libre_Baskerville,
+  Source_Serif_4,
+  IBM_Plex_Sans,
+} from "next/font/google";
 import "./globals.css";
 
-const display = Bebas_Neue({
-  weight: "400",
+const display = Libre_Baskerville({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-display",
 });

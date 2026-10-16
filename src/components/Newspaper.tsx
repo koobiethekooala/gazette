@@ -1,54 +1,33 @@
-import { ArticleBlock } from "@/components/ArticleBlock";
 import { Masthead } from "@/components/Masthead";
-import type { Issue } from "@/lib/issue";
+import { StoryCell } from "@/components/StoryCell";
+import { getHomeArticles, type Issue } from "@/lib/issue";
 
 type NewspaperProps = {
   issue: Issue;
 };
 
 export function Newspaper({ issue }: NewspaperProps) {
-  const featured =
-    issue.articles.find((article) => article.featured) ?? issue.articles[0];
-  const rest = issue.articles.filter((article) => article.id !== featured?.id);
+  const articles = getHomeArticles(issue);
 
   return (
     <div className="paper-shell">
       <div className="paper-grain" aria-hidden="true" />
       <div className="paper-page">
         <Masthead issue={issue} />
+        <div className="masthead-rule" aria-hidden="true" />
 
-        {featured ? <ArticleBlock article={featured} featured /> : null}
-
-        {rest.length > 0 ? (
-          <section className="issue-rest" aria-label="More in this issue">
-            <div className="rule-thin" aria-hidden="true" />
-            <div className="article-grid">
-              {rest.map((article, index) => (
-                <div
-                  key={article.id}
-                  className="article-grid-item"
-                  style={{ animationDelay: `${180 + index * 70}ms` }}
-                >
-                  <ArticleBlock article={article} />
-                </div>
-              ))}
-            </div>
+        {articles.length === 0 ? (
+          <p className="empty-issue">No stories in this week’s issue yet.</p>
+        ) : (
+          <section
+            className="broadsheet-grid"
+            aria-label={`${articles.length} stories this week`}
+          >
+            {articles.map((article, i) => (
+              <StoryCell key={article.id} article={article} index={i + 1} />
+            ))}
           </section>
-        ) : null}
-
-        <footer className="issue-footer">
-          <div className="rule-thin" aria-hidden="true" />
-          <p>
-            End of the week’s edition
-            {issue.updatedAt
-              ? ` · updated ${new Date(issue.updatedAt).toLocaleString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}`
-              : null}
-          </p>
-        </footer>
+        )}
       </div>
     </div>
   );
