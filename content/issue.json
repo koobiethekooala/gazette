@@ -1,0 +1,65 @@
+{
+  "title": "The Gazette",
+  "weekOf": "2026-10-13",
+  "edition": "Vol. XII · No. 41",
+  "tagline": "What mattered this week — curated, condensed, and set in type.",
+  "updatedAt": "2026-10-16T18:00:00.000Z",
+  "articles": [
+    {
+      "id": "harbor-ferry",
+      "headline": "Harbor lights return as the night ferry resumes weekend runs",
+      "dek": "After a three-month pause for pier repairs, the Saturday crossing is back — and the waterfront with it.",
+      "category": "City",
+      "byline": "Mara Ellison",
+      "featured": true,
+      "body": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd — couples with paper cups, cyclists rolling onto the lower deck, a brass trio warming up near the ticket booth — filled the waiting shed as if the summer never left.\n\nDockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning. By evening, the ferry schedule boards at Market Slip and East Wharf had been wiped clean of the amber “suspended” notices that had become as familiar as the gulls.\n\n“People kept asking when the lights would come back,” said harbor master Leo Kwon. “They meant the ferry, but also the whole strip — the oyster stall, the late bookstore, the kids leaning over the rail. The boat is the switch.”\n\nRidership on the first weekend run reached eighty-four percent of last October’s average, transit officials said. A second Saturday sailing may be added if demand holds through November.\n\nAlong the promenade, shopkeepers left awnings up an hour longer. The ferry’s horn — two short blasts, then a long — rolled across the water and into the side streets, where apartment windows opened a little wider against the cool."
+    },
+    {
+      "id": "library-wing",
+      "headline": "Central Library opens the glass reading wing to the public",
+      "dek": "A decade of fundraising ends with skylights, quiet rooms, and a view of the plane trees.",
+      "category": "Culture",
+      "byline": "Jonah Reed",
+      "sections": [
+        {
+          "heading": "What opened",
+          "body": "The new east wing of Central Library opened its doors Monday after ten years of capital campaigns, design revisions, and a pandemic pause. Visitors walk into a double-height reading hall lit by north-facing glass and a lattice of pale oak baffles that keep the room hush without feeling sealed."
+        },
+        {
+          "heading": "What stays free",
+          "body": "All stacks, study carrels, and the children’s mezzanine remain free. Timed tickets are only for the rare-book gallery on the mezzanine balcony. The café at the garden door accepts library cards for a small discount through the end of the year."
+        }
+      ]
+    },
+    {
+      "id": "grid-upgrade",
+      "headline": "Neighborhood substations finish the quiet grid upgrade",
+      "dek": "Overnight work ends; outage risk in heat waves drops, officials say.",
+      "category": "Infrastructure",
+      "byline": "Priya Nair",
+      "body": "The last of twelve neighborhood substations completed a multi-year hardening project on Wednesday, swapping aging transformers for units rated for longer heat waves and sharper evening peaks.\n\nUtility crews worked mostly between midnight and dawn to keep daytime service intact. Residents near Maple and 14th reported a few nights of generator hum; the city posted a completion notice and a final weekend of pavement restoration.\n\nSystem planners project fewer rolling brownouts in July and August, though they caution that extreme demand days can still strain the regional interconnect. A public dashboard of feeder load will launch before next summer."
+    },
+    {
+      "id": "market-season",
+      "headline": "Farmers’ market extends into November with late squash and cider",
+      "category": "Food",
+      "byline": "Ellis Cho",
+      "body": "The Saturday market on Civic Plaza will run three extra weeks this year, organizers announced, citing milder forecasts and strong September attendance. Vendors plan late-season squash, cellar apples, and pressed cider through the week of November 15.\n\nLive music moves indoors to the arcade if rain arrives. The winter indoor market at the armory still opens the first Sunday of December."
+    },
+    {
+      "id": "school-bond",
+      "headline": "Voters clear a school bond for science labs and bus shelters",
+      "dek": "Narrow margin; construction expected to start after the spring term.",
+      "category": "Politics",
+      "byline": "Sam Ortiz",
+      "body": "A $48 million school facilities bond passed by just under two points Tuesday night, funding science lab renovations at three middle schools and covered bus shelters at every elementary campus.\n\nDistrict staff said bidding would open in January, with the first lab gut-renovations scheduled once students leave for summer. Opponents had argued for a smaller package focused only on roofs; the broader measure held in precincts near the waterfront and the college hill."
+    },
+    {
+      "id": "choir-tour",
+      "headline": "Community choir books the old theater for a winter tour stop",
+      "category": "Arts",
+      "byline": "Nina Bloch",
+      "body": "The Harbor Community Choir will perform two December evenings at the restored Lyric Theater, its first local appearance since the building’s marquee relit last spring. Tickets go on sale Friday; a portion of proceeds supports the theater’s youth usher program."
+    }
+  ]
+}

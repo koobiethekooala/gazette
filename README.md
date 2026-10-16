@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Gazette
 
-## Getting Started
+A Next.js newspaper front end that renders a weekly issue from a single JSON file. Update the file each week (cron, agent, or by hand); the layout scales to any article count.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev -- --port 4317
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4317](http://localhost:4317).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Weekly content: `content/issue.json`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Replace this file to publish a new edition. No auth, database, or CMS is required.
 
-## Learn More
+### Issue object
 
-To learn more about Next.js, take a look at the following resources:
+| Field | Required | Description |
+|-------|----------|-------------|
+| `title` | yes | Masthead brand, e.g. `"The Gazette"` |
+| `weekOf` | yes | ISO date string for the week (`YYYY-MM-DD`) |
+| `edition` | no | Volume / number line, e.g. `"Vol. XII · No. 41"` |
+| `tagline` | no | Short line under the masthead |
+| `updatedAt` | no | ISO timestamp for the footer |
+| `articles` | yes | Array of article objects (any length) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Article object
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Field | Required | Description |
+|-------|----------|-------------|
+| `id` | yes | Stable slug used as the DOM `id` |
+| `headline` | yes | Article title |
+| `dek` | no | Deck / subhead |
+| `category` | no | Section label (City, Culture, …) |
+| `byline` | no | Author name (rendered as `BY …`) |
+| `featured` | no | If `true`, shown as the lead story; otherwise the first article is featured |
+| `body` | no* | Plain text; paragraphs separated by blank lines |
+| `sections` | no* | Array of `{ heading?: string, body: string }` blocks |
 
-## Deploy on Vercel
+\*Provide `body` and/or `sections`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Minimal example
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{
+  "title": "The Gazette",
+  "weekOf": "2026-10-20",
+  "edition": "Vol. XII · No. 42",
+  "tagline": "What mattered this week.",
+  "articles": [
+    {
+      "id": "lead",
+      "headline": "Your lead headline",
+      "dek": "One-sentence deck.",
+      "category": "City",
+      "byline": "A. Reporter",
+      "featured": true,
+      "body": "First paragraph.\n\nSecond paragraph."
+    },
+    {
+      "id": "brief",
+      "headline": "A shorter item",
+      "category": "Arts",
+      "body": "One or two short paragraphs."
+    }
+  ]
+}
+```
+
+## Stack
+
+- Next.js (App Router) + TypeScript + Tailwind CSS
+- No auth, database, or cron implementation in this repo
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
