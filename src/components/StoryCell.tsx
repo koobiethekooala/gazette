@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Article } from "@/lib/issue";
 import { getArticleExcerpt } from "@/lib/issue";
 
@@ -23,6 +24,9 @@ export function StoryCell({ article, index }: StoryCellProps) {
         <h2 className="story-title">{article.headline}</h2>
         {subtitle ? <p className="story-dek">{subtitle}</p> : null}
         {excerpt ? <p className="story-excerpt">{excerpt}</p> : null}
+        <Link href={`/article/${article.id}`} className="story-open">
+          Open full article
+        </Link>
       </div>
     </article>
   );

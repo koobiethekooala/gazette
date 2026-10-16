@@ -17,10 +17,7 @@
   --color-foreground: var(--foreground);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
-  --font-sans: var(--font-meta);
-  --font-serif: var(--font-body);
-  --font-display: var(--font-display);
-  --font-deck: var(--font-deck);
+  --font-sans: var(--font-work-sans);
 }
 
 * {
@@ -36,7 +33,7 @@ body {
   min-height: 100%;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-body), "Times New Roman", Times, serif;
+  font-family: var(--font-work-sans), "Work Sans", system-ui, sans-serif;
 }
 
 ::selection {
@@ -89,7 +86,6 @@ body {
   }
 }
 
-/* Narrow masthead — title left, date right */
 .masthead {
   display: flex;
   flex-wrap: wrap;
@@ -101,7 +97,6 @@ body {
 
 .masthead-brand {
   margin: 0;
-  font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(1.15rem, 2.4vw, 1.55rem);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -112,9 +107,8 @@ body {
 
 .masthead-date {
   margin: 0;
-  font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(0.72rem, 1.4vw, 0.9rem);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -133,7 +127,6 @@ body {
   color: var(--ink-mute);
 }
 
-/* Dense broadsheet grid with shared hairline rules */
 .broadsheet-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -173,7 +166,6 @@ body {
 
 .story-index {
   flex: 0 0 auto;
-  font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(1.85rem, 3.2vw, 2.55rem);
   font-weight: 700;
   line-height: 0.9;
@@ -186,11 +178,13 @@ body {
 .story-copy {
   min-width: 0;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .story-title {
   margin: 0;
-  font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(0.82rem, 1.15vw, 0.98rem);
   font-weight: 700;
   line-height: 1.2;
@@ -202,9 +196,8 @@ body {
 
 .story-dek {
   margin: 0.28rem 0 0;
-  font-family: var(--font-deck), "Times New Roman", serif;
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -213,13 +206,111 @@ body {
 
 .story-excerpt {
   margin: 0.4rem 0 0;
-  font-family: var(--font-body), "Times New Roman", serif;
   font-size: 0.78rem;
+  font-weight: 400;
   line-height: 1.35;
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
   color: var(--ink-soft);
+}
+
+.story-open {
+  display: inline-block;
+  margin-top: 0.65rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.story-open:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.story-open:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Minimal article reader (templates come later) */
+.article-page {
+  max-width: 42rem;
+}
+
+.article-back {
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-back a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.article-back a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.article-page-category {
+  margin: 0 0 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.article-page-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.article-page-dek {
+  margin: 0.85rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.article-page-byline {
+  margin: 0.85rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.article-page-body {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.article-page-body p {
+  margin: 0 0 1em;
+}
+
+.article-page-body p:last-child {
+  margin-bottom: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

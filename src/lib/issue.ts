@@ -39,6 +39,10 @@ export function getHomeArticles(issue: Issue = getIssue()): Article[] {
   return issue.articles.slice(0, MAX_HOME_ARTICLES);
 }
 
+export function getArticleById(id: string): Article | undefined {
+  return getIssue().articles.find((article) => article.id === id);
+}
+
 export function getArticleText(article: Article): string {
   if (article.body?.trim()) return article.body.trim();
   if (article.sections?.length) {
