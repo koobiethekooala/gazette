@@ -4,12 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { PublicationByline } from "@/components/PublicationByline";
-import {
-  formatMastheadDate,
-  getArticleById,
-  getArticleText,
-  getIssue,
-} from "@/lib/issue";
+import { getArticleById, getArticleText, getIssue } from "@/lib/issue";
 
 type ArticlePageProps = {
   params: Promise<{ id: string }>;
@@ -44,7 +39,6 @@ async function ArticleContent({ params }: ArticlePageProps) {
       <header className="reader-chrome">
         <div className="reader-chrome-brand">
           <BrandLogo title={issue.title} href="/" size="chrome" />
-          <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
         </div>
       </header>
 

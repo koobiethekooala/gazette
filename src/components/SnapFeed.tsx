@@ -126,8 +126,6 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                         {minutes} min read
                       </span>
                     </div>
-
-                    <span className="feed-slide-cta">Tap to read →</span>
                   </div>
                 </Link>
               </article>

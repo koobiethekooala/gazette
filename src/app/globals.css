@@ -196,7 +196,7 @@ html[data-theme="dark"] .paper-grain {
   z-index: 20;
   display: flex;
   justify-content: center;
-  min-height: 4.75rem;
+  min-height: 3.75rem;
   padding: 0.85rem max(1rem, env(safe-area-inset-right))
     0.85rem max(1rem, env(safe-area-inset-left));
   padding-top: max(0.85rem, env(safe-area-inset-top));
@@ -222,7 +222,6 @@ html[data-theme="dark"] .paper-grain {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.4rem;
   /* Keep mark clear of fixed back (left) + theme toggle (right) */
   padding-inline: 3rem;
   pointer-events: none;
@@ -266,11 +265,11 @@ html[data-theme="dark"] .paper-grain {
 }
 
 .reader-back-icon {
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.4rem;
+  height: 1.4rem;
   display: block;
   /* Slight optical bias like UINavigationBar back chevron */
-  margin-left: -0.15rem;
+  margin-left: -0.1rem;
 }
 
 .paper-page {
@@ -279,7 +278,7 @@ html[data-theme="dark"] .paper-grain {
   width: min(100%, 42rem);
   margin: 0 auto;
   padding: 1.25rem 1.25rem 3rem;
-  padding-top: 5.75rem;
+  padding-top: 4.75rem;
 }
 
 .article-page {
@@ -623,24 +622,6 @@ html[data-theme="light"] .brand-logo-img {
   width: 0.85rem;
   height: 0.85rem;
   flex: 0 0 auto;
-}
-
-.feed-slide-cta {
-  display: inline-block;
-  margin-top: 1.1rem;
-  font-size: 0.7rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 0.15rem;
-  width: fit-content;
-}
-
-.feed-slide-link:hover .feed-slide-cta,
-.feed-slide-link:focus-visible .feed-slide-cta {
-  border-bottom-color: var(--ink);
 }
 
 .feed-slide-link:focus-visible {
