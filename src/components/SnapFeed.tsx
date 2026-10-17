@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Clock } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
+import { triggerHaptic } from "@/lib/haptics";
 import {
   formatMastheadDate,
   getArticleExcerpt,
@@ -21,6 +22,7 @@ export function SnapFeed({ issue }: SnapFeedProps) {
   const total = articles.length;
   const scrollerRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(1);
+  const didMountHaptic = useRef(false);
 
   useEffect(() => {
     const root = scrollerRef.current;
@@ -55,9 +57,21 @@ export function SnapFeed({ issue }: SnapFeedProps) {
     return () => observer.disconnect();
   }, [total]);
 
+  // Soft tick when the snap settles on a new slide
+  useEffect(() => {
+    if (!didMountHaptic.current) {
+      didMountHaptic.current = true;
+      return;
+    }
+    triggerHaptic();
+  }, [activeIndex]);
+
   return (
     <div className="feed-shell">
-      <header className="feed-chrome">
+      <header
+        className="feed-chrome"
+        style={{ viewTransitionName: "site-chrome" }}
+      >
         <div className="feed-chrome-brand">
           <BrandLogo title={issue.title} href="/" size="chrome" />
           <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
@@ -84,7 +98,6 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         >
           {articles.map((article, i) => {
             const index = i + 1;
-            // Prefer a longer body excerpt on the feed; fall back to dek.
             const subtitle =
               getArticleExcerpt(article, 300) || article.dek || "";
             const minutes = getReadTimeMinutes(article);
@@ -100,6 +113,8 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                   href={`/article/${article.id}`}
                   className="feed-slide-link"
                   aria-label={`Open article ${index}: ${article.headline}`}
+                  transitionTypes={["nav-forward"]}
+                  onClick={() => triggerHaptic()}
                 >
                   <div className="feed-slide-copy">
                     <p className="feed-slide-index" aria-hidden="true">

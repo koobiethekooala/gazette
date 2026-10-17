@@ -2,6 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
+import { hapticRef, triggerHaptic } from "@/lib/haptics";
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -11,7 +12,11 @@ export function ThemeToggle() {
     <button
       type="button"
       className="theme-toggle"
-      onClick={toggleTheme}
+      ref={hapticRef}
+      onClick={() => {
+        triggerHaptic();
+        toggleTheme();
+      }}
       aria-label={`Switch to ${next} mode`}
       title={`Switch to ${next} mode`}
     >
