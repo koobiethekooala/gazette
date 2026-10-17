@@ -329,16 +329,21 @@ html[data-theme="light"] .brand-logo-img {
 }
 
 .feed-sticky-count {
-  position: fixed;
-  right: max(1rem, env(safe-area-inset-right));
-  bottom: max(1.1rem, env(safe-area-inset-bottom));
-  z-index: 25;
+  /* Absolute to .feed-shell (relative + 100dvh) — more reliable than
+     fixed inside overflow:hidden shells on mobile Safari */
+  position: absolute;
+  inset: auto max(1rem, env(safe-area-inset-right))
+    max(1.1rem, env(safe-area-inset-bottom)) auto;
+  left: auto;
+  top: auto;
+  z-index: 30;
   margin: 0;
-  padding: 0.4rem 0.65rem;
+  padding: 0.45rem 0.75rem;
   border: 1px solid var(--rule);
   border-radius: 999px;
-  background: var(--toggle-bg);
-  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-size: 0.78rem;
   font-weight: 650;
   letter-spacing: 0.08em;
