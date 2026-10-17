@@ -332,39 +332,39 @@ html[data-theme="light"] .brand-logo-img {
   /* Absolute to .feed-shell (relative + 100dvh) — more reliable than
      fixed inside overflow:hidden shells on mobile Safari */
   position: absolute;
-  inset: auto max(1rem, env(safe-area-inset-right))
-    max(1.1rem, env(safe-area-inset-bottom)) auto;
+  inset: auto max(0.85rem, env(safe-area-inset-right))
+    max(0.95rem, env(safe-area-inset-bottom)) auto;
   left: auto;
   top: auto;
   z-index: 30;
   margin: 0;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid var(--rule);
+  padding: 0.2rem 0.45rem;
+  border: none;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--paper) 82%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0.08em;
+  background: transparent;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--ink-mute);
+  opacity: 0.72;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   pointer-events: none;
 }
 
 .feed-sticky-current {
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--ink-soft);
 }
 
 .feed-sticky-sep {
-  margin: 0 0.2rem;
-  color: var(--ink-mute);
+  margin: 0 0.15rem;
+  opacity: 0.7;
 }
 
 .feed-sticky-total {
-  color: var(--ink-mute);
+  opacity: 0.85;
 }
 
 .feed-week {
