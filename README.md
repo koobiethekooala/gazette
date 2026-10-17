@@ -11,12 +11,16 @@ npm run dev -- --port 4317
 
 Open [http://localhost:4317](http://localhost:4317).
 
-## Home layout
+## Listing interfaces
 
-- Narrow masthead: title left, week/date right
-- Multi-column grid (~4 columns on desktop → fewer on smaller screens) with hairline rules
-- Each cell: large index number, title, dek/subtitle, short excerpt
-- Scales from 1–25 articles in `content/issue.json` (extras beyond 25 are ignored on home)
+Two ways to browse the week’s stories (toggle in the UI):
+
+| Route | Style |
+|-------|--------|
+| `/` | Broadsheet — dense numbered multi-column grid |
+| `/feed` | Feed — TikTok-style vertical snap scroll; tap a slide to open the article |
+
+Both read the same `content/issue.json` (first 25 articles).
 
 ## Weekly content: `content/issue.json`
 

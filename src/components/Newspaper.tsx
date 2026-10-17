@@ -1,5 +1,6 @@
 import { Masthead } from "@/components/Masthead";
 import { StoryCell } from "@/components/StoryCell";
+import { ViewToggle } from "@/components/ViewToggle";
 import { getHomeArticles, type Issue } from "@/lib/issue";
 
 type NewspaperProps = {
@@ -13,7 +14,10 @@ export function Newspaper({ issue }: NewspaperProps) {
     <div className="paper-shell">
       <div className="paper-grain" aria-hidden="true" />
       <div className="paper-page">
-        <Masthead issue={issue} />
+        <div className="masthead-row">
+          <Masthead issue={issue} />
+          <ViewToggle active="broadsheet" />
+        </div>
         <div className="masthead-rule" aria-hidden="true" />
 
         {articles.length === 0 ? (
