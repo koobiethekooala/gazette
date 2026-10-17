@@ -21,34 +21,58 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+function readStoredTheme(): Theme {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    return stored === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
+function persistTheme(theme: Theme) {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, theme);
+  } catch {
+    /* ignore quota / private mode */
+  }
+}
+
 function applyTheme(theme: Theme) {
-  document.documentElement.dataset.theme = theme;
+  const root = document.documentElement;
+  const run = () => {
+    root.dataset.theme = theme;
+  };
+
+  // Smooth cross-fade when the View Transitions API is available
+  const doc = document as Document & {
+    startViewTransition?: (cb: () => void) => void;
+  };
+  if (typeof doc.startViewTransition === "function") {
+    doc.startViewTransition(run);
+  } else {
+    run();
+  }
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    const next: Theme = stored === "light" ? "light" : "dark";
+    const next = readStoredTheme();
     setThemeState(next);
-    applyTheme(next);
+    document.documentElement.dataset.theme = next;
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
     setThemeState(next);
+    persistTheme(next);
     applyTheme(next);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      /* ignore quota / private mode */
-    }
   }, []);
 
   const toggleTheme = useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark");
   }, [setTheme, theme]);
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}
