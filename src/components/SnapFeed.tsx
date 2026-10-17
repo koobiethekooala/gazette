@@ -82,7 +82,9 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         >
           {articles.map((article, i) => {
             const index = i + 1;
-            const subtitle = article.dek || getArticleExcerpt(article, 180);
+            // Prefer a longer body excerpt on the feed; fall back to dek.
+            const subtitle =
+              getArticleExcerpt(article, 300) || article.dek || "";
             const minutes = getReadTimeMinutes(article);
 
             return (
