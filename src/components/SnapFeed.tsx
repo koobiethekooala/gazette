@@ -58,17 +58,20 @@ export function SnapFeed({ issue }: SnapFeedProps) {
   return (
     <div className="feed-shell">
       <header className="feed-chrome">
-        <div className="feed-chrome-brand">
-          <BrandLogo title={issue.title} href="/" size="chrome" />
-          <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
-        </div>
         {total > 0 ? (
           <p className="feed-sticky-count" aria-live="polite">
             <span className="feed-sticky-current">{activeIndex}</span>
             <span className="feed-sticky-sep">/</span>
             <span className="feed-sticky-total">{total}</span>
           </p>
-        ) : null}
+        ) : (
+          <span className="feed-chrome-spacer" aria-hidden="true" />
+        )}
+        <div className="feed-chrome-brand">
+          <BrandLogo title={issue.title} href="/" size="chrome" />
+          <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
+        </div>
+        <span className="feed-chrome-spacer" aria-hidden="true" />
       </header>
 
       {total === 0 ? (
