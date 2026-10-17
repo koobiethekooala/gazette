@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArticleBody } from "@/components/ArticleBody";
 import { BrandLogo } from "@/components/BrandLogo";
+import { NavTransition } from "@/components/NavTransition";
 import { PublicationByline } from "@/components/PublicationByline";
+import { ReaderBack } from "@/components/ReaderBack";
 import { getArticleById, getIssue } from "@/lib/issue";
 
 type ArticlePageProps = {
@@ -24,16 +24,12 @@ async function ArticleContent({ params }: ArticlePageProps) {
 
   return (
     <>
-      {/* Fixed outside chrome so it can't be flex-centered onto the logo */}
-      <Link href="/" className="reader-back" aria-label="Back">
-        <ChevronLeft
-          className="reader-back-icon"
-          aria-hidden="true"
-          strokeWidth={2.5}
-        />
-      </Link>
+      <ReaderBack />
 
-      <header className="reader-chrome">
+      <header
+        className="reader-chrome"
+        style={{ viewTransitionName: "site-chrome" }}
+      >
         <div className="reader-chrome-brand">
           <BrandLogo title={issue.title} href="/" size="chrome" />
         </div>
@@ -56,13 +52,15 @@ async function ArticleContent({ params }: ArticlePageProps) {
 
 export default function ArticlePage({ params }: ArticlePageProps) {
   return (
-    <div className="paper-shell">
-      <div className="paper-grain" aria-hidden="true" />
-      <Suspense
-        fallback={<div className="paper-page article-page">Loading…</div>}
-      >
-        <ArticleContent params={params} />
-      </Suspense>
-    </div>
+    <NavTransition>
+      <div className="paper-shell">
+        <div className="paper-grain" aria-hidden="true" />
+        <Suspense
+          fallback={<div className="paper-page article-page">Loading…</div>}
+        >
+          <ArticleContent params={params} />
+        </Suspense>
+      </div>
+    </NavTransition>
   );
 }
