@@ -717,6 +717,101 @@ html[data-theme="light"] .brand-logo-img {
   }
 }
 
+/* Feed slides with a portrait lead image (full-bleed cover + legibility scrim).
+   Keep these ABOVE view-transition rules — Lightning CSS can drop trailing
+   rules after unsupported ::view-transition-* (*) selectors. */
+.feed-slide-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+  pointer-events: none;
+}
+
+.feed-slide-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.feed-slide-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.42) 0%,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0) 38%,
+      rgba(0, 0, 0, 0.55) 62%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+}
+
+.feed-slide-has-media .feed-slide-link {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 28rem;
+  color: #fff;
+}
+
+.feed-slide-has-media .feed-slide-index {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.feed-slide-has-media .feed-slide-headline {
+  color: #fff;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+}
+
+.feed-slide-has-media .feed-slide-subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+}
+
+.feed-slide-has-media .feed-tag-category {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+.feed-slide-has-media .feed-tag-read {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.feed-slide-has-media .feed-slide-link:focus-visible {
+  outline-color: #fff;
+}
+
+/* Page counter sits on top of the photo when slides have images */
+.feed-shell:has(.feed-slide-has-media) .feed-sticky-count {
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 1;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.feed-shell:has(.feed-slide-has-media) .feed-sticky-current {
+  color: #fff;
+}
+
+/* Links inside article text (source lines) */
+.article-page-body a.article-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+
 /* Feed → article: slide left (forward); back slides the other way */
 ::view-transition {
   pointer-events: none;
@@ -791,103 +886,13 @@ html[data-theme="light"] .brand-logo-img {
     scroll-behavior: auto;
   }
 
-  ::view-transition-old(*),
-  ::view-transition-new(*),
-  ::view-transition-group(*) {
+  /* Named classes only — universal ::view-transition-* (*) can break
+     Lightning CSS and drop later rules from the bundle. */
+  ::view-transition-old(.nav-forward),
+  ::view-transition-new(.nav-forward),
+  ::view-transition-old(.nav-back),
+  ::view-transition-new(.nav-back) {
     animation-duration: 0s !important;
     animation-delay: 0s !important;
   }
-}
-
-/* Feed slides with a portrait lead image (full-bleed cover + legibility scrim) */
-.feed-slide-media {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  z-index: 0;
-  width: min(100%, 28rem);
-  transform: translateX(-50%);
-  overflow: hidden;
-  background: #111;
-}
-
-.feed-slide-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.feed-slide-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.42) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      rgba(0, 0, 0, 0) 38%,
-      rgba(0, 0, 0, 0.55) 62%,
-      rgba(0, 0, 0, 0.9) 100%
-    );
-}
-
-.feed-slide-has-media .feed-slide-link {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-}
-
-.feed-slide-has-media .feed-slide-index {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.feed-slide-has-media .feed-slide-headline {
-  color: #fff;
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
-}
-
-.feed-slide-has-media .feed-slide-subtitle {
-  color: rgba(255, 255, 255, 0.88);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
-}
-
-.feed-slide-has-media .feed-tag-category {
-  background: #fff;
-  color: #111;
-  border-color: #fff;
-}
-
-.feed-slide-has-media .feed-tag-read {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.55);
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.feed-slide-has-media .feed-slide-link:focus-visible {
-  outline-color: #fff;
-}
-
-/* Page counter sits on top of the photo when slides have images */
-.feed-shell:has(.feed-slide-has-media) .feed-sticky-count {
-  color: rgba(255, 255, 255, 0.85);
-  opacity: 1;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-}
-
-.feed-shell:has(.feed-slide-has-media) .feed-sticky-current {
-  color: #fff;
-}
-
-/* Links inside article text (source lines) */
-.article-page-body a.article-link {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  overflow-wrap: anywhere;
 }
