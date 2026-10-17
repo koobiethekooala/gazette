@@ -96,16 +96,16 @@ body {
   top: max(0.75rem, env(safe-area-inset-top));
   right: max(0.85rem, env(safe-area-inset-right));
   z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
   margin: 0;
-  padding: 0.4rem 0.7rem;
+  padding: 0;
   border: 1px solid var(--toggle-border);
   background: var(--toggle-bg);
   color: var(--ink);
-  font: inherit;
-  font-size: 0.62rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   cursor: pointer;
   backdrop-filter: blur(8px);
 }
@@ -121,7 +121,9 @@ body {
   outline-offset: 2px;
 }
 
-.theme-toggle-label {
+.theme-toggle-icon {
+  width: 1.1rem;
+  height: 1.1rem;
   display: block;
 }
 

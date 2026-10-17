@@ -1,5 +1,6 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
 export function ThemeToggle() {
@@ -14,9 +15,11 @@ export function ThemeToggle() {
       aria-label={`Switch to ${next} mode`}
       title={`Switch to ${next} mode`}
     >
-      <span className="theme-toggle-label" aria-hidden="true">
-        {theme === "dark" ? "Light" : "Dark"}
-      </span>
+      {theme === "dark" ? (
+        <Sun className="theme-toggle-icon" aria-hidden="true" strokeWidth={1.75} />
+      ) : (
+        <Moon className="theme-toggle-icon" aria-hidden="true" strokeWidth={1.75} />
+      )}
     </button>
   );
 }
