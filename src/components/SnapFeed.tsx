@@ -82,7 +82,7 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         >
           {articles.map((article, i) => {
             const index = i + 1;
-            const excerpt = getArticleExcerpt(article, 180);
+            const subtitle = article.dek || getArticleExcerpt(article, 180);
             const minutes = getReadTimeMinutes(article);
 
             return (
@@ -97,35 +97,34 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                   className="feed-slide-link"
                   aria-label={`Open article ${index}: ${article.headline}`}
                 >
-                  <div className="feed-slide-tags">
-                    {article.category ? (
-                      <span className="feed-tag feed-tag-category">
-                        {article.category}
-                      </span>
+                  <div className="feed-slide-copy">
+                    <p className="feed-slide-index" aria-hidden="true">
+                      {index}
+                    </p>
+
+                    <h2 className="feed-slide-headline">{article.headline}</h2>
+                    {subtitle ? (
+                      <p className="feed-slide-subtitle">{subtitle}</p>
                     ) : null}
-                    <span className="feed-tag feed-tag-read">
-                      <Clock
-                        className="feed-tag-icon"
-                        aria-hidden="true"
-                        strokeWidth={2}
-                      />
-                      {minutes} min read
-                    </span>
+
+                    <div className="feed-slide-tags">
+                      {article.category ? (
+                        <span className="feed-tag feed-tag-category">
+                          {article.category}
+                        </span>
+                      ) : null}
+                      <span className="feed-tag feed-tag-read">
+                        <Clock
+                          className="feed-tag-icon"
+                          aria-hidden="true"
+                          strokeWidth={2}
+                        />
+                        {minutes} min read
+                      </span>
+                    </div>
+
+                    <span className="feed-slide-cta">Tap to read →</span>
                   </div>
-
-                  <p className="feed-slide-index" aria-hidden="true">
-                    {index}
-                  </p>
-
-                  <h2 className="feed-slide-headline">{article.headline}</h2>
-                  {article.dek ? (
-                    <p className="feed-slide-dek">{article.dek}</p>
-                  ) : null}
-                  {excerpt ? (
-                    <p className="feed-slide-excerpt">{excerpt}</p>
-                  ) : null}
-
-                  <span className="feed-slide-cta">Tap to read →</span>
                 </Link>
               </article>
             );
