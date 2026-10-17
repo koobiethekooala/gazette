@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { ArticleBody } from "@/components/ArticleBody";
 import { BrandLogo } from "@/components/BrandLogo";
 import { PublicationByline } from "@/components/PublicationByline";
-import { getArticleById, getArticleText, getIssue } from "@/lib/issue";
+import { getArticleById, getIssue } from "@/lib/issue";
 
 type ArticlePageProps = {
   params: Promise<{ id: string }>;
@@ -20,10 +21,6 @@ async function ArticleContent({ params }: ArticlePageProps) {
   if (!article) notFound();
 
   const issue = getIssue();
-  const paragraphs = getArticleText(article)
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean);
 
   return (
     <>
@@ -51,11 +48,7 @@ async function ArticleContent({ params }: ArticlePageProps) {
         {article.byline ? (
           <PublicationByline name={article.byline} />
         ) : null}
-        <div className="article-page-body">
-          {paragraphs.map((paragraph, index) => (
-            <p key={`${article.id}-${index}`}>{paragraph}</p>
-          ))}
-        </div>
+        <ArticleBody article={article} />
       </div>
     </>
   );

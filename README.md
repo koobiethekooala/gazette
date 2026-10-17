@@ -19,36 +19,24 @@ Open [http://localhost:4317](http://localhost:4317).
 | `/article/[id]` | Full article |
 | `/feed` | Redirects to `/` (legacy) |
 
-## Weekly content: `content/issue.json`
+## Weekly content
 
-Replace this file to publish a new edition. No auth, database, or CMS is required.
+**Agents:** follow [`content/WEEKLY-UPDATE.md`](content/WEEKLY-UPDATE.md) — how to replace the edition, port newsletter HTML → JSON blocks, and attach local or remote images.
 
-### Issue object
+| Path | Purpose |
+|------|---------|
+| `content/issue.json` | Masthead + articles for the week |
+| `public/images/articles/` | Local images (`src`: `/images/articles/…`) |
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `title` | yes | Brand, e.g. `"The Gazette"` |
-| `weekOf` | yes | ISO date string for the week (`YYYY-MM-DD`) |
-| `edition` | no | Unused on the current UI |
-| `tagline` | no | Unused on the current UI |
-| `updatedAt` | no | ISO timestamp |
-| `articles` | yes | Array of article objects (feed shows first 25) |
+### Article body (`blocks`)
 
-### Article object
+Prefer an ordered `blocks` array:
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `id` | yes | Stable slug used in `/article/[id]` |
-| `headline` | yes | Article title |
-| `dek` | no | Deck / subhead |
-| `category` | no | Section label (shown on slides) |
-| `byline` | no | Publication name (shown with a small avatar) |
-| `featured` | no | Reserved |
-| `template` | no | Hook for future full-article layouts |
-| `body` | no* | Plain text; paragraphs separated by blank lines |
-| `sections` | no* | Array of `{ heading?: string, body: string }` |
+- `{ "type": "p", "text": "…" }`
+- `{ "type": "h2" \| "h3" \| "h4", "text": "…" }`
+- `{ "type": "image", "src": "/images/… or https://…", "alt"?, "caption"?, "credit"? }`
 
-\*Provide `body` and/or `sections`.
+Legacy `body` (blank-line paragraphs) and `sections` (`heading` + `body`) still work and are normalized to blocks at render time.
 
 ### Minimal example
 
@@ -62,7 +50,17 @@ Replace this file to publish a new edition. No auth, database, or CMS is require
       "headline": "Your lead headline",
       "dek": "One-sentence deck.",
       "category": "City",
-      "body": "First paragraph.\n\nSecond paragraph."
+      "byline": "Harbor Herald",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/images/articles/harbor-ferry.png",
+          "alt": "Pier at dusk"
+        },
+        { "type": "p", "text": "First paragraph." },
+        { "type": "h2", "text": "What changed" },
+        { "type": "p", "text": "Second paragraph." }
+      ]
     }
   ]
 }

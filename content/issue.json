@@ -12,7 +12,54 @@
       "category": "City",
       "byline": "Harbor Herald",
       "template": "lead",
-      "body": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd filled the waiting shed as if the summer never left. Dockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning."
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/images/articles/harbor-ferry.png",
+          "alt": "Night ferry approaching the lit pier",
+          "caption": "The Saturday night run slips back into the harbor.",
+          "credit": "Gazette file"
+        },
+        {
+          "type": "p",
+          "text": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd filled the waiting shed as if the summer never left."
+        },
+        {
+          "type": "h2",
+          "text": "What reopened"
+        },
+        {
+          "type": "p",
+          "text": "Dockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning. Weekend runs resume on the usual half-hour cadence through midnight."
+        },
+        {
+          "type": "h3",
+          "text": "For riders"
+        },
+        {
+          "type": "p",
+          "text": "Tickets remain the same price. Bikes board first on the lower deck; the upper cabin stays walk-up only until the holiday schedule posts."
+        },
+        {
+          "type": "h4",
+          "text": "Note on fog"
+        },
+        {
+          "type": "p",
+          "text": "If a dense fog advisory is in effect, the ferry may run on visual approach and add five to ten minutes."
+        },
+        {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+          "alt": "Open water under a soft sky",
+          "caption": "Remote image example (newsletter CDN / HTTPS URL).",
+          "credit": "Unsplash"
+        },
+        {
+          "type": "p",
+          "text": "Harbor staff said the first weekend back already felt like midsummer: musicians on the pier, coffee carts past ten, and the long horn sounding again across the channel."
+        }
+      ]
     },
     {
       "id": "library-wing",
@@ -21,14 +68,30 @@
       "category": "Culture",
       "byline": "Civic Desk",
       "template": "standard",
-      "sections": [
+      "blocks": [
         {
-          "heading": "What opened",
-          "body": "The new east wing of Central Library opened Monday after ten years of capital campaigns. Visitors walk into a double-height reading hall lit by north-facing glass and pale oak baffles."
+          "type": "p",
+          "text": "The new east wing of Central Library opened Monday after ten years of capital campaigns. Visitors walk into a double-height reading hall lit by north-facing glass and pale oak baffles."
         },
         {
-          "heading": "What stays free",
-          "body": "All stacks and study carrels remain free. Timed tickets are only for the rare-book gallery."
+          "type": "h2",
+          "text": "What opened"
+        },
+        {
+          "type": "h3",
+          "text": "The glass hall"
+        },
+        {
+          "type": "p",
+          "text": "Skylights run the length of the wing. Quiet rooms book in two-hour slots; plane trees shade the south terrace."
+        },
+        {
+          "type": "h4",
+          "text": "Still free"
+        },
+        {
+          "type": "p",
+          "text": "All stacks and study carrels remain free. Timed tickets are only for the rare-book gallery."
         }
       ]
     },

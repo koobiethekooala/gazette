@@ -3,6 +3,31 @@ import issueData from "../../content/issue.json";
 /** Home index shows at most this many stories. */
 export const MAX_HOME_ARTICLES = 25;
 
+/** Preferred article body: ordered blocks (maps cleanly from newsletter HTML). */
+export type ParagraphBlock = {
+  type: "p";
+  text: string;
+};
+
+export type HeadingBlock = {
+  type: "h2" | "h3" | "h4";
+  text: string;
+};
+
+export type ImageBlock = {
+  type: "image";
+  /**
+   * Remote `https://…` URL, or a path under `public/`
+   * (e.g. `/images/articles/harbor-ferry.png`).
+   */
+  src: string;
+  alt?: string;
+  caption?: string;
+  credit?: string;
+};
+
+export type ArticleBlock = ParagraphBlock | HeadingBlock | ImageBlock;
+
 export type ArticleSection = {
   heading?: string;
   body: string;
@@ -13,11 +38,16 @@ export type Article = {
   headline: string;
   dek?: string;
   category?: string;
+  /** Publication name shown with a small avatar. */
   byline?: string;
   featured?: boolean;
   /** Reserved for future full-article page templates (not used on home). */
   template?: string;
+  /** Preferred rich body. */
+  blocks?: ArticleBlock[];
+  /** Legacy plain text; paragraphs separated by blank lines. */
   body?: string;
+  /** Legacy section list; converted to h2 + paragraphs. */
   sections?: ArticleSection[];
 };
 
@@ -43,14 +73,54 @@ export function getArticleById(id: string): Article | undefined {
   return getIssue().articles.find((article) => article.id === id);
 }
 
-export function getArticleText(article: Article): string {
-  if (article.body?.trim()) return article.body.trim();
-  if (article.sections?.length) {
-    return article.sections
-      .map((s) => [s.heading, s.body].filter(Boolean).join(". "))
-      .join("\n\n");
+function paragraphsFromText(text: string): ParagraphBlock[] {
+  return text
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((p) => ({ type: "p" as const, text: p }));
+}
+
+/** Normalize any article shape into renderable blocks. */
+export function getArticleBlocks(article: Article): ArticleBlock[] {
+  if (article.blocks?.length) {
+    return article.blocks.filter((block) => {
+      if (block.type === "image") return Boolean(block.src?.trim());
+      return Boolean(block.text?.trim());
+    });
   }
-  return "";
+
+  if (article.sections?.length) {
+    const blocks: ArticleBlock[] = [];
+    for (const section of article.sections) {
+      if (section.heading?.trim()) {
+        blocks.push({ type: "h2", text: section.heading.trim() });
+      }
+      blocks.push(...paragraphsFromText(section.body ?? ""));
+    }
+    return blocks;
+  }
+
+  if (article.body?.trim()) {
+    return paragraphsFromText(article.body);
+  }
+
+  return [];
+}
+
+export function getArticleText(article: Article): string {
+  const parts = getArticleBlocks(article)
+    .map((block) => {
+      if (block.type === "image") {
+        return [block.alt, block.caption, block.credit]
+          .filter(Boolean)
+          .join(". ");
+      }
+      return block.text;
+    })
+    .map((t) => t.trim())
+    .filter(Boolean);
+  return parts.join("\n\n");
 }
 
 export function getArticleExcerpt(article: Article, maxChars = 220): string {
@@ -90,4 +160,9 @@ export function formatMastheadDate(weekOf: string): string {
       year: "numeric",
     })
     .toUpperCase();
+}
+
+/** Local public path vs remote URL. */
+export function isLocalImageSrc(src: string): boolean {
+  return src.startsWith("/") && !src.startsWith("//");
 }
