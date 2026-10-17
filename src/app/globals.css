@@ -187,14 +187,15 @@ html[data-theme="dark"] .paper-grain {
   opacity: 0.35;
 }
 
-/* Same centered logo chrome as the feed — brand is out of flow so
-   the back control cannot pull it off true viewport center. */
+/* Match feed chrome exactly; back lives outside this flow (fixed). */
 .reader-chrome {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 20;
+  display: flex;
+  justify-content: center;
   min-height: 4.75rem;
   padding: 0.85rem max(1rem, env(safe-area-inset-right))
     0.85rem max(1rem, env(safe-area-inset-left));
@@ -222,6 +223,8 @@ html[data-theme="dark"] .paper-grain {
   align-items: center;
   text-align: center;
   gap: 0.4rem;
+  /* Keep mark clear of fixed back (left) + theme toggle (right) */
+  padding-inline: 3rem;
   pointer-events: none;
 }
 
@@ -229,12 +232,16 @@ html[data-theme="dark"] .paper-grain {
   pointer-events: auto;
 }
 
-/* iOS stack-nav back: chevron only, pinned to the left edge */
+.reader-chrome .brand-logo-img {
+  max-width: min(12rem, calc(100vw - 7rem));
+}
+
+/* iOS stack-nav back: fixed like the theme toggle, never in logo flow */
 .reader-back {
-  position: absolute;
+  position: fixed;
   top: max(0.45rem, env(safe-area-inset-top));
   left: max(0.15rem, env(safe-area-inset-left));
-  z-index: 2;
+  z-index: 50;
   display: inline-flex;
   align-items: center;
   justify-content: center;

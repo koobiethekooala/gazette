@@ -32,14 +32,16 @@ async function ArticleContent({ params }: ArticlePageProps) {
 
   return (
     <>
+      {/* Fixed outside chrome so it can't be flex-centered onto the logo */}
+      <Link href="/" className="reader-back" aria-label="Back">
+        <ChevronLeft
+          className="reader-back-icon"
+          aria-hidden="true"
+          strokeWidth={2.5}
+        />
+      </Link>
+
       <header className="reader-chrome">
-        <Link href="/" className="reader-back" aria-label="Back">
-          <ChevronLeft
-            className="reader-back-icon"
-            aria-hidden="true"
-            strokeWidth={2.5}
-          />
-        </Link>
         <div className="reader-chrome-brand">
           <BrandLogo title={issue.title} href="/" size="chrome" />
           <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
