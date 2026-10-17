@@ -187,16 +187,14 @@ html[data-theme="dark"] .paper-grain {
   opacity: 0.35;
 }
 
-/* Same centered logo chrome as the feed */
+/* Same centered logo chrome as the feed — brand is out of flow so
+   the back control cannot pull it off true viewport center. */
 .reader-chrome {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 20;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
   min-height: 4.75rem;
   padding: 0.85rem max(1rem, env(safe-area-inset-right))
     0.85rem max(1rem, env(safe-area-inset-left));
@@ -217,27 +215,32 @@ html[data-theme="dark"] .paper-grain {
 
 .reader-chrome-brand {
   position: absolute;
-  left: 50%;
+  inset-inline: 0;
   top: max(0.85rem, env(safe-area-inset-top));
-  transform: translateX(-50%);
-  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 0.4rem;
+  pointer-events: none;
 }
 
-/* iOS stack-nav back: chevron only, left edge */
+.reader-chrome-brand > * {
+  pointer-events: auto;
+}
+
+/* iOS stack-nav back: chevron only, pinned to the left edge */
 .reader-back {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: max(0.45rem, env(safe-area-inset-top));
+  left: max(0.15rem, env(safe-area-inset-left));
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  margin: -0.35rem 0 0 -0.45rem;
+  margin: 0;
   padding: 0;
   color: var(--ink);
   text-decoration: none;
@@ -404,15 +407,18 @@ html[data-theme="light"] .article-publication-avatar {
 
 .feed-chrome-brand {
   position: absolute;
-  left: 50%;
+  inset-inline: 0;
   top: max(0.85rem, env(safe-area-inset-top));
-  transform: translateX(-50%);
-  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 0.4rem;
+  pointer-events: none;
+}
+
+.feed-chrome-brand > * {
+  pointer-events: auto;
 }
 
 .brand-logo {
