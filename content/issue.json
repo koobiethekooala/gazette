@@ -1,283 +1,853 @@
 {
   "title": "The Gazette",
-  "weekOf": "2026-10-13",
-  "edition": "Vol. XII · No. 41",
+  "weekOf": "2026-10-12",
+  "edition": "Vol. XII · No. 42",
   "tagline": "What mattered this week — curated, condensed, and set in type.",
-  "updatedAt": "2026-10-16T18:00:00.000Z",
+  "updatedAt": "2026-10-17T12:00:00.000Z",
   "articles": [
     {
-      "id": "harbor-ferry",
-      "headline": "Harbor lights return as the night ferry resumes weekend runs",
-      "dek": "After pier repairs, the Saturday crossing is back",
-      "category": "City",
-      "byline": "Harbor Herald",
-      "template": "lead",
+      "id": "roi-formation-chemins-differents",
+      "headline": "Editorial : Formation: la valeur des chemins différents",
+      "dek": "Editos by Benoit Dubuis · Oct 14, 2026",
+      "category": "Editorial",
+      "byline": "Republic of Innovation",
       "blocks": [
         {
           "type": "image",
-          "src": "/images/articles/harbor-ferry.png",
-          "alt": "Night ferry approaching the lit pier",
-          "caption": "The Saturday night run slips back into the harbor.",
-          "credit": "Gazette file"
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image10.jpg",
+          "alt": "Une route droite vers les montagnes"
         },
         {
           "type": "p",
-          "text": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd filled the waiting shed as if the summer never left."
-        },
-        {
-          "type": "h2",
-          "text": "What reopened"
-        },
-        {
-          "type": "p",
-          "text": "Dockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning. Weekend runs resume on the usual half-hour cadence through midnight."
-        },
-        {
-          "type": "h3",
-          "text": "For riders"
-        },
-        {
-          "type": "p",
-          "text": "Tickets remain the same price. Bikes board first on the lower deck; the upper cabin stays walk-up only until the holiday schedule posts."
-        },
-        {
-          "type": "h4",
-          "text": "Note on fog"
-        },
-        {
-          "type": "p",
-          "text": "If a dense fog advisory is in effect, the ferry may run on visual approach and add five to ten minutes."
-        },
-        {
-          "type": "image",
-          "src": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-          "alt": "Open water under a soft sky",
-          "caption": "Remote image example (newsletter CDN / HTTPS URL).",
-          "credit": "Unsplash"
-        },
-        {
-          "type": "p",
-          "text": "Harbor staff said the first weekend back already felt like midsummer: musicians on the pier, coffee carts past ten, and the long horn sounding again across the channel."
+          "text": "Je suis souvent surpris par le besoin qu’ont certaines personnes ayant suivi des parcours de..."
         }
       ]
     },
     {
-      "id": "library-wing",
-      "headline": "Central Library opens the glass reading wing",
-      "dek": "Skylights, quiet rooms, plane trees",
-      "category": "Culture",
-      "byline": "Civic Desk",
-      "template": "standard",
+      "id": "ben-funny-numbers",
+      "headline": "Funny numbers",
+      "dek": "OpenAI’s revenue mix-up, and the dotcom habit of inventing metrics",
+      "category": "Tech",
+      "byline": "Benedict Evans",
       "blocks": [
         {
           "type": "p",
-          "text": "The new east wing of Central Library opened Monday after ten years of capital campaigns. Visitors walk into a double-height reading hall lit by north-facing glass and pale oak baffles."
+          "text": "I started my career in the dotcom bubble, and the dotcom bubble had a lot of funny numbers. There were metrics that people didn’t really understand or didn’t mean much, like ‘hits’, bandwidth or the number of hosts on the internet. There were also carefully created new ‘adjusted’ metrics that avoided all the stuff you didn’t want to talk about. My personal favourite was the new entrant mobile operator that started talking to investors about EBITDA before customer acquisition: the main costs for the business were capex and customer acquisition, so ‘EBITDA before CAC’ was effectively ‘revenue’. There were a bunch of jokes at the time about how the next metric would be ‘earnings before costs’."
+        },
+        {
+          "type": "p",
+          "text": "We’re seeing a lot of the same stuff this time around. We don’t really know what metrics would be best, we don’t have the metrics that we would like anyway, and the metrics we do have are… funny."
         },
         {
           "type": "h2",
-          "text": "What opened"
-        },
-        {
-          "type": "h3",
-          "text": "The glass hall"
+          "text": "OpenAI’s revenue number"
         },
         {
           "type": "p",
-          "text": "Skylights run the length of the wing. Quiet rooms book in two-hour slots; plane trees shade the south terrace."
-        },
-        {
-          "type": "h4",
-          "text": "Still free"
-        },
-        {
-          "type": "p",
-          "text": "All stacks and study carrels remain free. Timed tickets are only for the rare-book gallery."
+          "text": "Late last month, Axios and other media outlets reported that OpenAI’s annualised monthly revenue had passed $70bn. This week, it emerged that this was a mistake and the actual number was ‘close to $50bn’. The confusion seems to be that in general OpenAI has been reporting revenue net of payments to companies that resell its models (Microsoft, AWS) where Anthropic has been reporting gross, and both OpenAI and investors were also trying to gross-up the numbers to make them comparable, without making it clear which numbers they were using when leaking to the media."
         }
       ]
     },
     {
-      "id": "grid-upgrade",
-      "headline": "Neighborhood substations finish the quiet grid upgrade",
-      "dek": "Overnight work ends; heat-wave risk drops",
-      "category": "Infrastructure",
-      "byline": "Grid Report",
-      "body": "The last of twelve neighborhood substations completed a multi-year hardening project on Wednesday, swapping aging transformers for units rated for longer heat waves and sharper evening peaks. Utility crews worked mostly between midnight and dawn."
-    },
-    {
-      "id": "market-season",
-      "headline": "Farmers’ market extends into November",
-      "dek": "Late squash, cellar apples, pressed cider",
-      "category": "Food",
-      "byline": "Market Weekly",
-      "body": "The Saturday market on Civic Plaza will run three extra weeks this year, organizers announced, citing milder forecasts and strong September attendance. Live music moves indoors to the arcade if rain arrives."
-    },
-    {
-      "id": "school-bond",
-      "headline": "Voters clear a school bond for science labs",
-      "dek": "Narrow margin; work after spring term",
-      "category": "Politics",
-      "byline": "Capitol Wire",
-      "body": "A $48 million school facilities bond passed by just under two points Tuesday night, funding science lab renovations at three middle schools and covered bus shelters at every elementary campus."
-    },
-    {
-      "id": "choir-tour",
-      "headline": "Community choir books the old Lyric Theater",
-      "dek": "Two December evenings; youth ushers benefit",
-      "category": "Arts",
-      "byline": "Arts Ledger",
-      "body": "The Harbor Community Choir will perform two December evenings at the restored Lyric Theater, its first local appearance since the marquee relit last spring. Tickets go on sale Friday."
-    },
-    {
-      "id": "bridge-paint",
-      "headline": "Crews begin the decade’s bridge paint cycle",
-      "dek": "Lane shifts overnight through March",
-      "category": "City",
-      "byline": "Harbor Herald",
-      "body": "Scaffolding went up on the west approach Monday as painters start a ten-year maintenance cycle. Night lane closures begin next week; daytime traffic remains two ways with a temporary zipper merge."
-    },
-    {
-      "id": "clinic-hours",
-      "headline": "Walk-in clinic adds Sunday morning hours",
-      "dek": "Pilot through the holidays",
+      "id": "topol-tale-of-two-t-cells",
+      "headline": "A Landmark Study of Our Immune System Aging With A Promising Blood Test",
+      "dek": "A Tale of Two T Cells: GZMK+ vs GZMB+ memory cells and what they mean for healthspan",
       "category": "Health",
-      "byline": "Health Brief",
-      "body": "The Eastside walk-in clinic will open Sundays from eight to noon through early January, a pilot aimed at parents who miss weekday slots. Flu shots and basic labs are included; specialists still require weekday referral."
+      "byline": "Eric Topol / Ground Truths",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!QqmN!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F323fd803-7c12-4ef3-b978-f416a241d1f9_3188x2202.png",
+          "alt": "Schematic of CD8+ effector-memory T cells with GZMB-rich and GZMK-rich granules",
+          "caption": "Schematic figure made with the help of ChatGPT"
+        },
+        {
+          "type": "p",
+          "text": "In the journal Immunity a paper with an obscure title was published on October 9th, 2026. It was entitled “Single-cell analyses of global cohorts outline determinants of immune aging and link the ratio of GZMK+ to GZMB+ Tem cells to health trajectories,” which I think is one of the worst titles I have ever seen for, ironically, one of the most important papers in the science of aging. I still don’t understand why authors and journal editors use or allow such arcane titles!"
+        },
+        {
+          "type": "p",
+          "text": "In this edition of Ground Truths I’m going to unpack the extraordinary work done by the team led by Maxim Artyomov. It takes our understanding of how our immune system ages—both healthily and unhealthily—to a new level with practical implications for determining its status, and promoting our healthspan."
+        },
+        {
+          "type": "p",
+          "text": "This turns out to be a tale of two cells—different subtypes of memory T cells—that contain distinct types of granules resulting in divergent functions. And, importantly, major health outcomes."
+        },
+        {
+          "type": "h2",
+          "text": "Phase 1: Massive Single-Cell RNA Sequencing"
+        },
+        {
+          "type": "p",
+          "text": "Some very impressive stats for who was studied and what was done:"
+        },
+        {
+          "type": "p",
+          "text": "—8 international cohorts, 2,609 individuals, 12,394,834 white blood cells"
+        },
+        {
+          "type": "p",
+          "text": "—age 18 to 98 years"
+        },
+        {
+          "type": "p",
+          "text": "—59 immune cell types from sc-RNA seq harmonization"
+        },
+        {
+          "type": "p",
+          "text": "The story starts with the thymus gland, which starts to involute in early life and accelerates after puberty, after which there is progressive loss of naive T cells and recent thymic emigrants (RTEs) with age. This decline was the strongest predictor of chronological age in the study. The problem is not so much that the naive T cells, the “rookies,” are declining but what is coming in, as the immune system adapts, to replace them—the “veterans.”"
+        },
+        {
+          "type": "p",
+          "text": "Until this study, prior cell sorting (flow cytometry) or pooled sequencing methods could not differentiate CD8+ effector memory T cells. That was only enabled by obtaining single-cell transcriptomes at scale."
+        },
+        {
+          "type": "p",
+          "text": "The 2 types of veterans are effector memory T cells (Tem) that are either mainly granzyme K or B. You can think of the B as “bad,” since these cells are leaky, exhausted, and spilling of their granules leads to dissolution of matrix, disruption of tissue, activation of macrophages, and inflammation. That profile of the terminally differentiated GZMB+ cells was characterized from experiments in mice. The bifurcation (Figure below) is influenced towards GZMB+ by cytomegalovirus (CMV) exposure and chronic diseases, such as cardiovascular (CVD) or metabolic (such as Type 2 diabetes)."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!3jf-!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd5120af7-87b9-4292-aba5-ade2034cd264_1850x850.svg",
+          "alt": "Diagram of the two paths naive T cells can take as they become veteran memory T cells",
+          "caption": "The 2 paths that the naive T cells can differentiate to as the rookies become veterans. The path to GZMB+ is influenced by CMV and chronic diseases. Figure made with a combination of Google Gemini and ChatGPT."
+        },
+        {
+          "type": "h2",
+          "text": "Phase 2: High-Throughput Proteomics"
+        },
+        {
+          "type": "p",
+          "text": "Doing single-cell RNA seq at scale to correlate with clinical outcomes or for development of a clinically useful blood test is not practical, not to mention expensive. Instead, using the Olink assay of thousands of plasma proteins in 4 independent cohorts (of the 8 used in Phase 1) per cent TemB+ (Tem stands for T effector memory cell) correlated the best with the single cell GZMB+ data (using a LASSO computational model). That protein signature was tightly correlated with the single-cell RNA-seq work, as seen below in each of the 4 cohorts."
+        },
+        {
+          "type": "p",
+          "text": "Note: Throughout this post please recognize the interchangeability of terms established between GZMB+ and TemB+, or GZMK+ and TemK+."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!6tBM!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21ccd66d-58da-46fd-a841-8dfe1acfbf5e_2640x800.png",
+          "alt": "Scatter plots of predicted % Tem GZMB+ from Olink protein data versus single-cell measurements across four cohorts"
+        },
+        {
+          "type": "p",
+          "text": "Then TemB+ was validated for clinical outcomes in the UK Biobank in 48,620 participants with 17-year follow-up, using both the cell protein data. As you can see below, individuals with a high per cent TemB+ had a much higher all-cause mortality than those with low % Tem B+ or the average group, as categorized in tertiles. The x-axis is years of follow-up."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!TCVp!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160b8574-f21d-4e7d-bbe2-1cb4d90896f7_1260x907.png",
+          "alt": "Chart of all-cause mortality over 17 years for high, average and low % TemB+ groups",
+          "caption": "Figure made with help of Google Gemini"
+        },
+        {
+          "type": "p",
+          "text": "The TemB+ % was predictive of multiple specific health outcomes as shown below. In contrast, however, note the lack of any predictive correlation with neurodegenerative diseases and macular degeneration: Alzheimer’s disease, Parkinson’s disease, dementia, and age-related macular degeneration."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!zwp_!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F88edc1b8-51b0-428b-83f2-dea984b5c526_4382x2268.png",
+          "alt": "Panels showing disease incidence by % TemB+ for several diseases, and diseases where it is not predictive"
+        },
+        {
+          "type": "p",
+          "text": "To emphasize the contribution of viral exposure and inflammation, the people who were seropositive for CMV had higher GZMB+ and those with higher C-reactive protein had higher % TemB+."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!2V1-!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F257aafff-634b-440b-bd81-6159bd2ffca5_1306x796.png",
+          "alt": "Plots of predicted % TemB+ by CMV and EBV infection status and by C-reactive protein group"
+        },
+        {
+          "type": "p",
+          "text": "Here is a simplified dichotomy of clinical outcomes and inflammaging based on high Tem B+% (or GZMB+)."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!EGvB!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0ae159d-3e7c-4b46-a60e-4a7946bae624_1924x892.png",
+          "alt": "Healthy aging (high GZMK+, low GZMB+) versus disease-associated aging (low GZMK+, high GZMB+)",
+          "caption": "Figure made with help from Google Gemini"
+        },
+        {
+          "type": "p",
+          "text": "Of course there are plenty of limitations. The patients in the multiple cohorts were predominantly of European and Asian ancestry, leaving some uncertainty as to whether the findings will extrapolate to those of African ancestry. The window into immune cell aging was purely via blood cells, not tissue. TemB+ was measured at a single time point, so we don’t know how it changes within a person, or whether lowering it changes the risk. Importantly, the dichotomy of the “good” and “bad” TemK+ and TemB+ cells, respectively, is an over-simplification, since we know K cell granules can also promote inflammation. CD8+ T cell counts weren’t available in the UK Biobank so they had to be imputed with a model. None of this work is establishing causality. I have not gotten into the “weeds” of the report, which is a beast to read and unravel, and there is much more about different types of cells, other mouse experimental data, Type 2 immunity remodeling, and so on."
+        },
+        {
+          "type": "h2",
+          "text": "Implications"
+        },
+        {
+          "type": "p",
+          "text": "This is a seminal paper, the most comprehensive assessment of white blood cells across the human lifespan that tracks immune cell aging and its relationship with survival and multiple adverse health outcomes. Let me break it down to the key points:"
+        },
+        {
+          "type": "p",
+          "text": "Primacy of the thymus gland. The study identified the decline in naive T cells and recent thymic emigrants as the basis of the aging clock, predicting chronological age."
+        },
+        {
+          "type": "p",
+          "text": "It’s not just that we lose naive T cells as the thymus involutes, but it’s about the type of cells that come in to replace them. And it turns out there’s a critical bifurcation between TemK+ and TemB+ cells. The difference in the granules of these cells can account for inciting or fostering inflammation. Extensive characterization of the TemB+ cells from mice showed their propensity to be leaky, exhausted, and tissue disruptive."
+        },
+        {
+          "type": "p",
+          "text": "Viral exposure, most notably by CMV blood positivity, affects the bifurcation path to promote TemB+ cells. The other main influence on promoting TemB+ instead of TemK+ were chronic diseases, notably cardiovascular and metabolic."
+        },
+        {
+          "type": "p",
+          "text": "The discovery in the work using single-cell RNA sequencing in >12 million white blood cells of the bifurcation and link to outcomes might not have been made with traditional methodologies of cell sorting, flow cytometry, or pooled sequencing. This is yet another reinforcement of getting “granular” (no pun intended with granules) with respect to learning from single-cell data."
+        },
+        {
+          "type": "p",
+          "text": "A new protein blood test emerges from this body of work, the percent of TemB+, or ratio of TemB+ to TemK+. It might be considered a master indicator of unfavorable immune system aging. This could lead to a simple and inexpensive window into a person’s immune status and the researchers in the current study are indeed pursuing that goal. For people found to have an unfavorable immune status, we know of ways that can be improved with lifestyle factors and vaccines, and much more will be done in the years ahead to find other means."
+        },
+        {
+          "type": "p",
+          "text": "Here in late 2026 we have no way of assessing a person’s immune system in the clinic, as I’ve previously written on “Why We Need an Immunome.” Ironically, we have so many ways to control the immune system, releasing its brakes (think immune checkpoint inhibitors and ten other classes of interventions) and B-cell depletion or “inverse” vaccines to induce tolerance in autoimmune conditions. We can dial it up or down but can’t measure it!"
+        },
+        {
+          "type": "p",
+          "text": "In recent months we have seen 2 new practical ways to get at this crucial assessment: (1) AI analysis of the thymus gland from a low resolution chest CT (See “Your Thymus and Your Healthspan”) and (2) Proteomic clocks of the immune system and immune cells (see “Medicine is Moving from Calendars to Clocks”) from a blood test. Both these immune system assessments are now moving towards commercial availability. The current study represents a 3rd path. In short, we’re getting there!"
+        },
+        {
+          "type": "p",
+          "text": "NB. I wrote this post. I did use AI to generate four of the Figures as noted above to help the reader visualize what I was writing about. I have no conflicts of interest related to this topic or post."
+        }
+      ]
     },
     {
-      "id": "rail-delay",
-      "headline": "Commuter rail trims weekend delays after switch work",
-      "dek": "On-time rate climbs above ninety percent",
-      "category": "Transit",
-      "byline": "Transit Times",
-      "body": "Weekend on-time performance on the coastal line rose above ninety percent after crews replaced a stubborn interlocking near Mile 14. Officials caution holiday crowds may still bunch trains after noon."
+      "id": "dao-seven-chinese-fashion-brands",
+      "headline": "7 Chinese fashion brands changing what Made in China means",
+      "dek": "Still think Made in China means cheap? Tell that to the designer behind Rihanna’s Met Gala cape.",
+      "category": "Fashion",
+      "byline": "DAO Insights",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://mcusercontent.com/cf79debb61d085df562d5abe4/images/6f4d8e1c-ff65-f939-8dd0-baf328d28873.jpg",
+          "alt": "Two models wearing leather backpacks in front of a pale tent-like backdrop"
+        },
+        {
+          "type": "p",
+          "text": "Still think Made in China means cheap? Tell that to the designer behind Rihanna’s Met Gala cape."
+        },
+        {
+          "type": "p",
+          "text": "From couture to coveted handbags, seven Chinese labels are building a new rep for the country’s fashion industry through craft, technology and savvy commercial plays."
+        },
+        {
+          "type": "p",
+          "text": "Meet the brands making Chinese origins something shoppers will pay a premium for."
+        }
+      ]
     },
     {
-      "id": "museum-gift",
-      "headline": "Anonymous gift funds free first Sundays at the museum",
-      "dek": "Three years covered; memberships unchanged",
+      "id": "radii-cyberhero-fighting-robot-league",
+      "headline": "World’s first fighting robot league: humanoid T800s battle in Riyadh",
+      "dek": "Introducing CyberHero, from RADII’s weekly newsletter",
+      "category": "Tech",
+      "byline": "RADII",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a0a9d5-484c-7e13-bce9-896d94bb85f1.jpeg",
+          "alt": "Two humanoid robots facing off in a caged ring under neon CyberHero lights"
+        },
+        {
+          "type": "p",
+          "text": "It’s been a pretty interesting week in general, but for the sake of this newsletter, we’re talking in tech — from laptops hitting the catwalk to the world’s first official humanoid robot fighting league."
+        },
+        {
+          "type": "p",
+          "text": "Robots are stepping into the sports world — literally. CyberHero just launched in Riyadh, where humanoid T800s battled under stadium lights, blending robotics, esports, and sci-fi spectacle into one very futuristic competition."
+        }
+      ]
+    },
+    {
+      "id": "radii-levelup-games-chinese-games-world",
+      "headline": "How Chinese games are reaching the world",
+      "dek": "Levelup Games bridges Chinese-made titles to global audiences, by Richard Lai",
+      "category": "Games",
+      "byline": "RADII",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a08ab5-459d-7b96-b337-83e4953edb6f.jpg",
+          "alt": "People at work in a game studio room with an artist’s mural on the wall"
+        },
+        {
+          "type": "p",
+          "text": "We’re excited to share our article by Richard Lai on the Shanghai gaming publisher doing what we at RADII do — but with games. Levelup Games is building bridges for Chinese-made titles to reach global audiences without sanding away the cultural weirdness that makes them special. It’s a game changer (pun intended), and well worth exploring for yourself."
+        }
+      ]
+    },
+    {
+      "id": "roi-imd-27-novembre-sciences-de-la-vie",
+      "headline": "27 novembre à l’IMD – Sciences de la vie : une force à préserver",
+      "dek": "News · Oct 14, 2026",
+      "category": "Life Sciences",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image2.jpg",
+          "alt": "Affiche de l’événement du 27 novembre à l’IMD : les sciences de la vie sont plus qu’une industrie"
+        },
+        {
+          "type": "p",
+          "text": "Les chiffres publiés ces derniers jours par BAK Economics sont particulièrement éloquents : en Suisse..."
+        }
+      ]
+    },
+    {
+      "id": "ben-agents-open-models-ipo-overhang",
+      "headline": "Agent incentives, open models outside China and an IPO overhang",
+      "dek": "Benedict’s Newsletter No. 664: who gets to own the customer when agents do the shopping",
+      "category": "Tech",
+      "byline": "Benedict Evans",
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "Agent incentives"
+        },
+        {
+          "type": "p",
+          "text": "Agents remain super hot, even if Muse and especially Instinct look an awful lot like the fever-brain excitement around Clubhouse in the pandemic. But if they are going to work, lots of other things need to be plugged together, most obviously how they actually talk to other websites and each other. Meta has launched a new standard (‘Personal Agent Protocol’) with the bunch of logos on the slide. Standards, of course, are one of the key strategic weapons when tech ecosystems try to go to war, and it’s always notable who isn’t on the list, and important to remember that getting the partnership person to sign a partnership deal is not the same as getting the company to use the partnership."
+        },
+        {
+          "type": "p",
+          "text": "Meanwhile, Amazon and a bunch of other retailers are blocking agents entirely. This is partly short-term concern around fraud chargebacks and liability, and it’s not irrational for them to press pause until they worked out how to manage this more generally. There’s a 20-year-old and 150-year-old question of customer ownership versus distribution. If you’re big and already have traffic, you want to own the experience and talk to the customer directly, and if you’re small, you’re willing to take distribution instead. The additional wrinkle, of course, is that Amazon did $75 billion of ad revenue in the last 12 months, and the agent doesn’t see the ads."
+        },
+        {
+          "type": "h2",
+          "text": "Open outside China"
+        },
+        {
+          "type": "p",
+          "text": "Since Meta abandoned Llama, most of the credible open source models have come from China, which skews the debate about open a fair bit, but now American startup Reflection has launched a pretty credible open model and Mistral, which everyone had forgotten about, has come back from France with a credible model of its own. The FT reports that Nvidia is looking at buying Reflection, as part of the Bank of Jensen strategy to accelerate AI adoption while fragmenting the customer base."
+        },
+        {
+          "type": "h2",
+          "text": "IPO overhang"
+        },
+        {
+          "type": "p",
+          "text": "I think there were two fundamental changes in AI this year: agentic coding achieved explosive product-market fit, and AI infrastructure capex outgrew the cash flows of the hyperscalers and had to go to the financial markets. There’s been an enormous amount of capital raising of every kind this year, and markets are starting to get uncomfortable: in the last quarter a whole bunch of IPOs were pulled, partly also due to the imminent Anthropic IPO crowding everything out."
+        }
+      ]
+    },
+    {
+      "id": "topol-michael-lewis-blockers",
+      "headline": "Michael Lewis: The NIH “Murder Mystery,” DOGE, and Our Government Immune System",
+      "dek": "Eric Topol’s conversation with Michael Lewis on his new book Blockers (63 min video)",
+      "category": "Health",
+      "byline": "Eric Topol / Ground Truths",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!7Q6o!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e97dd86-e270-40df-acf0-3674407f55bf_1354x2084.png",
+          "alt": "Cover of Michael Lewis’s book Blockers"
+        },
+        {
+          "type": "p",
+          "text": "Michael Lewis is one of, if not the best storyteller of our era. You know and likely have read his books Moneyball, The Big Short, The Blind Side, Flash Boys, Liar’s Poker, and The Undoing Project, to name a few. He has long been one of my favorite authors."
+        },
+        {
+          "type": "p",
+          "text": "This was the first interview that Michael did on his new book, Blockers, published on October 6th, streamed live on Substack Sept 29th. It’s his 21st book and 4 of the last 5 have been about the US government: The Fifth Risk (2019), Premonition (2021), and Who Is Government? (2025)."
+        },
+        {
+          "type": "p",
+          "text": "His ability to talk with the silent civil servant heroes of multiple government agencies (the Blockers), members of the DOGE destruction team, and much more from the current US government administration."
+        },
+        {
+          "type": "image",
+          "src": "https://substackcdn.com/image/fetch/$s_!9-fP!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F05d1bf98-5e26-4944-8ac1-cdf0e403387b_2698x2254.png",
+          "alt": "Excerpt page: Michael Lewis on the lone security guard who resisted DOGE",
+          "caption": "Exclusive excerpt from Blockers in the Wall Street Journal"
+        },
+        {
+          "type": "p",
+          "text": "I won’t review all the things we discussed here, but the chapter on the NIH reads like an Agatha Christie murder mystery. We learned a whole different version of what happened that differed from what was previously reported."
+        },
+        {
+          "type": "p",
+          "text": "Thank you to the nearly 500 viewers who tuned in to the live video with Michael Lewis!"
+        }
+      ]
+    },
+    {
+      "id": "dao-ai-chinese-ecommerce-xi-li",
+      "headline": "AI and the future of Chinese e-commerce – an interview with HKU’s Professor Xi Li",
+      "dek": "Your next customer might send an algorithm to do the shopping. Will it fall for your advertising?",
+      "category": "E-commerce",
+      "byline": "DAO Insights",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://mcusercontent.com/cf79debb61d085df562d5abe4/images/300eccd6-5d6f-155a-44ae-621997c162ca.png",
+          "alt": "Professor Xi Li pictured three times against an AI E-Commerce background"
+        },
+        {
+          "type": "p",
+          "text": "Your next customer might send an algorithm to do the shopping. Will it fall for your advertising?"
+        },
+        {
+          "type": "p",
+          "text": "HKU’s Professor Xi Li explores how AI agents could change Chinese e-commerce, give smaller merchants a fighting chance, and force platforms to confront an awkward question: who actually owns the relationship with shoppers?"
+        }
+      ]
+    },
+    {
+      "id": "radii-chinese-football-emo-overseas",
+      "headline": "Chinese Football takes Chinese emo overseas",
+      "dek": "Moren Mao sits down with the cult-favorite Wuhan band",
+      "category": "Music",
+      "byline": "RADII",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a0a9d5-44e6-764a-8046-d909524e2c38.jpeg",
+          "alt": "Chinese Football performing on stage under a neon band logo"
+        },
+        {
+          "type": "p",
+          "text": "Moren Mao sits down with Chinese Football, the cult-favorite Wuhan band helping take China’s emo revival global. We talk math rock, internet fame, musical evolution, and what it means to connect with audiences beyond China."
+        },
+        {
+          "type": "p",
+          "text": "— Alex Lendrum, RADII, managing editor"
+        }
+      ]
+    },
+    {
+      "id": "radii-shanghai-animation-film-studio",
+      "headline": "The film studio that defined Chinese animation",
+      "dek": "Shanghai Animation Film Studio, by Mia Fan",
+      "category": "Film",
+      "byline": "RADII",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a08ab6-232d-7300-a4a2-211969c77c80.png",
+          "alt": "Still from a classic Chinese ink-style animation showing a small figure over stylized waves"
+        },
+        {
+          "type": "p",
+          "text": "We travel backward. Shanghai Animation Film Studio spent seven decades blending ink painting, folk art, mythology, and traditional Chinese aesthetics into animation that shaped generations and helped define how China looks on screen. Mia Fan guides us as we time travel back to the originals of SAFS."
+        },
+        {
+          "type": "p",
+          "text": "— Alex Lendrum, RADII, managing editor"
+        }
+      ]
+    },
+    {
+      "id": "roi-asinov-school-robots-humanoides",
+      "headline": "À Renens, l’Asinov School veut apprendre aux professionnels à travailler avec les robots humanoïdes",
+      "dek": "News · Oct 14, 2026",
+      "category": "Robotics",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image9.png",
+          "alt": "Un robot humanoïde devant un public lors d’une présentation à l’Asinov School"
+        },
+        {
+          "type": "p",
+          "text": "À Renens, une nouvelle école veut préparer les professionnels à l’arrivée des robots humanoïdes dans..."
+        }
+      ]
+    },
+    {
+      "id": "ben-week-in-ai-spacex-apple",
+      "headline": "The week in AI, SpaceX Mobile and Apple as shadow ads regulator",
+      "dek": "Plus ideas, outside interests and data from Benedict’s Newsletter No. 664",
+      "category": "Tech",
+      "byline": "Benedict Evans",
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "The week in AI"
+        },
+        {
+          "type": "p",
+          "text": "Anthropic quietly updated its terms and conditions to say you’re not allowed to be “cruel” to its models. This is more of the anthropomorphism that seems like sensible speculation at a minimum to some AI researchers and insane to a lot of other people, as I wrote in my column last week. Meanwhile, it creates circularity problems - if you tell a model it has X characteristic, it will try to look like that."
+        },
+        {
+          "type": "p",
+          "text": "OpenAI followed Anthropic in building a text watermarking system to comply with EU requirements. Unlike Anthropic, this is only applied in the EU, and OpenAI is also a lot clearer that they don’t think this is really a good idea: the tech is not reliable enough and too easy to work-around."
+        },
+        {
+          "type": "p",
+          "text": "Google launched Playground, an experimental space to use AI to generate your own games. AI is clearly going to transform both the economics of creating games (especially the hugely-expensive content creation of AAA games) and the mechanics of how games work (the NPCs can actually be intelligent now), as well as letting people spin-up improvised games like this. Compare mobile and app stores, and 3D."
+        },
+        {
+          "type": "p",
+          "text": "Google launched a native Mac app that can connect to all of your software and take notes on what you’re working on, all running locally on-device. I don’t think it’s clear yet whether things like this are a feature or product, but meanwhile it is both predictable and hilarious that this looks nothing like a native Mac app, the download link doesn’t work in Safari, and the app is called “Google AI Edge Foresight”, which is exactly how Microsoft names products."
+        },
+        {
+          "type": "h2",
+          "text": "SpaceX Mobile"
+        },
+        {
+          "type": "p",
+          "text": "Following its earlier comments, SpaceX bought a portfolio of low-frequency cellular spectrum in the USA that would be needed to build an actual terrestrial network. US mobile operator stocks fell sharply. As I’ve I pointed out before, while SpaceX technology is extremely cool, satellite is either impractical or useless for the vast majority of real cellular use, and so if SpaceX actually wants to build a US mobile service, it will have to build what everyone else has built, spend more or less what anybody else would spend, charge more or less the same prices, and provide probably a mostly inferior service (the best sites are already taken). The most cynical interpretations remain that this is really leverage to get a good MVNO deal."
+        },
+        {
+          "type": "h2",
+          "text": "Apple as shadow ads regulator"
+        },
+        {
+          "type": "p",
+          "text": "Last month Apple briefly blocked one of the big ad network domains on iOS, and now there’s a wave of speculation that it’s working on a blacklist of a huge number of third-party targeting services, all of which allow advertisers to do terrible evil anti-democratic things to violate your human rights, like show you products you might be interested in and make money for independent publishers."
+        },
+        {
+          "type": "p",
+          "text": "Apple here is an interesting example of what’s sometimes called a shadow regulator: it’s doing things that are really public policy rather than engineering or product decisions, but doing them without any due process, accountability or debate on devices used by well over half of Americans."
+        },
+        {
+          "type": "h2",
+          "text": "Ideas"
+        },
+        {
+          "type": "p",
+          "text": "A reminder to people who want to argue about whether LLMs could ever be conscious: our understanding of what consciousness really is remains so limited that we don’t even know if infants are conscious."
+        },
+        {
+          "type": "p",
+          "text": "An interesting piece by cryptographer Matthew Green on the history of law enforcement access to messages and encryption and how the coming wave of AI bug fixing might mean that law enforcement will no longer be able to hack your iPhone to get your messages and their visibility on criminal and terrorist comms will go dark."
+        },
+        {
+          "type": "p",
+          "text": "Satya Nadella wrote on his personal blog about liability when agents go wrong."
+        },
+        {
+          "type": "h2",
+          "text": "Outside interests"
+        },
+        {
+          "type": "p",
+          "text": "Christie’s is selling something very small and very beautiful."
+        },
+        {
+          "type": "p",
+          "text": "Early next year, Bonham’s will be selling a selection of items from Stanley Kubrick’s estate. In the preview, they show a prop axe from The Shining - the axe that Jack Nicholson used on Scatman Crothers - and also the Grady twins’ dresses."
+        },
+        {
+          "type": "h2",
+          "text": "Data"
+        },
+        {
+          "type": "p",
+          "text": "Gallup has an update on global sentiment towards AI - as ever, it is inversely proportionate to national income."
+        },
+        {
+          "type": "p",
+          "text": "PC shipments are down 20% year on year as the AI semiconductor crunch drives up pricing."
+        }
+      ]
+    },
+    {
+      "id": "dao-mixue-hot-hashtags-latest-news",
+      "headline": "Mixue: too cheap to look classy? Plus this week’s China news",
+      "dek": "Hot Hashtags, latest news and interesting reads from DAO Insights",
+      "category": "Trends",
+      "byline": "DAO Insights",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://mcusercontent.com/cf79debb61d085df562d5abe4/images/17b99016-64a3-662d-186e-86c49d2e74b4.jpg",
+          "alt": "Mixue luxury-style advert logo: Mixue Since 1997"
+        },
+        {
+          "type": "h2",
+          "text": "Hot Hashtags: Mixue"
+        },
+        {
+          "type": "p",
+          "text": "In our ‘Hot Hashtags’ section, we explore what’s trending on Chinese social media and why."
+        },
+        {
+          "type": "p",
+          "text": "Are they too cheap to look classy? If you think so, the brand would like a word. Preferably over a wine glass filled with its RMB9 drink."
+        },
+        {
+          "type": "p",
+          "text": "After consumers mocked its bargain image, the tea chain delivered a gloriously overblown luxury advert. The internet loved it. But there’s a less glamorous business story bubbling beneath the surface."
+        },
+        {
+          "type": "h2",
+          "text": "Latest news"
+        },
+        {
+          "type": "image",
+          "src": "https://mcusercontent.com/cf79debb61d085df562d5abe4/images/827c42df-252a-bddb-245c-5391e059bce4.jpg",
+          "alt": "Texas Chicken advert banner with Chinese characters",
+          "caption": "Texas Chicken"
+        },
+        {
+          "type": "p",
+          "text": "HEYTEA makes Yunnan children its cup designers."
+        },
+        {
+          "type": "p",
+          "text": "Barbour pairs Shanghai flagship opening with Douyin debut."
+        },
+        {
+          "type": "p",
+          "text": "Subway lets customers build a branch of their own with Rolife."
+        },
+        {
+          "type": "p",
+          "text": "Can Texas Chicken turn opening day queues into 600 stores?"
+        },
+        {
+          "type": "h2",
+          "text": "Interesting reads"
+        },
+        {
+          "type": "p",
+          "text": "The Guardian: AI models chatting in ‘surreal’ dialect mixing poetic language and tech bro jargon."
+        },
+        {
+          "type": "p",
+          "text": "Radii: A crumbling tradition? Why gen Z aren’t buying mooncakes anymore."
+        },
+        {
+          "type": "p",
+          "text": "The Times: Space weapons and the battlefields of the moon, a final frontier for war."
+        }
+      ]
+    },
+    {
+      "id": "radii-weekly-asus-npcs-sleepy-counties",
+      "headline": "Laptops on the runway, celebrity NPCs and China’s sleepy counties",
+      "dek": "Here’s what else was going on this past week at RADII",
       "category": "Culture",
-      "byline": "Museum Gazette",
-      "body": "The city museum will waive general admission every first Sunday for the next three years after an anonymous gift covered the projected shortfall. Special exhibitions may still carry a surcharge."
+      "byline": "RADII",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a0a9da-3aaa-7b57-8114-80573595a9f9.jpg",
+          "alt": "A model on the runway holding a laptop"
+        },
+        {
+          "type": "h2",
+          "text": "ASUS and Intel Just Hit the Runway at Beijing Fashion Week"
+        },
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a0a9da-3bb7-7547-ae60-849ecd80a032.jpg",
+          "alt": "Three people posing for a selfie in colorful costumes"
+        },
+        {
+          "type": "h2",
+          "text": "China’s Tourist Sites Are Turning Celebrities into Real-Life NPCs"
+        },
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a0a9da-f2ed-76ac-bdd5-0ac3558a6c67.png",
+          "alt": "A pavilion in a bamboo forest"
+        },
+        {
+          "type": "h2",
+          "text": "Why Young Travellers are Trading City Madness for China’s Sleepy Counties"
+        },
+        {
+          "type": "p",
+          "text": "Done with city chaos? We’re looking at why young travelers are swapping megacities for sleepy Chinese counties — plus a few shoutouts on where to go, and exactly why. Read the full article by Mandy Wong."
+        },
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a0a9d5-4411-767f-8571-3e5d4e8be2e2.jpeg",
+          "alt": "A yellow ox-shaped earbud case, closed and open"
+        },
+        {
+          "type": "h2",
+          "text": "Unhinged Taobao gifts"
+        },
+        {
+          "type": "p",
+          "text": "We’ve dug into the darkest depths of Taobao to round up some truly unhinged gifts — for family, friends, or yourself — that had the RADII team absolutely chortling. Check out what we have on our Patreon’s introduction collection, and consider subscribing to get to the juicy stuff."
+        },
+        {
+          "type": "h2",
+          "text": "Long Before the Digital Era, Chinese Hospitals Created Birth Plates for Newborns"
+        }
+      ]
     },
     {
-      "id": "river-cleanup",
-      "headline": "Volunteers pull a ton of trash from the river bend",
-      "dek": "Annual sweep draws a record turnout",
-      "category": "Environment",
-      "byline": "River Watch",
-      "body": "More than four hundred volunteers lined the south bend Saturday, filling dumpsters with bottles, tires, and shopping carts. Organizers said it was the largest turnout since the sweep began in 2011."
+      "id": "radii-weekly-ai-series-us-open-patreon",
+      "headline": "China’s first fully AI-generated series, Zheng Qinwen at the US Open and RADII’s Patreon",
+      "dek": "Here’s what else was going on this past week at RADII",
+      "category": "Culture",
+      "byline": "RADII",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a08ab9-958e-7774-8c66-702a9fb95972.jpg",
+          "alt": "Poster for an AI-generated Journey to the West series showing monkey characters"
+        },
+        {
+          "type": "h2",
+          "text": "Beyond Wukong: China’s First Fully AI-Generated Series Hits Prime Time"
+        },
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a08ab9-92c8-75d5-b137-6d4933159196.jpg",
+          "alt": "Zheng Qinwen seated on a tennis court surrounded by tennis balls"
+        },
+        {
+          "type": "h2",
+          "text": "Zheng Qinwen Stuns the Internet at the 2026 US Open"
+        },
+        {
+          "type": "image",
+          "src": "https://gallery.eocampaign1.com/19ddb535-9b9c-11ec-9258-0241b9615763%2F01a08aaf-2032-71eb-90a6-aac264e6ccd0.png",
+          "alt": "A DJ booth in front of screens and a neon RADII sign"
+        },
+        {
+          "type": "h2",
+          "text": "Support Independent Culture: RADII Launches Patreon to Keep Real Stories Alive"
+        },
+        {
+          "type": "p",
+          "text": "We’ve announced the launch of our Patreon to you before, but this time, we want to give more backstory on why we launched it, why your support matters, and more on the exclusive goodies we have on there. Read the full article by Alex Lendrum."
+        },
+        {
+          "type": "h2",
+          "text": "Six Chinese mini-game sites that defined millennial summers"
+        },
+        {
+          "type": "p",
+          "text": "Before smartphones took over, summer break meant browser windows, Flash games, and keyboard co-op. Here are 6 Chinese mini-game sites that defined millennial summer holidays."
+        }
+      ]
     },
     {
-      "id": "bakery-reopen",
-      "headline": "Corner bakery reopens with the original ovens",
-      "dek": "Sourdough at dawn; lines by seven",
-      "category": "Food",
-      "byline": "Food Section",
-      "body": "After a fire last winter, the corner bakery on Oak lit its rebuilt deck ovens Monday. The first loaves sold out before eight; afternoon pastry slots now require a paper ticket from the counter."
+      "id": "roi-therapie-optogenetique-vision",
+      "headline": "Une thérapie optogénétique redonne une perception visuelle à des personnes aveugles",
+      "dek": "News · Oct 14, 2026",
+      "category": "Health",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image3.jpg",
+          "alt": "Gros plan sur un œil bleu"
+        },
+        {
+          "type": "p",
+          "text": "Une nouvelle thérapie combinant thérapie génique et lunettes spéciales a permis à plusieurs personnes atteintes..."
+        }
+      ]
     },
     {
-      "id": "zoning-vote",
-      "headline": "Council softens height caps near the station",
-      "dek": "Six stories allowed on two corridors",
-      "category": "Politics",
-      "byline": "Zoning Notes",
-      "body": "The council voted 5–2 to allow six-story residential buildings within two blocks of the central station, reversing a 2018 cap. Neighbors won deeper setbacks and a shadow study for winter sun."
+      "id": "roi-innovation-sciences-de-la-vie-pilier-strategique",
+      "headline": "Innovation et sciences de la vie : un pilier stratégique pour la Suisse",
+      "dek": "News · Oct 14, 2026",
+      "category": "Life Sciences",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image4.jpg",
+          "alt": "Des plaquettes de médicaments en vrac"
+        },
+        {
+          "type": "p",
+          "text": "L’innovation dans les sciences de la vie s’impose comme l’un des moteurs majeurs de l’économie..."
+        }
+      ]
     },
     {
-      "id": "park-lights",
-      "headline": "Park path lights switch to warmer LEDs",
-      "dek": "Fewer glare complaints; same brightness",
-      "category": "City",
-      "byline": "City Lights",
-      "body": "Recreation staff finished swapping path fixtures for warmer LEDs along the lake loop. Astronomers and night walkers both lobbied for the change; motion sensors dim stretches after midnight."
+      "id": "roi-perovskites-cellules-solaires",
+      "headline": "De nouvelles pérovskites ouvrent la voie à des cellules solaires et composants électroniques plus performants",
+      "dek": "News · Oct 14, 2026",
+      "category": "Energy",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image5.jpg",
+          "alt": "Panneaux solaires dans un champ"
+        },
+        {
+          "type": "p",
+          "text": "Des chercheurs de l’Empa développent de nouvelles familles de pérovskites susceptibles d’améliorer les cellules solaires..."
+        }
+      ]
     },
     {
-      "id": "startup-hire",
-      "headline": "Local logistics startup adds a night warehouse shift",
-      "dek": "Eighty roles; transit stipends included",
-      "category": "Business",
-      "byline": "Business Desk",
-      "body": "A Harbor Point logistics firm posted eighty night-shift roles with transit stipends after winning a regional grocery contract. Training starts in two cohorts; bilingual supervisors are prioritized."
+      "id": "roi-noyau-cellulaire-portes-entree",
+      "headline": "Des chercheurs découvrent comment le noyau des cellules crée ses portes d’entrée",
+      "dek": "News · Oct 14, 2026",
+      "category": "Science",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image6.jpg",
+          "alt": "Illustration d’une double hélice d’ADN"
+        },
+        {
+          "type": "p",
+          "text": "Des chercheurs de l’ETH Zurich ont élucidé un mécanisme fondamental permettant aux cellules de créer..."
+        }
+      ]
     },
     {
-      "id": "poetry-prize",
-      "headline": "High school senior wins the regional poetry prize",
-      "dek": "Reading set for the Lyric lobby",
-      "category": "Arts",
-      "byline": "Poetry Review",
-      "body": "A Harbor High senior took the regional poetry prize with a sequence about ferry foghorns. A free reading is scheduled in the Lyric lobby next Thursday; chapbooks print in a run of two hundred."
+      "id": "roi-ia-sciences-de-la-vie",
+      "headline": "L’intelligence artificielle investit désormais les sciences de la vie",
+      "dek": "News · Oct 14, 2026",
+      "category": "AI",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image7.jpg",
+          "alt": "Les lettres AI sur un fond lumineux orange et bleu"
+        },
+        {
+          "type": "p",
+          "text": "Après avoir transformé de nombreux domaines scientifiques, l’intelligence artificielle s’impose rapidement dans les sciences de..."
+        }
+      ]
     },
     {
-      "id": "storm-drain",
-      "headline": "City clears blocked storm drains before the next front",
-      "dek": "Leaf crews work the lower wards",
-      "category": "Infrastructure",
-      "byline": "Public Works",
-      "body": "Public works crews cleared leaf mats from storm drains across the lower wards ahead of a wet weekend. Residents can still report standing water through the city’s text tip line."
+      "id": "roi-nobel-chimie-2026-molecules-miroir",
+      "headline": "Nobel de chimie 2026 : Henri Kagan et Kenso Soai récompensés pour leurs travaux sur les molécules « miroir »",
+      "dek": "News · Oct 14, 2026",
+      "category": "Awards",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image8.jpg",
+          "alt": "Modèle de molécules blanches"
+        },
+        {
+          "type": "p",
+          "text": "Le prix Nobel de chimie 2026 a été attribué au Français Henri B. Kagan, 95..."
+        }
+      ]
     },
     {
-      "id": "daycare-spots",
-      "headline": "New daycare opens twenty sliding-scale spots",
-      "dek": "Lottery draws Friday at noon",
-      "category": "Family",
-      "byline": "Family Desk",
-      "body": "A nonprofit daycare near the college hill will open twenty sliding-scale infant and toddler spots next month. Families enter a Friday noon lottery; income verification follows for winners."
-    },
-    {
-      "id": "radio-tower",
-      "headline": "College radio returns to the air after antenna repair",
-      "dek": "Student DJs reclaim the midnight slot",
-      "category": "Media",
-      "byline": "Campus Signal",
-      "body": "Campus radio signed back on at 91.7 after a month of antenna work. The midnight experimental slot returns this weekend; streaming stayed up throughout the outage."
-    },
-    {
-      "id": "trail-link",
-      "headline": "Missing trail link finally stitches the waterfront path",
-      "dek": "Ribbon cutting Saturday at ten",
-      "category": "Outdoors",
-      "byline": "Outdoors Desk",
-      "body": "A half-mile missing link in the waterfront trail opens Saturday, connecting the ferry plaza to the bird sanctuary without a street detour. Bikes share the path; a painted slow zone marks the sanctuary edge."
-    },
-    {
-      "id": "tax-clinic",
-      "headline": "Free tax clinic expands to evenings in November",
-      "dek": "Appointments open Monday",
-      "category": "Money",
-      "byline": "Money Desk",
-      "body": "The volunteer tax clinic will add Tuesday and Thursday evenings in November for seasonal workers. Appointments open Monday; bring last year’s return and a photo ID."
-    },
-    {
-      "id": "harbor-fog",
-      "headline": "Fog advisory returns with the early cold snap",
-      "dek": "Ferries on visual approach till noon",
-      "category": "Weather",
-      "byline": "Weather Desk",
-      "body": "A dense fog advisory is in effect through midmorning as the first cold snap settles over the harbor. Ferries will run on visual approach; drivers are asked to use low beams on the bridge."
-    },
-    {
-      "id": "mural-wall",
-      "headline": "Alley mural wall gets a fresh coat and new map",
-      "dek": "Walking tour QR codes installed",
-      "category": "Arts",
-      "byline": "Arts Ledger",
-      "body": "Artists finished a refreshed alley mural wall behind Market Street, adding a small map of past commissions and QR codes for a self-guided walking tour. The city funded primer and scaffolding only."
-    },
-    {
-      "id": "bus-shelter",
-      "headline": "Glass bus shelter pilots heat for winter waits",
-      "dek": "Three stops in the north wards",
-      "category": "Transit",
-      "byline": "Transit Times",
-      "body": "Transit authority installed heated glass shelters at three north-ward stops as a winter pilot. Sensors shut heat off when the shelter is empty; results will decide a wider rollout."
-    },
-    {
-      "id": "orchard-fair",
-      "headline": "Orchard fair brings cider presses to the fairgrounds",
-      "dek": "Saturday only; dogs welcome on leash",
-      "category": "Food",
-      "byline": "Food Section",
-      "body": "Growers haul presses and late pears to the fairgrounds Saturday for the annual orchard fair. Admission is a canned good for the food bank; leashed dogs are welcome outside the tasting tent."
+      "id": "roi-greffes-cellules-souches-sanguines",
+      "headline": "Une nouvelle piste pour améliorer les greffes de cellules souches sanguines",
+      "dek": "News · Oct 14, 2026",
+      "category": "Health",
+      "byline": "Republic of Innovation",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "https://republic-of-innovation.ch/wordpress/wp-content/uploads/2026/10/Image1.jpg",
+          "alt": "Cellules observées au microscope à fluorescence"
+        },
+        {
+          "type": "p",
+          "text": "Des chercheurs de l’Université de Zurich (UZH) ont identifié une voie de signalisation capable de..."
+        }
+      ]
     }
   ]
 }
