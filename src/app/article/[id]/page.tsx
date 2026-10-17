@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import {
   getArticleById,
   getArticleText,
@@ -28,9 +29,12 @@ async function ArticleContent({ params }: ArticlePageProps) {
 
   return (
     <div className="paper-page article-page">
-      <p className="article-back">
-        <Link href="/">← {issue.title}</Link>
-      </p>
+      <div className="article-back">
+        <BrandLogo title={issue.title} href="/" size="inline" />
+        <Link href="/" className="article-back-link">
+          ← Back to feed
+        </Link>
+      </div>
       {article.category ? (
         <p className="article-page-category">{article.category}</p>
       ) : null}

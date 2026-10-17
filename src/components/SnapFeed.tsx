@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Clock } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import {
   formatMastheadDate,
   getArticleExcerpt,
@@ -58,7 +59,7 @@ export function SnapFeed({ issue }: SnapFeedProps) {
     <div className="feed-shell">
       <header className="feed-chrome">
         <div className="feed-chrome-brand">
-          <p className="feed-title">{issue.title}</p>
+          <BrandLogo title={issue.title} href="/" size="chrome" />
           <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
         </div>
         {total > 0 ? (
