@@ -1,7 +1,6 @@
-import { SnapFeed } from "@/components/SnapFeed";
-import { getIssue } from "@/lib/issue";
+import { redirect } from "next/navigation";
 
-export default function FeedPage() {
-  const issue = getIssue();
-  return <SnapFeed issue={issue} />;
+/** Legacy route — feed is now the home page. */
+export default function FeedRedirect() {
+  redirect("/");
 }

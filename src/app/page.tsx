@@ -1,7 +1,7 @@
-import { Newspaper } from "@/components/Newspaper";
+import { SnapFeed } from "@/components/SnapFeed";
 import { getIssue } from "@/lib/issue";
 
 export default function Home() {
   const issue = getIssue();
-  return <Newspaper issue={issue} />;
+  return <SnapFeed issue={issue} />;
 }

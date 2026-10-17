@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { ViewToggle } from "@/components/ViewToggle";
 import {
   formatMastheadDate,
   getArticleExcerpt,
+  getHomeArticles,
   type Issue,
 } from "@/lib/issue";
-import { getHomeArticles } from "@/lib/issue";
 
 type SnapFeedProps = {
   issue: Issue;
@@ -22,11 +21,12 @@ export function SnapFeed({ issue }: SnapFeedProps) {
           <p className="feed-title">{issue.title}</p>
           <p className="feed-week">Week of {formatMastheadDate(issue.weekOf)}</p>
         </div>
-        <ViewToggle active="feed" />
       </header>
 
       {total === 0 ? (
-        <p className="empty-issue feed-empty">No stories in this week’s issue yet.</p>
+        <p className="empty-issue feed-empty">
+          No stories in this week’s issue yet.
+        </p>
       ) : (
         <section
           className="feed-scroller"
