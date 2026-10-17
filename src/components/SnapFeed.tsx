@@ -6,7 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import {
   formatMastheadDate,
-  getArticleExcerpt,
+  getArticleCover,
+  getFeedSubtitle,
   getHomeArticles,
   getReadTimeMinutes,
   type Issue,
@@ -84,18 +85,39 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         >
           {articles.map((article, i) => {
             const index = i + 1;
-            // Prefer a longer body excerpt on the feed; fall back to dek.
-            const subtitle =
-              getArticleExcerpt(article, 300) || article.dek || "";
+            // First real paragraph (not image alt text); falls back to dek.
+            const subtitle = getFeedSubtitle(article, 200);
             const minutes = getReadTimeMinutes(article);
+            const cover = getArticleCover(article);
 
             return (
               <article
                 key={article.id}
-                className="feed-slide"
+                className={
+                  cover ? "feed-slide feed-slide-has-media" : "feed-slide"
+                }
                 data-feed-slide
                 data-feed-index={index}
               >
+                {cover ? (
+                  <div className="feed-slide-media" aria-hidden="true">
+                    {/* Plain img: covers are local files or arbitrary CDN hosts. */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={cover.src}
+                      alt=""
+                      className="feed-slide-img"
+                      style={
+                        cover.position
+                          ? { objectPosition: cover.position }
+                          : undefined
+                      }
+                      loading={i < 2 ? "eager" : "lazy"}
+                      decoding="async"
+                      draggable={false}
+                    />
+                  </div>
+                ) : null}
                 <Link
                   href={`/article/${article.id}`}
                   className="feed-slide-link"

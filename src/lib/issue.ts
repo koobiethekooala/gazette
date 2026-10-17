@@ -33,6 +33,19 @@ export type ArticleSection = {
   body: string;
 };
 
+/**
+ * Portrait lead image for the home snap feed (shown full-bleed, object-fit: cover).
+ * Falls back to the first image block of the article when omitted.
+ */
+export type ArticleCover = {
+  /** Remote `https://…` URL or a path under `public/` (portrait ~9:16 works best). */
+  src: string;
+  alt?: string;
+  credit?: string;
+  /** CSS object-position for the crop, e.g. "center 30%". Default: "center 35%". */
+  position?: string;
+};
+
 export type Article = {
   id: string;
   headline: string;
@@ -43,6 +56,8 @@ export type Article = {
   featured?: boolean;
   /** Reserved for future full-article page templates (not used on home). */
   template?: string;
+  /** Lead image for the home feed slide (falls back to the first image block). */
+  cover?: ArticleCover;
   /** Preferred rich body. */
   blocks?: ArticleBlock[];
   /** Legacy plain text; paragraphs separated by blank lines. */
@@ -126,6 +141,36 @@ export function getArticleText(article: Article): string {
 export function getArticleExcerpt(article: Article, maxChars = 220): string {
   const text = getArticleText(article).replace(/\s+/g, " ").trim();
   if (!text) return "";
+  if (text.length <= maxChars) return text;
+  const sliced = text.slice(0, maxChars);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return `${(lastSpace > 80 ? sliced.slice(0, lastSpace) : sliced).trim()}…`;
+}
+
+/** Lead image for the feed: explicit `cover`, else the first image block. */
+export function getArticleCover(article: Article): ArticleCover | null {
+  if (article.cover?.src?.trim()) return article.cover;
+  const first = getArticleBlocks(article).find(
+    (block): block is ImageBlock => block.type === "image",
+  );
+  return first ? { src: first.src, alt: first.alt, credit: first.credit } : null;
+}
+
+/**
+ * Short teaser for a feed slide: the first real paragraph (skips images,
+ * bullets and very short lines such as "Key takeaways"), else the dek.
+ */
+export function getFeedSubtitle(article: Article, maxChars = 200): string {
+  const lead = getArticleBlocks(article).find(
+    (block) =>
+      block.type === "p" &&
+      block.text.trim().length >= 60 &&
+      !/^[•\-–—\[]/.test(block.text.trim()) &&
+      !/^https?:\/\//.test(block.text.trim()),
+  );
+  const text = (lead && lead.type === "p" ? lead.text : article.dek ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
   if (text.length <= maxChars) return text;
   const sliced = text.slice(0, maxChars);
   const lastSpace = sliced.lastIndexOf(" ");

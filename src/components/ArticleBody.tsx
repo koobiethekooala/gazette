@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Fragment, type ReactNode } from "react";
 import {
   getArticleBlocks,
   isLocalImageSrc,
@@ -9,6 +10,31 @@ import {
 type ArticleBodyProps = {
   article: Article;
 };
+
+const URL_PATTERN = /(https?:\/\/[^\s]+)/g;
+
+/** Plain text with bare URLs turned into links (source lines, "read more"). */
+function renderText(text: string): ReactNode {
+  if (!text.includes("http")) return text;
+  return text.split(URL_PATTERN).map((part, index) => {
+    if (index % 2 === 0) return part;
+    const href = part.replace(/[)\]}.,;:!?’”]+$/u, "");
+    const tail = part.slice(href.length);
+    return (
+      <Fragment key={index}>
+        <a
+          href={href}
+          className="article-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {href}
+        </a>
+        {tail}
+      </Fragment>
+    );
+  });
+}
 
 function BlockView({ block }: { block: ArticleBlock }) {
   if (block.type === "h2" || block.type === "h3" || block.type === "h4") {
@@ -58,7 +84,7 @@ function BlockView({ block }: { block: ArticleBlock }) {
     );
   }
 
-  return <p>{block.text}</p>;
+  return <p>{renderText(block.text)}</p>;
 }
 
 export function ArticleBody({ article }: ArticleBodyProps) {
