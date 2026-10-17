@@ -62,6 +62,13 @@ export function getArticleExcerpt(article: Article, maxChars = 220): string {
   return `${(lastSpace > 80 ? sliced.slice(0, lastSpace) : sliced).trim()}…`;
 }
 
+/** Rough reading time at ~200 wpm; minimum 1 minute. */
+export function getReadTimeMinutes(article: Article): number {
+  const words = getArticleText(article).trim().split(/\s+/).filter(Boolean)
+    .length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export function formatWeekOf(weekOf: string): string {
   const date = new Date(`${weekOf}T12:00:00`);
   if (Number.isNaN(date.getTime())) return weekOf;
