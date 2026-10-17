@@ -42,7 +42,7 @@ Replace this file to publish a new edition. No auth, database, or CMS is require
 | `headline` | yes | Article title |
 | `dek` | no | Deck / subhead |
 | `category` | no | Section label (shown on slides) |
-| `byline` | no | Author name |
+| `byline` | no | Publication name (shown with a small avatar) |
 | `featured` | no | Reserved |
 | `template` | no | Hook for future full-article layouts |
 | `body` | no* | Plain text; paragraphs separated by blank lines |

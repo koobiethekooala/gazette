@@ -10,7 +10,7 @@
       "headline": "Harbor lights return as the night ferry resumes weekend runs",
       "dek": "After pier repairs, the Saturday crossing is back",
       "category": "City",
-      "byline": "Mara Ellison",
+      "byline": "Harbor Herald",
       "template": "lead",
       "body": "The night ferry slipped back into the harbor on Saturday under a sky thick with salt and sodium light. For the first time since July, the pier gates stayed open past dusk, and the usual crowd filled the waiting shed as if the summer never left. Dockworkers finished the last of the piling wraps on Thursday. Engineers signed off Friday morning."
     },
@@ -19,7 +19,7 @@
       "headline": "Central Library opens the glass reading wing",
       "dek": "Skylights, quiet rooms, plane trees",
       "category": "Culture",
-      "byline": "Jonah Reed",
+      "byline": "Civic Desk",
       "template": "standard",
       "sections": [
         {
@@ -37,7 +37,7 @@
       "headline": "Neighborhood substations finish the quiet grid upgrade",
       "dek": "Overnight work ends; heat-wave risk drops",
       "category": "Infrastructure",
-      "byline": "Priya Nair",
+      "byline": "Grid Report",
       "body": "The last of twelve neighborhood substations completed a multi-year hardening project on Wednesday, swapping aging transformers for units rated for longer heat waves and sharper evening peaks. Utility crews worked mostly between midnight and dawn."
     },
     {
@@ -45,7 +45,7 @@
       "headline": "Farmers’ market extends into November",
       "dek": "Late squash, cellar apples, pressed cider",
       "category": "Food",
-      "byline": "Ellis Cho",
+      "byline": "Market Weekly",
       "body": "The Saturday market on Civic Plaza will run three extra weeks this year, organizers announced, citing milder forecasts and strong September attendance. Live music moves indoors to the arcade if rain arrives."
     },
     {
@@ -53,7 +53,7 @@
       "headline": "Voters clear a school bond for science labs",
       "dek": "Narrow margin; work after spring term",
       "category": "Politics",
-      "byline": "Sam Ortiz",
+      "byline": "Capitol Wire",
       "body": "A $48 million school facilities bond passed by just under two points Tuesday night, funding science lab renovations at three middle schools and covered bus shelters at every elementary campus."
     },
     {
@@ -61,7 +61,7 @@
       "headline": "Community choir books the old Lyric Theater",
       "dek": "Two December evenings; youth ushers benefit",
       "category": "Arts",
-      "byline": "Nina Bloch",
+      "byline": "Arts Ledger",
       "body": "The Harbor Community Choir will perform two December evenings at the restored Lyric Theater, its first local appearance since the marquee relit last spring. Tickets go on sale Friday."
     },
     {
@@ -69,7 +69,7 @@
       "headline": "Crews begin the decade’s bridge paint cycle",
       "dek": "Lane shifts overnight through March",
       "category": "City",
-      "byline": "Theo Marsh",
+      "byline": "Harbor Herald",
       "body": "Scaffolding went up on the west approach Monday as painters start a ten-year maintenance cycle. Night lane closures begin next week; daytime traffic remains two ways with a temporary zipper merge."
     },
     {
@@ -77,7 +77,7 @@
       "headline": "Walk-in clinic adds Sunday morning hours",
       "dek": "Pilot through the holidays",
       "category": "Health",
-      "byline": "Ava Kim",
+      "byline": "Health Brief",
       "body": "The Eastside walk-in clinic will open Sundays from eight to noon through early January, a pilot aimed at parents who miss weekday slots. Flu shots and basic labs are included; specialists still require weekday referral."
     },
     {
@@ -85,7 +85,7 @@
       "headline": "Commuter rail trims weekend delays after switch work",
       "dek": "On-time rate climbs above ninety percent",
       "category": "Transit",
-      "byline": "Carl Mehta",
+      "byline": "Transit Times",
       "body": "Weekend on-time performance on the coastal line rose above ninety percent after crews replaced a stubborn interlocking near Mile 14. Officials caution holiday crowds may still bunch trains after noon."
     },
     {
@@ -93,7 +93,7 @@
       "headline": "Anonymous gift funds free first Sundays at the museum",
       "dek": "Three years covered; memberships unchanged",
       "category": "Culture",
-      "byline": "Rina Patel",
+      "byline": "Museum Gazette",
       "body": "The city museum will waive general admission every first Sunday for the next three years after an anonymous gift covered the projected shortfall. Special exhibitions may still carry a surcharge."
     },
     {
@@ -101,7 +101,7 @@
       "headline": "Volunteers pull a ton of trash from the river bend",
       "dek": "Annual sweep draws a record turnout",
       "category": "Environment",
-      "byline": "Gus Ortega",
+      "byline": "River Watch",
       "body": "More than four hundred volunteers lined the south bend Saturday, filling dumpsters with bottles, tires, and shopping carts. Organizers said it was the largest turnout since the sweep began in 2011."
     },
     {
@@ -109,7 +109,7 @@
       "headline": "Corner bakery reopens with the original ovens",
       "dek": "Sourdough at dawn; lines by seven",
       "category": "Food",
-      "byline": "Helen Park",
+      "byline": "Food Section",
       "body": "After a fire last winter, the corner bakery on Oak lit its rebuilt deck ovens Monday. The first loaves sold out before eight; afternoon pastry slots now require a paper ticket from the counter."
     },
     {
@@ -117,7 +117,7 @@
       "headline": "Council softens height caps near the station",
       "dek": "Six stories allowed on two corridors",
       "category": "Politics",
-      "byline": "Ivy Brooks",
+      "byline": "Zoning Notes",
       "body": "The council voted 5–2 to allow six-story residential buildings within two blocks of the central station, reversing a 2018 cap. Neighbors won deeper setbacks and a shadow study for winter sun."
     },
     {
@@ -125,7 +125,7 @@
       "headline": "Park path lights switch to warmer LEDs",
       "dek": "Fewer glare complaints; same brightness",
       "category": "City",
-      "byline": "Jon Hale",
+      "byline": "City Lights",
       "body": "Recreation staff finished swapping path fixtures for warmer LEDs along the lake loop. Astronomers and night walkers both lobbied for the change; motion sensors dim stretches after midnight."
     },
     {
@@ -133,7 +133,7 @@
       "headline": "Local logistics startup adds a night warehouse shift",
       "dek": "Eighty roles; transit stipends included",
       "category": "Business",
-      "byline": "Kira Dunn",
+      "byline": "Business Desk",
       "body": "A Harbor Point logistics firm posted eighty night-shift roles with transit stipends after winning a regional grocery contract. Training starts in two cohorts; bilingual supervisors are prioritized."
     },
     {
@@ -141,7 +141,7 @@
       "headline": "High school senior wins the regional poetry prize",
       "dek": "Reading set for the Lyric lobby",
       "category": "Arts",
-      "byline": "Lena Cho",
+      "byline": "Poetry Review",
       "body": "A Harbor High senior took the regional poetry prize with a sequence about ferry foghorns. A free reading is scheduled in the Lyric lobby next Thursday; chapbooks print in a run of two hundred."
     },
     {
@@ -149,7 +149,7 @@
       "headline": "City clears blocked storm drains before the next front",
       "dek": "Leaf crews work the lower wards",
       "category": "Infrastructure",
-      "byline": "Omar Singh",
+      "byline": "Public Works",
       "body": "Public works crews cleared leaf mats from storm drains across the lower wards ahead of a wet weekend. Residents can still report standing water through the city’s text tip line."
     },
     {
@@ -157,7 +157,7 @@
       "headline": "New daycare opens twenty sliding-scale spots",
       "dek": "Lottery draws Friday at noon",
       "category": "Family",
-      "byline": "Pia Novak",
+      "byline": "Family Desk",
       "body": "A nonprofit daycare near the college hill will open twenty sliding-scale infant and toddler spots next month. Families enter a Friday noon lottery; income verification follows for winners."
     },
     {
@@ -165,7 +165,7 @@
       "headline": "College radio returns to the air after antenna repair",
       "dek": "Student DJs reclaim the midnight slot",
       "category": "Media",
-      "byline": "Quinn Adler",
+      "byline": "Campus Signal",
       "body": "Campus radio signed back on at 91.7 after a month of antenna work. The midnight experimental slot returns this weekend; streaming stayed up throughout the outage."
     },
     {
@@ -173,7 +173,7 @@
       "headline": "Missing trail link finally stitches the waterfront path",
       "dek": "Ribbon cutting Saturday at ten",
       "category": "Outdoors",
-      "byline": "Ruth Vega",
+      "byline": "Outdoors Desk",
       "body": "A half-mile missing link in the waterfront trail opens Saturday, connecting the ferry plaza to the bird sanctuary without a street detour. Bikes share the path; a painted slow zone marks the sanctuary edge."
     },
     {
@@ -181,7 +181,7 @@
       "headline": "Free tax clinic expands to evenings in November",
       "dek": "Appointments open Monday",
       "category": "Money",
-      "byline": "Seth Wu",
+      "byline": "Money Desk",
       "body": "The volunteer tax clinic will add Tuesday and Thursday evenings in November for seasonal workers. Appointments open Monday; bring last year’s return and a photo ID."
     },
     {
@@ -189,7 +189,7 @@
       "headline": "Fog advisory returns with the early cold snap",
       "dek": "Ferries on visual approach till noon",
       "category": "Weather",
-      "byline": "Tara Gill",
+      "byline": "Weather Desk",
       "body": "A dense fog advisory is in effect through midmorning as the first cold snap settles over the harbor. Ferries will run on visual approach; drivers are asked to use low beams on the bridge."
     },
     {
@@ -197,7 +197,7 @@
       "headline": "Alley mural wall gets a fresh coat and new map",
       "dek": "Walking tour QR codes installed",
       "category": "Arts",
-      "byline": "Uma Freitas",
+      "byline": "Arts Ledger",
       "body": "Artists finished a refreshed alley mural wall behind Market Street, adding a small map of past commissions and QR codes for a self-guided walking tour. The city funded primer and scaffolding only."
     },
     {
@@ -205,7 +205,7 @@
       "headline": "Glass bus shelter pilots heat for winter waits",
       "dek": "Three stops in the north wards",
       "category": "Transit",
-      "byline": "Vince Ortega",
+      "byline": "Transit Times",
       "body": "Transit authority installed heated glass shelters at three north-ward stops as a winter pilot. Sensors shut heat off when the shelter is empty; results will decide a wider rollout."
     },
     {
@@ -213,7 +213,7 @@
       "headline": "Orchard fair brings cider presses to the fairgrounds",
       "dek": "Saturday only; dogs welcome on leash",
       "category": "Food",
-      "byline": "Willa Frost",
+      "byline": "Food Section",
       "body": "Growers haul presses and late pears to the fairgrounds Saturday for the annual orchard fair. Admission is a canned good for the food bank; leashed dogs are welcome outside the tasting tent."
     }
   ]
