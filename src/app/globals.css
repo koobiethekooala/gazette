@@ -850,10 +850,21 @@ html[data-theme="light"] .brand-logo-img {
   -webkit-user-drag: none;
 }
 
+/* Full-surface dark wash — sits under the gradient + copy blur veils */
+.feed-slide-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+}
+
 .feed-slide-media::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 2;
   /* Softer photo scrim — copy blur veil carries most bottom legibility */
   background:
     linear-gradient(
