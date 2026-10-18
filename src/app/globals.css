@@ -789,15 +789,15 @@ html[data-theme="light"] .brand-logo-img {
   content: "";
   position: absolute;
   inset: 0;
-  /* Light top wash only — chrome blur handles logo legibility */
+  /* Softer photo scrim — copy blur veil carries most bottom legibility */
   background:
     linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.16) 0%,
       rgba(0, 0, 0, 0) 26%,
-      rgba(0, 0, 0, 0) 40%,
-      rgba(0, 0, 0, 0.55) 62%,
-      rgba(0, 0, 0, 0.9) 100%
+      rgba(0, 0, 0, 0) 48%,
+      rgba(0, 0, 0, 0.28) 72%,
+      rgba(0, 0, 0, 0.5) 100%
     );
 }
 
@@ -807,6 +807,47 @@ html[data-theme="light"] .brand-logo-img {
   width: 100%;
   max-width: 28rem;
   color: #fff;
+  isolation: isolate;
+}
+
+/* Frosted veil behind title/dek/tags — same idea as the top chrome */
+.feed-slide-has-media .feed-slide-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(58%, 26rem);
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(8, 7, 6, 0.42) 0%,
+    rgba(8, 7, 6, 0.2) 42%,
+    rgba(8, 7, 6, 0.05) 74%,
+    transparent 100%
+  );
+  -webkit-backdrop-filter: blur(18px) saturate(1.05);
+  backdrop-filter: blur(18px) saturate(1.05);
+  -webkit-mask-image: linear-gradient(
+    0deg,
+    #000 0%,
+    #000 40%,
+    rgba(0, 0, 0, 0.4) 72%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    0deg,
+    #000 0%,
+    #000 40%,
+    rgba(0, 0, 0, 0.4) 72%,
+    transparent 100%
+  );
+}
+
+.feed-slide-has-media .feed-slide-copy {
+  position: relative;
+  z-index: 1;
 }
 
 .feed-slide-has-media .feed-slide-byline .article-publication-name {
