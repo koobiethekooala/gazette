@@ -281,7 +281,7 @@ html[data-theme="dark"] .paper-grain {
   z-index: 1;
   width: min(100%, 42rem);
   margin: 0 auto;
-  padding: 1.25rem 1.25rem 3rem;
+  padding: 1.25rem 1.25rem max(3.5rem, calc(env(safe-area-inset-bottom) + 2.5rem));
   padding-top: 4.75rem;
 }
 
@@ -450,7 +450,8 @@ html[data-theme="light"] .article-publication-avatar {
 }
 
 .article-read-actions {
-  margin-top: 2.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
   display: flex;
