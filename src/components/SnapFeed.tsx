@@ -30,33 +30,28 @@ export function SnapFeed({ issue }: SnapFeedProps) {
     const root = scrollerRef.current;
     if (!root || total === 0) return;
 
-    const slides = Array.from(
-      root.querySelectorAll<HTMLElement>("[data-feed-slide]"),
-    );
-    if (slides.length === 0) return;
+    // Full-viewport snap slides: derive the active index from scrollTop.
+    // (IntersectionObserver only reports *changed* entries, so the counter
+    // often stuck when a leaving slide was the only callback payload.)
+    const updateActive = () => {
+      const height = root.clientHeight;
+      if (height <= 0) return;
+      const next = Math.min(
+        total,
+        Math.max(1, Math.round(root.scrollTop / height) + 1),
+      );
+      setActiveIndex((prev) => (prev === next ? prev : next));
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let best: { index: number; ratio: number } | null = null;
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const raw = entry.target.getAttribute("data-feed-index");
-          const index = raw ? Number(raw) : NaN;
-          if (!Number.isFinite(index)) continue;
-          if (!best || entry.intersectionRatio > best.ratio) {
-            best = { index, ratio: entry.intersectionRatio };
-          }
-        }
-        if (best) setActiveIndex(best.index);
-      },
-      {
-        root,
-        threshold: [0.35, 0.55, 0.75],
-      },
-    );
-
-    for (const slide of slides) observer.observe(slide);
-    return () => observer.disconnect();
+    updateActive();
+    root.addEventListener("scroll", updateActive, { passive: true });
+    root.addEventListener("scrollend", updateActive);
+    window.addEventListener("resize", updateActive);
+    return () => {
+      root.removeEventListener("scroll", updateActive);
+      root.removeEventListener("scrollend", updateActive);
+      window.removeEventListener("resize", updateActive);
+    };
   }, [total]);
 
   // Soft tick when the snap settles on a new slide
