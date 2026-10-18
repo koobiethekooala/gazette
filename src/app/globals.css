@@ -822,9 +822,9 @@ html[data-theme="light"] .brand-logo-img {
   pointer-events: none;
   background: linear-gradient(
     0deg,
-    rgba(8, 7, 6, 0.24) 0%,
-    rgba(8, 7, 6, 0.1) 50%,
-    rgba(8, 7, 6, 0.02) 80%,
+    rgba(8, 7, 6, 0.48) 0%,
+    rgba(8, 7, 6, 0.22) 48%,
+    rgba(8, 7, 6, 0.06) 78%,
     transparent 100%
   );
   -webkit-backdrop-filter: blur(10px) saturate(1.02);
