@@ -168,14 +168,14 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
       {active ? (
         <Check
           aria-hidden="true"
-          strokeWidth={2.4}
-          style={{ width: "1.25rem", height: "1.25rem", display: "block" }}
+          strokeWidth={2.25}
+          style={{ width: "1rem", height: "1rem", display: "block" }}
         />
       ) : (
         <Share
           aria-hidden="true"
-          strokeWidth={1.85}
-          style={{ width: "1.2rem", height: "1.2rem", display: "block" }}
+          strokeWidth={1.75}
+          style={{ width: "1rem", height: "1rem", display: "block" }}
         />
       )}
     </button>
