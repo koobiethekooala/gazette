@@ -4,7 +4,6 @@ import { Check, Share } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { hapticRef, triggerHaptic } from "@/lib/haptics";
-import styles from "./ShareButton.module.css";
 
 type ShareButtonProps = {
   title: string;
@@ -68,13 +67,15 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     createPortal(
       <div
         className={
-          copied ? `${styles.toast} ${styles.toastVisible}` : styles.toast
+          copied
+            ? "reader-share-toast reader-share-toast-visible"
+            : "reader-share-toast"
         }
         role="status"
         aria-live="polite"
       >
         <Check
-          className={styles.toastIcon}
+          className="reader-share-toast-icon"
           aria-hidden="true"
           strokeWidth={2.25}
         />
@@ -87,13 +88,17 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     <>
       <button
         type="button"
-        className={styles.share}
+        className="reader-share"
         ref={hapticRef}
         onClick={onShare}
         aria-label="Copy share link"
         title="Copy share link"
       >
-        <Share className={styles.icon} aria-hidden="true" strokeWidth={1.75} />
+        <Share
+          className="reader-share-icon"
+          aria-hidden="true"
+          strokeWidth={1.75}
+        />
       </button>
       {toast}
     </>
