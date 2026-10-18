@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArticleBody } from "@/components/ArticleBody";
@@ -8,7 +9,7 @@ import { PublicationByline } from "@/components/PublicationByline";
 import { ReaderBack } from "@/components/ReaderBack";
 import { ShareButton } from "@/components/ShareButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { getArticleById, getIssue } from "@/lib/issue";
+import { getArticleById, getArticleDescription, getIssue } from "@/lib/issue";
 
 type ArticlePageProps = {
   params: Promise<{ id: string }>;
@@ -16,6 +17,31 @@ type ArticlePageProps = {
 
 export function generateStaticParams() {
   return getIssue().articles.map((article) => ({ id: article.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: ArticlePageProps): Promise<Metadata> {
+  const { id } = await params;
+  const article = getArticleById(id);
+  if (!article) return {};
+  const description = getArticleDescription(article) || undefined;
+  return {
+    title: article.headline,
+    description,
+    openGraph: {
+      type: "article",
+      title: article.headline,
+      description,
+      images: [{ url: "/og.png", width: 1200, height: 1200, alt: "The Gazette" }],
+    },
+    twitter: {
+      card: "summary",
+      title: article.headline,
+      description,
+      images: ["/og.png"],
+    },
+  };
 }
 
 async function ArticleContent({ params }: ArticlePageProps) {
