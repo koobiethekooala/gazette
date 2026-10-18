@@ -19,7 +19,7 @@ function truncateTitle(title: string, max = TITLE_MAX): string {
 }
 
 function buildShareText(title: string, url: string): string {
-  return `Check out this article ${truncateTitle(title)} ${url}`;
+  return `Check out this article "${truncateTitle(title)}" ${url}`;
 }
 
 function copyText(text: string): void {
