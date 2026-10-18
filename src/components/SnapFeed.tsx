@@ -2,10 +2,21 @@
 
 import Link from "next/link";
 import { Clock } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { PublicationByline } from "@/components/PublicationByline";
 import { triggerHaptic } from "@/lib/haptics";
+import {
+  clearFeedPosition,
+  loadFeedPosition,
+  saveFeedPosition,
+} from "@/lib/feedPosition";
 import {
   formatMastheadDate,
   getArticleCover,
@@ -29,41 +40,123 @@ function filterUnread(articles: Article[]): Article[] {
   return articles.filter((article) => !readIds.has(article.id));
 }
 
+function sameArticleList(a: Article[], b: Article[]): boolean {
+  if (a.length !== b.length) return false;
+  return a.every((article, i) => article.id === b[i]?.id);
+}
+
+function scrollToSlide(root: HTMLElement, index0: number) {
+  const height = root.clientHeight || window.innerHeight;
+  if (height <= 0) return;
+  const prev = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  root.scrollTop = Math.max(0, index0) * height;
+  root.style.scrollBehavior = prev;
+}
+
+function resolveRestoreIndex(articles: Article[]): number {
+  if (articles.length === 0) return 0;
+  const saved = loadFeedPosition();
+  if (!saved) return 0;
+
+  const found = articles.findIndex((a) => a.id === saved.articleId);
+  if (found >= 0) {
+    // Still in the feed — return to that slide.
+    return found;
+  }
+
+  // Marked as read (removed) — land on the slot it vacated.
+  clearFeedPosition();
+  return Math.min(saved.index, articles.length - 1);
+}
+
 export function SnapFeed({ issue }: SnapFeedProps) {
   const allArticles = useMemo(() => getHomeArticles(issue), [issue]);
-  // SSR / first paint: show full list; client sync hides read ones from localStorage.
   const [articles, setArticles] = useState<Article[]>(allArticles);
   const total = articles.length;
   const scrollerRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(1);
   const didMountHaptic = useRef(false);
+  /** When set, layout effect scrolls to this 0-based index after `articles` updates. */
+  const pendingScrollIndex = useRef<number | null>(null);
 
   useEffect(() => {
-    const syncUnread = () => {
-      const next = filterUnread(allArticles);
-      setArticles(next);
-      setActiveIndex(1);
-      if (scrollerRef.current) scrollerRef.current.scrollTop = 0;
+    const applyList = (next: Article[], scrollTo: number | null) => {
+      if (scrollTo !== null) pendingScrollIndex.current = scrollTo;
+      setArticles((prev) => {
+        if (sameArticleList(prev, next)) {
+          // List unchanged (e.g. nothing read yet) — still apply pending scroll.
+          if (scrollTo !== null) {
+            const index0 = scrollTo;
+            pendingScrollIndex.current = null;
+            requestAnimationFrame(() => {
+              const root = scrollerRef.current;
+              if (!root || next.length === 0) return;
+              const clamped = Math.min(index0, next.length - 1);
+              scrollToSlide(root, clamped);
+              setActiveIndex(clamped + 1);
+            });
+          }
+          return prev;
+        }
+        return next;
+      });
     };
 
-    syncUnread();
-    window.addEventListener(READ_ARTICLES_EVENT, syncUnread);
-    window.addEventListener("storage", syncUnread);
-    window.addEventListener("pageshow", syncUnread);
-    window.addEventListener("focus", syncUnread);
+    const syncUnread = (restorePosition: boolean) => {
+      const next = filterUnread(allArticles);
+      if (restorePosition) {
+        applyList(next, resolveRestoreIndex(next));
+        return;
+      }
+
+      // Soft sync (focus / storage): keep current scroll unless the list shrank under us.
+      const root = scrollerRef.current;
+      let scrollTo: number | null = null;
+      if (root && next.length > 0) {
+        const height = root.clientHeight || window.innerHeight;
+        const current = Math.round(root.scrollTop / Math.max(1, height));
+        if (current > next.length - 1) scrollTo = next.length - 1;
+      }
+      applyList(next, scrollTo);
+    };
+
+    syncUnread(true);
+
+    const softSync = () => syncUnread(false);
+    window.addEventListener(READ_ARTICLES_EVENT, softSync);
+    window.addEventListener("storage", softSync);
+    window.addEventListener("pageshow", softSync);
+    window.addEventListener("focus", softSync);
     const onVisibility = () => {
-      if (document.visibilityState === "visible") syncUnread();
+      if (document.visibilityState === "visible") softSync();
     };
     document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
-      window.removeEventListener(READ_ARTICLES_EVENT, syncUnread);
-      window.removeEventListener("storage", syncUnread);
-      window.removeEventListener("pageshow", syncUnread);
-      window.removeEventListener("focus", syncUnread);
+      window.removeEventListener(READ_ARTICLES_EVENT, softSync);
+      window.removeEventListener("storage", softSync);
+      window.removeEventListener("pageshow", softSync);
+      window.removeEventListener("focus", softSync);
       document.removeEventListener("visibilitychange", onVisibility);
     };
   }, [allArticles]);
+
+  useLayoutEffect(() => {
+    if (pendingScrollIndex.current === null) return;
+    const index0 = pendingScrollIndex.current;
+    pendingScrollIndex.current = null;
+
+    const root = scrollerRef.current;
+    if (!root || articles.length === 0) {
+      setActiveIndex(1);
+      return;
+    }
+
+    const clamped = Math.min(index0, articles.length - 1);
+    scrollToSlide(root, clamped);
+    setActiveIndex(clamped + 1);
+  }, [articles]);
 
   useEffect(() => {
     const root = scrollerRef.current;
@@ -172,7 +265,10 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                   className="feed-slide-link"
                   aria-label={`Open article ${index}: ${article.headline}`}
                   transitionTypes={["nav-forward"]}
-                  onClick={() => triggerHaptic()}
+                  onClick={() => {
+                    saveFeedPosition(article.id, i);
+                    triggerHaptic();
+                  }}
                 >
                   <div className="feed-slide-copy">
                     {article.byline ? (
