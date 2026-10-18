@@ -47,6 +47,12 @@ export type Article = {
   id: string;
   headline: string;
   dek?: string;
+  /**
+   * Original 1–2 sentence summary of the whole article (~120–190 chars, no
+   * cliffhangers). Shown under the title on the swipe feed and used as the
+   * meta description. Falls back to the first paragraph / dek when omitted.
+   */
+  summary?: string;
   category?: string;
   /** Publication name shown with a small avatar. */
   byline?: string;
@@ -135,6 +141,13 @@ export function getArticleText(article: Article): string {
   return parts.join("\n\n");
 }
 
+function truncateAtWord(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  const sliced = text.slice(0, maxChars);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return `${(lastSpace > 80 ? sliced.slice(0, lastSpace) : sliced).trim()}…`;
+}
+
 export function getArticleExcerpt(article: Article, maxChars = 220): string {
   const text = getArticleText(article).replace(/\s+/g, " ").trim();
   if (!text) return "";
@@ -154,10 +167,13 @@ export function getArticleCover(article: Article): ArticleCover | null {
 }
 
 /**
- * Short teaser for a feed slide: the first real paragraph (skips images,
- * bullets and very short lines such as "Key takeaways"), else the dek.
+ * Short teaser for a feed slide: the article's `summary` when present, else
+ * the first real paragraph (skips images, bullets and very short lines such
+ * as "Key takeaways"), else the dek.
  */
 export function getFeedSubtitle(article: Article, maxChars = 200): string {
+  const summary = article.summary?.replace(/\s+/g, " ").trim();
+  if (summary) return truncateAtWord(summary, maxChars);
   const lead = getArticleBlocks(article).find(
     (block) =>
       block.type === "p" &&
@@ -168,10 +184,15 @@ export function getFeedSubtitle(article: Article, maxChars = 200): string {
   const text = (lead && lead.type === "p" ? lead.text : article.dek ?? "")
     .replace(/\s+/g, " ")
     .trim();
-  if (text.length <= maxChars) return text;
-  const sliced = text.slice(0, maxChars);
-  const lastSpace = sliced.lastIndexOf(" ");
-  return `${(lastSpace > 80 ? sliced.slice(0, lastSpace) : sliced).trim()}…`;
+  return truncateAtWord(text, maxChars);
+}
+
+/** Meta description: `summary`, else the dek, else a short body excerpt. */
+export function getArticleDescription(article: Article): string {
+  const summary = article.summary?.replace(/\s+/g, " ").trim();
+  if (summary) return summary;
+  const dek = article.dek?.replace(/\s+/g, " ").trim();
+  return dek || getArticleExcerpt(article, 200);
 }
 
 /** Rough reading time at ~200 wpm; minimum 1 minute. */
