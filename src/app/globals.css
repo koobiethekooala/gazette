@@ -810,7 +810,7 @@ html[data-theme="light"] .brand-logo-img {
   isolation: isolate;
 }
 
-/* Frosted veil behind title/dek/tags — kept low; titles are often clear enough */
+/* Frosted veil behind title/dek/tags — kept low and soft */
 .feed-slide-has-media .feed-slide-link::before {
   content: "";
   position: absolute;
@@ -822,25 +822,25 @@ html[data-theme="light"] .brand-logo-img {
   pointer-events: none;
   background: linear-gradient(
     0deg,
-    rgba(8, 7, 6, 0.4) 0%,
-    rgba(8, 7, 6, 0.16) 48%,
-    rgba(8, 7, 6, 0.04) 78%,
+    rgba(8, 7, 6, 0.24) 0%,
+    rgba(8, 7, 6, 0.1) 50%,
+    rgba(8, 7, 6, 0.02) 80%,
     transparent 100%
   );
-  -webkit-backdrop-filter: blur(18px) saturate(1.05);
-  backdrop-filter: blur(18px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.02);
+  backdrop-filter: blur(10px) saturate(1.02);
   -webkit-mask-image: linear-gradient(
     0deg,
     #000 0%,
-    #000 48%,
-    rgba(0, 0, 0, 0.35) 78%,
+    #000 52%,
+    rgba(0, 0, 0, 0.3) 80%,
     transparent 100%
   );
   mask-image: linear-gradient(
     0deg,
     #000 0%,
-    #000 48%,
-    rgba(0, 0, 0, 0.35) 78%,
+    #000 52%,
+    rgba(0, 0, 0, 0.3) 80%,
     transparent 100%
   );
 }
