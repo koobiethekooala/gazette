@@ -145,22 +145,20 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                   onClick={() => triggerHaptic()}
                 >
                   <div className="feed-slide-copy">
-                    <h2 className="feed-slide-headline">{article.headline}</h2>
-                    {article.byline ? (
-                      <PublicationByline
-                        name={article.byline}
-                        className="feed-slide-byline"
-                      />
+                    {article.category ? (
+                      <p className="feed-slide-eyebrow">{article.category}</p>
                     ) : null}
+                    <h2 className="feed-slide-headline">{article.headline}</h2>
                     {subtitle ? (
                       <p className="feed-slide-subtitle">{subtitle}</p>
                     ) : null}
 
                     <div className="feed-slide-tags">
-                      {article.category ? (
-                        <span className="feed-tag feed-tag-category">
-                          {article.category}
-                        </span>
+                      {article.byline ? (
+                        <PublicationByline
+                          name={article.byline}
+                          className="feed-slide-byline"
+                        />
                       ) : null}
                       <span className="feed-tag feed-tag-read">
                         <Clock
