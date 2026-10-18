@@ -13,6 +13,7 @@ type ShareButtonProps = {
 };
 
 const TITLE_MAX = 72;
+const TOAST_MS = 2000;
 
 function truncateTitle(title: string, max = TITLE_MAX): string {
   const trimmed = title.trim().replace(/\s+/g, " ");
@@ -24,8 +25,30 @@ function buildShareText(title: string, url: string): string {
   return `Check out this article ${truncateTitle(title)} ${url}`;
 }
 
+async function copyText(text: string): Promise<void> {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      /* fall through */
+    }
+  }
+
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.setAttribute("readonly", "");
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+}
+
 export function ShareButton({ title, articleId }: ShareButtonProps) {
-  const [copied, setCopied] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -36,7 +59,13 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     };
   }, []);
 
-  async function onShare() {
+  function showToast() {
+    setToastVisible(true);
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    hideTimer.current = setTimeout(() => setToastVisible(false), TOAST_MS);
+  }
+
+  function onShare() {
     triggerHaptic();
     const url =
       typeof window !== "undefined"
@@ -44,23 +73,9 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
         : `/article/${articleId}`;
     const text = buildShareText(title, url);
 
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.left = "-9999px";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-    }
-
-    setCopied(true);
-    if (hideTimer.current) clearTimeout(hideTimer.current);
-    hideTimer.current = setTimeout(() => setCopied(false), 1800);
+    // Show toast immediately — clipboard can hang on non-HTTPS LAN localhost.
+    showToast();
+    void copyText(text);
   }
 
   const toast =
@@ -68,7 +83,7 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     createPortal(
       <div
         className={
-          copied
+          toastVisible
             ? "reader-share-toast reader-share-toast-visible"
             : "reader-share-toast"
         }
@@ -77,16 +92,32 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
         style={{
           position: "fixed",
           left: "50%",
-          bottom: "max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem))",
-          zIndex: 80,
+          bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem))",
+          zIndex: 9999,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "0.4rem",
+          margin: 0,
+          padding: "0.6rem 0.95rem",
+          borderRadius: "999px",
+          border: "1px solid var(--rule, rgba(255,255,255,0.2))",
+          background: "var(--ink, #1a1814)",
+          color: "var(--paper, #f5f0e8)",
+          fontSize: "0.78rem",
+          fontWeight: 600,
+          letterSpacing: "0.04em",
+          whiteSpace: "nowrap",
+          pointerEvents: "none",
           transform: "translateX(-50%)",
-          opacity: copied ? 1 : 0,
+          opacity: toastVisible ? 1 : 0,
+          transition: "opacity 0.25s ease",
         }}
       >
         <Check
           className="reader-share-toast-icon"
           aria-hidden="true"
           strokeWidth={2.25}
+          style={{ width: "0.9rem", height: "0.9rem", flex: "0 0 auto" }}
         />
         Link copied
       </div>,

@@ -43,37 +43,12 @@
 }
 
 .reader-share-toast {
-  position: fixed;
-  left: 50%;
-  bottom: 1.5rem;
-  z-index: 80;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+  /* Visibility is driven by inline styles in ShareButton (opacity + transition). */
   pointer-events: none;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-@supports (bottom: max(0px)) {
-  .reader-share-toast {
-    bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem));
-  }
 }
 
 .reader-share-toast-visible {
-  opacity: 1;
+  /* no-op class kept for readability in DOM */
 }
 
 .reader-share-toast-icon {
