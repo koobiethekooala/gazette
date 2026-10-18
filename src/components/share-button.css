@@ -42,17 +42,17 @@
   display: block;
 }
 
+@keyframes reader-share-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 .reader-share-toast {
-  /* Visibility is driven by inline styles in ShareButton (opacity + transition). */
   pointer-events: none;
-}
-
-.reader-share-toast-visible {
-  /* no-op class kept for readability in DOM */
-}
-
-.reader-share-toast-icon {
-  width: 0.9rem;
-  height: 0.9rem;
-  flex: 0 0 auto;
 }
