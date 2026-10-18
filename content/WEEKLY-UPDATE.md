@@ -34,11 +34,24 @@ After editing, run `npm run build` (or rely on the running `npm run dev`) and op
 | `id` | yes | URL slug: `/article/{id}` — kebab-case, stable |
 | `headline` | yes | Feed + reader title |
 | `dek` | no | One-line deck under the headline |
+| `summary` | recommended | 1–2 sentence original summary of the whole article, ~120–190 chars, no cliffhangers; shown under the title on the swipe feed (also used as the meta description). Falls back to the first paragraph / `dek` when omitted |
+| `cover` | recommended | Portrait 9:16 lead image for the swipe feed slide: `{ "src", "alt", "credit", "position" }`. Save it as `public/images/articles/cover-<id>.jpg` and use `src: "/images/articles/cover-<id>.jpg"`; `position` is the CSS object-position crop (default `center 35%`). Falls back to the first image block when omitted |
 | `category` | no | Pill on feed + reader (e.g. `City`) |
 | `byline` | no | **Publication name**, not a person (avatar initials derive from it) |
 | `blocks` | preferred | Ordered body (paragraphs, headings, images) |
 | `body` | legacy | Plain text; blank line = new paragraph |
 | `sections` | legacy | `{ "heading", "body" }` → becomes `h2` + paragraphs |
+
+Example `cover`:
+
+```json
+"cover": {
+  "src": "/images/articles/cover-example-story.jpg",
+  "alt": "Pier at dusk",
+  "credit": "Photo: Jane Doe",
+  "position": "center 30%"
+}
+```
 
 Prefer **`blocks`**. If `blocks` is present it wins; otherwise `sections`, then `body`.
 
@@ -124,8 +137,15 @@ Rules of thumb:
   "id": "example-story",
   "headline": "Example headline from the newsletter",
   "dek": "One-line summary.",
+  "summary": "Original 1–2 sentence summary of the whole article, written in your own words, with no cliffhanger.",
   "category": "City",
   "byline": "Harbor Herald",
+  "cover": {
+    "src": "/images/articles/cover-example-story.jpg",
+    "alt": "Pier at dusk",
+    "credit": "Photo: Jane Doe",
+    "position": "center 30%"
+  },
   "blocks": [
     {
       "type": "image",
@@ -146,7 +166,7 @@ Rules of thumb:
 
 1. Copy last week’s `content/issue.json` (or clear `articles` and start fresh).
 2. Set `weekOf`, `edition`, `updatedAt`.
-3. For each newsletter story: choose `id`, fill metadata, port body to `blocks`.
+3. For each newsletter story: choose `id`, fill metadata (incl. `summary` and `cover`), port body to `blocks`.
 4. Drop local images into `public/images/articles/` when not using remote URLs.
 5. Put the lead story first in `articles` (feed order = array order).
 6. Smoke-check `/` and a couple of article URLs (especially ones with images).
