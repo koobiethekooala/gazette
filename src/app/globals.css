@@ -533,29 +533,46 @@ html[data-theme="light"] .brand-logo-img {
   max-width: 11rem;
 }
 
-.feed-sticky-count {
-  /* Absolute to .feed-shell (relative + 100dvh) — more reliable than
-     fixed inside overflow:hidden shells on mobile Safari */
+/* Sticky bottom meta: week (left) + slide counter (right) */
+.feed-sticky-meta {
   position: absolute;
-  inset: auto max(0.85rem, env(safe-area-inset-right))
-    max(0.95rem, env(safe-area-inset-bottom)) auto;
-  left: auto;
-  top: auto;
+  left: max(0.85rem, env(safe-area-inset-left));
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: max(0.95rem, env(safe-area-inset-bottom));
   z-index: 30;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.feed-sticky-week {
   margin: 0;
-  padding: 0.2rem 0.45rem;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
+  min-width: 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  opacity: 0.78;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.45s ease;
+}
+
+.feed-sticky-count {
+  margin: 0;
+  flex: 0 0 auto;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-mute);
-  opacity: 0.72;
+  opacity: 0.78;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  pointer-events: none;
   transition: color 0.45s ease;
 }
 
@@ -571,15 +588,6 @@ html[data-theme="light"] .brand-logo-img {
 
 .feed-sticky-total {
   opacity: 0.85;
-}
-
-.feed-week {
-  margin: 0;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
 }
 
 .feed-empty {
@@ -789,7 +797,8 @@ html[data-theme="light"] .brand-logo-img {
   outline-color: #fff;
 }
 
-/* Page counter sits on top of the photo when slides have images */
+/* Sticky meta sits on top of the photo when slides have images */
+.feed-shell:has(.feed-slide-has-media) .feed-sticky-week,
 .feed-shell:has(.feed-slide-has-media) .feed-sticky-count {
   color: rgba(255, 255, 255, 0.85);
   opacity: 1;
