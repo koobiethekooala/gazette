@@ -39,9 +39,6 @@ async function ArticleContent({ params }: ArticlePageProps) {
       </header>
 
       <div className="paper-page article-page">
-        {article.category ? (
-          <p className="article-page-category">{article.category}</p>
-        ) : null}
         <h1 className="article-page-title">{article.headline}</h1>
         {article.dek ? <p className="article-page-dek">{article.dek}</p> : null}
         {article.byline ? (
