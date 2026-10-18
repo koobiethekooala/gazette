@@ -22,6 +22,13 @@ function buildShareText(title: string, url: string): string {
   return `Check out this article "${truncateTitle(title)}" ${url}`;
 }
 
+/** Relative article path, resolved against the current origin (localhost or prod). */
+function articleShareUrl(articleId: string): string {
+  const path = `/article/${encodeURIComponent(articleId)}`;
+  if (typeof window === "undefined") return path;
+  return new URL(path, window.location.origin).href;
+}
+
 function copyText(text: string): void {
   try {
     if (navigator.clipboard?.writeText) {
@@ -105,8 +112,7 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     lastTap.current = now;
 
     triggerHaptic();
-    const url = window.location.href || `/article/${articleId}`;
-    copyText(buildShareText(title, url));
+    copyText(buildShareText(title, articleShareUrl(articleId)));
 
     setActive(true);
     if (activeTimer.current) clearTimeout(activeTimer.current);
