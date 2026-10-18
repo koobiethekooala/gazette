@@ -2,6 +2,9 @@
 
 const STORAGE_KEY = "gazette-read-articles";
 
+/** Same-tab signal — `storage` only fires across tabs. */
+export const READ_ARTICLES_EVENT = "gazette-read-articles-changed";
+
 type ReadStore = {
   /** Map of article id → ISO timestamp when marked read. */
   read: Record<string, string>;
@@ -33,6 +36,11 @@ function writeStore(store: ReadStore): void {
   } catch {
     /* quota / private mode */
   }
+  window.dispatchEvent(new Event(READ_ARTICLES_EVENT));
+}
+
+export function getReadArticleIds(): Set<string> {
+  return new Set(Object.keys(readStore().read));
 }
 
 export function isArticleRead(articleId: string): boolean {

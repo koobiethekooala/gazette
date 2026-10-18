@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Clock } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { PublicationByline } from "@/components/PublicationByline";
 import { triggerHaptic } from "@/lib/haptics";
@@ -12,27 +12,63 @@ import {
   getFeedSubtitle,
   getHomeArticles,
   getReadTimeMinutes,
+  type Article,
   type Issue,
 } from "@/lib/issue";
+import {
+  getReadArticleIds,
+  READ_ARTICLES_EVENT,
+} from "@/lib/readArticles";
 
 type SnapFeedProps = {
   issue: Issue;
 };
 
+function filterUnread(articles: Article[]): Article[] {
+  const readIds = getReadArticleIds();
+  return articles.filter((article) => !readIds.has(article.id));
+}
+
 export function SnapFeed({ issue }: SnapFeedProps) {
-  const articles = getHomeArticles(issue);
+  const allArticles = useMemo(() => getHomeArticles(issue), [issue]);
+  // SSR / first paint: show full list; client sync hides read ones from localStorage.
+  const [articles, setArticles] = useState<Article[]>(allArticles);
   const total = articles.length;
   const scrollerRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(1);
   const didMountHaptic = useRef(false);
 
   useEffect(() => {
+    const syncUnread = () => {
+      const next = filterUnread(allArticles);
+      setArticles(next);
+      setActiveIndex(1);
+      if (scrollerRef.current) scrollerRef.current.scrollTop = 0;
+    };
+
+    syncUnread();
+    window.addEventListener(READ_ARTICLES_EVENT, syncUnread);
+    window.addEventListener("storage", syncUnread);
+    window.addEventListener("pageshow", syncUnread);
+    window.addEventListener("focus", syncUnread);
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") syncUnread();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      window.removeEventListener(READ_ARTICLES_EVENT, syncUnread);
+      window.removeEventListener("storage", syncUnread);
+      window.removeEventListener("pageshow", syncUnread);
+      window.removeEventListener("focus", syncUnread);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [allArticles]);
+
+  useEffect(() => {
     const root = scrollerRef.current;
     if (!root || total === 0) return;
 
-    // Full-viewport snap slides: derive the active index from scrollTop.
-    // (IntersectionObserver only reports *changed* entries, so the counter
-    // often stuck when a leaving slide was the only callback payload.)
     const updateActive = () => {
       const height = root.clientHeight;
       if (height <= 0) return;
@@ -52,9 +88,8 @@ export function SnapFeed({ issue }: SnapFeedProps) {
       root.removeEventListener("scrollend", updateActive);
       window.removeEventListener("resize", updateActive);
     };
-  }, [total]);
+  }, [total, articles]);
 
-  // Soft tick when the snap settles on a new slide
   useEffect(() => {
     if (!didMountHaptic.current) {
       didMountHaptic.current = true;
@@ -87,19 +122,20 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         ) : null}
       </p>
 
-      {total === 0 ? (
+      {allArticles.length === 0 ? (
         <p className="empty-issue feed-empty">
           No stories in this week’s issue yet.
         </p>
+      ) : total === 0 ? (
+        <p className="empty-issue feed-empty">You’re all caught up.</p>
       ) : (
         <section
           ref={scrollerRef}
           className="feed-scroller"
-          aria-label={`${total} stories — swipe vertically`}
+          aria-label={`${total} unread stories — swipe vertically`}
         >
           {articles.map((article, i) => {
             const index = i + 1;
-            // First real paragraph (not image alt text); falls back to dek.
             const subtitle = getFeedSubtitle(article, 200);
             const minutes = getReadTimeMinutes(article);
             const cover = getArticleCover(article);
@@ -115,7 +151,6 @@ export function SnapFeed({ issue }: SnapFeedProps) {
               >
                 {cover ? (
                   <div className="feed-slide-media" aria-hidden="true">
-                    {/* Plain img: covers are local files or arbitrary CDN hosts. */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={cover.src}
