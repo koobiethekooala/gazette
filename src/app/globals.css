@@ -149,8 +149,6 @@ body {
   display: block;
 }
 
-/* Share button styles live in components/share-button.css (imported by ShareButton). */
-
 /* Article reader */
 .paper-shell {
   position: relative;
