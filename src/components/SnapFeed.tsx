@@ -46,26 +46,29 @@ function sameArticleList(a: Article[], b: Article[]): boolean {
 }
 
 function scrollToSlide(root: HTMLElement, index0: number) {
-  const height = root.clientHeight || window.innerHeight;
-  if (height <= 0) return;
+  const slides = root.querySelectorAll<HTMLElement>("[data-feed-slide]");
+  const target = slides[Math.max(0, index0)];
   const prev = root.style.scrollBehavior;
   root.style.scrollBehavior = "auto";
-  root.scrollTop = Math.max(0, index0) * height;
+  if (target) {
+    root.scrollTop = target.offsetTop;
+  } else {
+    const height = root.clientHeight || window.innerHeight;
+    root.scrollTop = Math.max(0, index0) * height;
+  }
   root.style.scrollBehavior = prev;
 }
 
-function resolveRestoreIndex(articles: Article[]): number {
-  if (articles.length === 0) return 0;
+/** Returns 0-based index to restore, or null if there is nothing saved. */
+function resolveRestoreIndex(articles: Article[]): number | null {
+  if (articles.length === 0) return null;
   const saved = loadFeedPosition();
-  if (!saved) return 0;
+  if (!saved) return null;
 
   const found = articles.findIndex((a) => a.id === saved.articleId);
-  if (found >= 0) {
-    // Still in the feed — return to that slide.
-    return found;
-  }
+  if (found >= 0) return found;
 
-  // Marked as read (removed) — land on the slot it vacated.
+  // Marked as read — land on the vacated slot.
   clearFeedPosition();
   return Math.min(saved.index, articles.length - 1);
 }
@@ -77,25 +80,58 @@ export function SnapFeed({ issue }: SnapFeedProps) {
   const scrollerRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(1);
   const didMountHaptic = useRef(false);
-  /** When set, layout effect scrolls to this 0-based index after `articles` updates. */
   const pendingScrollIndex = useRef<number | null>(null);
+  const pendingClearSaved = useRef(false);
+  const restoreTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  function clearRestoreTimers() {
+    for (const t of restoreTimers.current) clearTimeout(t);
+    restoreTimers.current = [];
+  }
+
+  function scheduleScroll(index0: number, clearSaved: boolean) {
+    const run = () => {
+      const root = scrollerRef.current;
+      if (!root) return;
+      const count = root.querySelectorAll("[data-feed-slide]").length;
+      if (count === 0) return;
+      const clamped = Math.min(Math.max(0, index0), count - 1);
+      scrollToSlide(root, clamped);
+      setActiveIndex(clamped + 1);
+    };
+
+    clearRestoreTimers();
+    run();
+    requestAnimationFrame(run);
+    // Re-apply after snap + view-transition settle (esp. iOS / Next VT).
+    restoreTimers.current.push(
+      setTimeout(run, 50),
+      setTimeout(run, 200),
+      setTimeout(() => {
+        run();
+        if (clearSaved) clearFeedPosition();
+      }, 450),
+    );
+  }
+
+  useEffect(() => () => clearRestoreTimers(), []);
 
   useEffect(() => {
-    const applyList = (next: Article[], scrollTo: number | null) => {
-      if (scrollTo !== null) pendingScrollIndex.current = scrollTo;
+    const applyList = (
+      next: Article[],
+      scrollTo: number | null,
+      clearSaved: boolean,
+    ) => {
+      if (scrollTo !== null) {
+        pendingScrollIndex.current = scrollTo;
+        pendingClearSaved.current = clearSaved;
+      }
+
       setArticles((prev) => {
         if (sameArticleList(prev, next)) {
-          // List unchanged (e.g. nothing read yet) — still apply pending scroll.
           if (scrollTo !== null) {
-            const index0 = scrollTo;
             pendingScrollIndex.current = null;
-            requestAnimationFrame(() => {
-              const root = scrollerRef.current;
-              if (!root || next.length === 0) return;
-              const clamped = Math.min(index0, next.length - 1);
-              scrollToSlide(root, clamped);
-              setActiveIndex(clamped + 1);
-            });
+            scheduleScroll(scrollTo, clearSaved);
           }
           return prev;
         }
@@ -105,12 +141,21 @@ export function SnapFeed({ issue }: SnapFeedProps) {
 
     const syncUnread = (restorePosition: boolean) => {
       const next = filterUnread(allArticles);
+
       if (restorePosition) {
-        applyList(next, resolveRestoreIndex(next));
+        const index = resolveRestoreIndex(next);
+        if (index === null) {
+          applyList(next, null, false);
+          return;
+        }
+        const saved = loadFeedPosition();
+        const stillThere =
+          saved != null && next.some((a) => a.id === saved.articleId);
+        applyList(next, index, stillThere);
         return;
       }
 
-      // Soft sync (focus / storage): keep current scroll unless the list shrank under us.
+      // Soft sync: only clamp if current slide index is now out of range.
       const root = scrollerRef.current;
       let scrollTo: number | null = null;
       if (root && next.length > 0) {
@@ -118,44 +163,46 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         const current = Math.round(root.scrollTop / Math.max(1, height));
         if (current > next.length - 1) scrollTo = next.length - 1;
       }
-      applyList(next, scrollTo);
+      applyList(next, scrollTo, false);
     };
 
     syncUnread(true);
 
+    const restoreSync = () => syncUnread(true);
     const softSync = () => syncUnread(false);
+
     window.addEventListener(READ_ARTICLES_EVENT, softSync);
     window.addEventListener("storage", softSync);
-    window.addEventListener("pageshow", softSync);
-    window.addEventListener("focus", softSync);
+    window.addEventListener("pageshow", restoreSync);
     const onVisibility = () => {
-      if (document.visibilityState === "visible") softSync();
+      if (document.visibilityState === "visible") restoreSync();
     };
     document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
       window.removeEventListener(READ_ARTICLES_EVENT, softSync);
       window.removeEventListener("storage", softSync);
-      window.removeEventListener("pageshow", softSync);
-      window.removeEventListener("focus", softSync);
+      window.removeEventListener("pageshow", restoreSync);
       document.removeEventListener("visibilitychange", onVisibility);
     };
+    // scheduleScroll is stable enough for this effect's lifetime
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allArticles]);
 
   useLayoutEffect(() => {
     if (pendingScrollIndex.current === null) return;
     const index0 = pendingScrollIndex.current;
+    const clearSaved = pendingClearSaved.current;
     pendingScrollIndex.current = null;
+    pendingClearSaved.current = false;
 
-    const root = scrollerRef.current;
-    if (!root || articles.length === 0) {
+    if (articles.length === 0) {
       setActiveIndex(1);
       return;
     }
 
-    const clamped = Math.min(index0, articles.length - 1);
-    scrollToSlide(root, clamped);
-    setActiveIndex(clamped + 1);
+    scheduleScroll(index0, clearSaved);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [articles]);
 
   useEffect(() => {
@@ -265,6 +312,7 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                   className="feed-slide-link"
                   aria-label={`Open article ${index}: ${article.headline}`}
                   transitionTypes={["nav-forward"]}
+                  onPointerDown={() => saveFeedPosition(article.id, i)}
                   onClick={() => {
                     saveFeedPosition(article.id, i);
                     triggerHaptic();
