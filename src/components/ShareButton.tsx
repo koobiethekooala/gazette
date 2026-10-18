@@ -2,7 +2,9 @@
 
 import { Check, Share } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { hapticRef, triggerHaptic } from "@/lib/haptics";
+import styles from "./ShareButton.module.css";
 
 type ShareButtonProps = {
   title: string;
@@ -24,9 +26,11 @@ function buildShareText(title: string, url: string): string {
 
 export function ShareButton({ title, articleId }: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    setMounted(true);
     return () => {
       if (hideTimer.current) clearTimeout(hideTimer.current);
     };
@@ -43,7 +47,6 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     try {
       await navigator.clipboard.writeText(text);
     } catch {
-      // Fallback for older WebViews / denied permission
       const ta = document.createElement("textarea");
       ta.value = text;
       ta.setAttribute("readonly", "");
@@ -60,36 +63,39 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     hideTimer.current = setTimeout(() => setCopied(false), 1800);
   }
 
-  return (
-    <>
-      <button
-        type="button"
-        className="reader-share"
-        ref={hapticRef}
-        onClick={onShare}
-        aria-label="Copy share link"
-        title="Copy share link"
-      >
-        <Share
-          className="reader-share-icon"
-          aria-hidden="true"
-          strokeWidth={1.75}
-        />
-      </button>
+  const toast =
+    mounted &&
+    createPortal(
       <div
         className={
-          copied ? "reader-share-toast reader-share-toast-visible" : "reader-share-toast"
+          copied ? `${styles.toast} ${styles.toastVisible}` : styles.toast
         }
         role="status"
         aria-live="polite"
       >
         <Check
-          className="reader-share-toast-icon"
+          className={styles.toastIcon}
           aria-hidden="true"
           strokeWidth={2.25}
         />
         Link copied
-      </div>
+      </div>,
+      document.body,
+    );
+
+  return (
+    <>
+      <button
+        type="button"
+        className={styles.share}
+        ref={hapticRef}
+        onClick={onShare}
+        aria-label="Copy share link"
+        title="Copy share link"
+      >
+        <Share className={styles.icon} aria-hidden="true" strokeWidth={1.75} />
+      </button>
+      {toast}
     </>
   );
 }
