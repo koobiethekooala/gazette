@@ -624,7 +624,9 @@ html[data-theme="light"] .brand-logo-img {
   justify-content: flex-end;
   width: min(100%, 28rem);
   height: 100%;
-  padding: 5.5rem 1.35rem max(2.5rem, env(safe-area-inset-bottom));
+  /* Extra bottom space so copy clears the sticky week + counter row */
+  padding: 5.5rem 1.35rem
+    max(4.75rem, calc(env(safe-area-inset-bottom) + 3.25rem));
   color: inherit;
   text-decoration: none;
   box-sizing: border-box;
