@@ -6,6 +6,7 @@ import { MarkAsReadButton } from "@/components/MarkAsReadButton";
 import { NavTransition } from "@/components/NavTransition";
 import { PublicationByline } from "@/components/PublicationByline";
 import { ReaderBack } from "@/components/ReaderBack";
+import { ShareButton } from "@/components/ShareButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getArticleById, getIssue } from "@/lib/issue";
 
@@ -27,6 +28,7 @@ async function ArticleContent({ params }: ArticlePageProps) {
   return (
     <>
       <ReaderBack />
+      <ShareButton title={article.headline} articleId={article.id} />
       <ThemeToggle />
 
       <header

@@ -149,6 +149,88 @@ body {
   display: block;
 }
 
+/* Share — sits just left of the theme toggle */
+.reader-share {
+  position: fixed;
+  top: max(0.65rem, env(safe-area-inset-top));
+  right: max(3.15rem, calc(env(safe-area-inset-right) + 2.45rem));
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-mute);
+  opacity: 0.7;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color 0.45s ease,
+    opacity 0.25s ease;
+}
+
+.reader-share:hover {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.reader-share:active {
+  opacity: 0.5;
+}
+
+.reader-share:focus-visible {
+  outline: 1px solid var(--ink-mute);
+  outline-offset: 3px;
+}
+
+.reader-share-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.reader-share-toast {
+  position: fixed;
+  left: 50%;
+  bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem));
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, 0.4rem);
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.reader-share-toast-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.reader-share-toast-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+}
+
 /* Article reader */
 .paper-shell {
   position: relative;
@@ -226,8 +308,8 @@ html[data-theme="dark"] .paper-grain {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* Keep mark clear of fixed back (left) + theme toggle (right) */
-  padding-inline: 3rem;
+  /* Keep mark clear of fixed back (left) + share/theme (right) */
+  padding-inline: 4.25rem;
   pointer-events: none;
 }
 
@@ -236,7 +318,7 @@ html[data-theme="dark"] .paper-grain {
 }
 
 .reader-chrome .brand-logo-img {
-  max-width: min(12rem, calc(100vw - 7rem));
+  max-width: min(12rem, calc(100vw - 9rem));
 }
 
 /* iOS stack-nav back: fixed like the theme toggle, never in logo flow */
