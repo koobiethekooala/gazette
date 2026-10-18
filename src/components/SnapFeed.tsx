@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Clock } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
+import { PublicationByline } from "@/components/PublicationByline";
 import { triggerHaptic } from "@/lib/haptics";
 import {
   formatMastheadDate,
@@ -140,11 +141,13 @@ export function SnapFeed({ issue }: SnapFeedProps) {
                   onClick={() => triggerHaptic()}
                 >
                   <div className="feed-slide-copy">
-                    <p className="feed-slide-index" aria-hidden="true">
-                      {index}
-                    </p>
-
                     <h2 className="feed-slide-headline">{article.headline}</h2>
+                    {article.byline ? (
+                      <PublicationByline
+                        name={article.byline}
+                        className="feed-slide-byline"
+                      />
+                    ) : null}
                     {subtitle ? (
                       <p className="feed-slide-subtitle">{subtitle}</p>
                     ) : null}

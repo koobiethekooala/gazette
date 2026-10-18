@@ -638,15 +638,6 @@ html[data-theme="light"] .brand-logo-img {
   width: 100%;
 }
 
-.feed-slide-index {
-  margin: 0 0 0.35rem;
-  font-size: clamp(4.5rem, 18vw, 7rem);
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: var(--ink-faint);
-}
-
 .feed-slide-headline {
   margin: 0;
   font-size: clamp(1.55rem, 6.5vw, 2.15rem);
@@ -655,6 +646,10 @@ html[data-theme="light"] .brand-logo-img {
   letter-spacing: -0.015em;
   text-wrap: balance;
   color: var(--ink);
+}
+
+.feed-slide-byline {
+  margin: 0.7rem 0 0;
 }
 
 .feed-slide-subtitle {
@@ -763,13 +758,14 @@ html[data-theme="light"] .brand-logo-img {
   color: #fff;
 }
 
-.feed-slide-has-media .feed-slide-index {
-  color: rgba(255, 255, 255, 0.5);
-}
-
 .feed-slide-has-media .feed-slide-headline {
   color: #fff;
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+}
+
+.feed-slide-has-media .feed-slide-byline .article-publication-name {
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
 .feed-slide-has-media .feed-slide-subtitle {

@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 
 type PublicationBylineProps = {
   name: string;
+  className?: string;
 };
 
 function initialsFor(name: string): string {
@@ -20,12 +21,13 @@ function hueFor(name: string): number {
   return hash % 360;
 }
 
-export function PublicationByline({ name }: PublicationBylineProps) {
+export function PublicationByline({ name, className }: PublicationBylineProps) {
   const initials = initialsFor(name);
   const hue = hueFor(name);
+  const rootClass = ["article-publication", className].filter(Boolean).join(" ");
 
   return (
-    <div className="article-publication">
+    <div className={rootClass}>
       <span
         className="article-publication-avatar"
         style={{ "--avatar-hue": String(hue) } as CSSProperties}
