@@ -112,13 +112,35 @@ export function ShareButton({ title, articleId }: ShareButtonProps) {
     lastTap.current = now;
 
     triggerHaptic();
-    copyText(buildShareText(title, articleShareUrl(articleId)));
+    const url = articleShareUrl(articleId);
+    const text = buildShareText(title, url);
 
-    setActive(true);
-    if (activeTimer.current) clearTimeout(activeTimer.current);
-    activeTimer.current = setTimeout(() => setActive(false), TOAST_MS + 250);
+    const markActive = (toast: string) => {
+      setActive(true);
+      if (activeTimer.current) clearTimeout(activeTimer.current);
+      activeTimer.current = setTimeout(() => setActive(false), TOAST_MS + 250);
+      showDomToast(toast);
+    };
 
-    showDomToast("Link copied");
+    // Prefer the OS share sheet when available (uses PWA / site icon).
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      void navigator
+        .share({ title: truncateTitle(title), text, url })
+        .then(() => markActive("Shared"))
+        .catch((error: unknown) => {
+          const name =
+            error && typeof error === "object" && "name" in error
+              ? String((error as { name: string }).name)
+              : "";
+          if (name === "AbortError") return;
+          copyText(text);
+          markActive("Link copied");
+        });
+      return;
+    }
+
+    copyText(text);
+    markActive("Link copied");
   }
 
   useEffect(() => {
