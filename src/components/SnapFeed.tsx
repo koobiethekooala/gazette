@@ -79,18 +79,18 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         </div>
       </header>
 
-      <div className="feed-sticky-meta">
-        <p className="feed-sticky-week">
+      <p className="feed-sticky-meta" aria-live="polite">
+        <span className="feed-sticky-week">
           Week of {formatMastheadDate(issue.weekOf)}
-        </p>
+        </span>
         {total > 0 ? (
-          <p className="feed-sticky-count" aria-live="polite">
+          <span className="feed-sticky-count">
             <span className="feed-sticky-current">{activeIndex}</span>
             <span className="feed-sticky-sep">/</span>
             <span className="feed-sticky-total">{total}</span>
-          </p>
+          </span>
         ) : null}
-      </div>
+      </p>
 
       {total === 0 ? (
         <p className="empty-issue feed-empty">
