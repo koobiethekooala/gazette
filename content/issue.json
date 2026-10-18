@@ -9,6 +9,7 @@
       "id": "roi-formation-chemins-differents",
       "headline": "Editorial : Formation: la valeur des chemins différents",
       "dek": "Editos by Benoit Dubuis · Oct 14, 2026",
+      "summary": "Benoît Dubuis plaide pour que les parcours de formation alternatifs et traditionnels coexistent, le diplôme n’étant qu’une clé d’entrée et non la mesure d’une carrière.",
       "category": "Editorial",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -64,6 +65,7 @@
       "id": "ben-funny-numbers",
       "headline": "Funny numbers",
       "dek": "OpenAI’s revenue mix-up, and the dotcom habit of inventing metrics",
+      "summary": "Benedict Evans compares today’s fuzzy AI metrics to dotcom-era ‘hits’, citing OpenAI’s revenue mix-up: a reported $70bn run rate was actually close to $50bn.",
       "category": "Tech",
       "byline": "Benedict Evans",
       "blocks": [
@@ -112,6 +114,7 @@
       "id": "topol-tale-of-two-t-cells",
       "headline": "A Landmark Study of Our Immune System Aging With A Promising Blood Test",
       "dek": "A Tale of Two T Cells: GZMK+ vs GZMB+ memory cells and what they mean for healthspan",
+      "summary": "A study of 2,609 people finds immune aging hinges on two memory T-cell types; a high share of GZMB+ cells predicts worse health outcomes and could become a blood test.",
       "category": "Health",
       "byline": "Eric Topol / Ground Truths",
       "blocks": [
@@ -283,6 +286,7 @@
       "id": "dao-seven-chinese-fashion-brands",
       "headline": "7 Chinese fashion brands changing what Made in China means",
       "dek": "Still think Made in China means cheap? Tell that to the designer behind Rihanna’s Met Gala cape.",
+      "summary": "Seven Chinese labels, from Guo Pei to ICICLE and Uma Wang, show that Made in China now signals design and craft, each following its own path to luxury.",
       "category": "Fashion",
       "byline": "DAO Insights",
       "blocks": [
@@ -516,6 +520,7 @@
       "id": "radii-cyberhero-fighting-robot-league",
       "headline": "World’s first fighting robot league: humanoid T800s battle in Riyadh",
       "dek": "Introducing CyberHero, from RADII’s weekly newsletter",
+      "summary": "CyberHero launched in Riyadh as a global humanoid robot league, with EngineAI T800 robots fighting in an arena and eight stops planned across four regions.",
       "category": "Tech",
       "byline": "RADII",
       "blocks": [
@@ -672,6 +677,7 @@
       "id": "radii-levelup-games-chinese-games-world",
       "headline": "How Chinese games are reaching the world",
       "dek": "Levelup Games bridges Chinese-made titles to global audiences, by Richard Lai",
+      "summary": "Levelup Games, a dozen-person Shanghai and LA team, helps Chinese indie titles like The Scroll of Taiwu reach Western players through localization and press outreach.",
       "category": "Games",
       "byline": "RADII",
       "blocks": [
@@ -755,6 +761,7 @@
       "id": "roi-imd-27-novembre-sciences-de-la-vie",
       "headline": "27 novembre à l’IMD – Sciences de la vie : une force à préserver",
       "dek": "News · Oct 14, 2026",
+      "summary": "Pour les 25 ans de la Health Valley, Benoît Dubuis invite le 27 novembre à l’IMD à Lausanne à réfléchir à ce qu’il faut préserver pour les sciences de la vie suisses.",
       "category": "Life Sciences",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -826,6 +833,7 @@
       "id": "ben-agents-open-models-ipo-overhang",
       "headline": "Agent incentives, open models outside China and an IPO overhang",
       "dek": "Benedict’s Newsletter No. 664: who gets to own the customer when agents do the shopping",
+      "summary": "Benedict Evans looks at who owns the customer when AI agents shop, new credible open models from outside China, and how AI infrastructure spending is pushing IPOs.",
       "category": "Tech",
       "byline": "Benedict Evans",
       "blocks": [
@@ -914,6 +922,7 @@
       "id": "topol-michael-lewis-blockers",
       "headline": "Michael Lewis: The NIH “Murder Mystery,” DOGE, and Our Government Immune System",
       "dek": "Eric Topol’s conversation with Michael Lewis on his new book Blockers (63 min video)",
+      "summary": "Eric Topol talks with Michael Lewis about his new book Blockers, including its account of the NIH as a murder mystery and the DOGE-era US government.",
       "category": "Health",
       "byline": "Eric Topol / Ground Truths",
       "blocks": [
@@ -963,6 +972,7 @@
       "id": "dao-ai-chinese-ecommerce-xi-li",
       "headline": "AI and the future of Chinese e-commerce – an interview with HKU’s Professor Xi Li",
       "dek": "Your next customer might send an algorithm to do the shopping. Will it fall for your advertising?",
+      "summary": "HKU professor Xi Li explains how AI shopping agents are changing product search in China and why product quality and clear data will matter more than ad copy.",
       "category": "E-commerce",
       "byline": "DAO Insights",
       "blocks": [
@@ -1165,6 +1175,7 @@
       "id": "radii-chinese-football-emo-overseas",
       "headline": "Chinese Football takes Chinese emo overseas",
       "dek": "Moren Mao sits down with the cult-favorite Wuhan band",
+      "summary": "Wuhan emo band Chinese Football look back on a decade of video-game-themed albums, their cult following abroad, and the pop shift of their latest record Win&Lose.",
       "category": "Music",
       "byline": "RADII",
       "blocks": [
@@ -1352,6 +1363,7 @@
       "id": "radii-shanghai-animation-film-studio",
       "headline": "The film studio that defined Chinese animation",
       "dek": "Shanghai Animation Film Studio, by Mia Fan",
+      "summary": "Founded in 1957, Shanghai Animation Film Studio built a distinctly Chinese animation style, struggled after market reforms, and is finding new momentum with Yao-Chinese Folktales.",
       "category": "Film",
       "byline": "RADII",
       "blocks": [
@@ -1485,6 +1497,7 @@
       "id": "roi-asinov-school-robots-humanoides",
       "headline": "À Renens, l’Asinov School veut apprendre aux professionnels à travailler avec les robots humanoïdes",
       "dek": "News · Oct 14, 2026",
+      "summary": "À Renens, l’Asinov School forme ingénieurs, soignants et entrepreneurs à travailler avec des robots humanoïdes, avec des partenaires suisses et chinois.",
       "category": "Robotics",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -1527,6 +1540,7 @@
       "id": "ben-week-in-ai-spacex-apple",
       "headline": "The week in AI, SpaceX Mobile and Apple as shadow ads regulator",
       "dek": "Plus ideas, outside interests and data from Benedict’s Newsletter No. 664",
+      "summary": "Benedict Evans covers Anthropic’s and OpenAI’s policy moves, SpaceX buying cellular spectrum, and Apple acting as a shadow regulator of ad tracking on iOS.",
       "category": "Tech",
       "byline": "Benedict Evans",
       "blocks": [
@@ -1683,6 +1697,7 @@
       "id": "dao-mixue-hot-hashtags-latest-news",
       "headline": "Mixue: too cheap to look classy? Plus this week’s China news",
       "dek": "Hot Hashtags, latest news and interesting reads from DAO Insights",
+      "summary": "Mixue turned a joke about its cheap image into a luxury-style ad for its RMB9 drink, while HEYTEA lets Yunnan children design its cups, plus more China news.",
       "category": "Trends",
       "byline": "DAO Insights",
       "blocks": [
@@ -2194,6 +2209,7 @@
       "id": "radii-weekly-asus-npcs-sleepy-counties",
       "headline": "Laptops on the runway, celebrity NPCs and China’s sleepy counties",
       "dek": "Here’s what else was going on this past week at RADII",
+      "summary": "ASUS and Intel showed laptops at Beijing Fashion Week, scenic spots hire celebrities as costumed NPCs, and young travellers favor quiet Chinese counties over big cities.",
       "category": "Culture",
       "byline": "RADII",
       "blocks": [
@@ -2408,6 +2424,7 @@
       "id": "radii-weekly-ai-series-us-open-patreon",
       "headline": "China’s first fully AI-generated series, Zheng Qinwen at the US Open and RADII’s Patreon",
       "dek": "Here’s what else was going on this past week at RADII",
+      "summary": "China’s first fully AI-generated series Beyond Wukong premiered on prime-time TV, Zheng Qinwen staged a US Open comeback against Swiatek, and RADII promotes its Patreon.",
       "category": "Culture",
       "byline": "RADII",
       "blocks": [
@@ -2861,6 +2878,7 @@
       "id": "roi-therapie-optogenetique-vision",
       "headline": "Une thérapie optogénétique redonne une perception visuelle à des personnes aveugles",
       "dek": "News · Oct 14, 2026",
+      "summary": "Une thérapie génique associée à des lunettes spéciales a amélioré la sensibilité à la lumière chez sept des dix patients atteints de rétinite pigmentaire avancée.",
       "category": "Health",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -2899,6 +2917,7 @@
       "id": "roi-innovation-sciences-de-la-vie-pilier-strategique",
       "headline": "Innovation et sciences de la vie : un pilier stratégique pour la Suisse",
       "dek": "News · Oct 14, 2026",
+      "summary": "Les sciences de la vie font vivre plus de 83’000 emplois en Suisse occidentale, mais Interpharma avertit que cette position dépend de conditions favorables à l’innovation.",
       "category": "Life Sciences",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -2950,6 +2969,7 @@
       "id": "roi-perovskites-cellules-solaires",
       "headline": "De nouvelles pérovskites ouvrent la voie à des cellules solaires et composants électroniques plus performants",
       "dek": "News · Oct 14, 2026",
+      "summary": "L’Empa développe de nouvelles familles de pérovskites pour des cellules solaires et composants électroniques plus performants, avec la stabilité à long terme comme défi.",
       "category": "Energy",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -3001,6 +3021,7 @@
       "id": "roi-noyau-cellulaire-portes-entree",
       "headline": "Des chercheurs découvrent comment le noyau des cellules crée ses portes d’entrée",
       "dek": "News · Oct 14, 2026",
+      "summary": "Des chercheurs de l’ETH Zurich montrent que Torsin-1A et CLCC1 aident le noyau à former ses pores, ce qui éclaire aussi la dystonie DYT1.",
       "category": "Science",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -3048,6 +3069,7 @@
       "id": "roi-ia-sciences-de-la-vie",
       "headline": "L’intelligence artificielle investit désormais les sciences de la vie",
       "dek": "News · Oct 14, 2026",
+      "summary": "Google DeepMind, Anthropic, Meta et OpenAI investissent les sciences de la vie, ce qui soulève des questions de propriété intellectuelle, de données et de reproductibilité.",
       "category": "AI",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -3099,6 +3121,7 @@
       "id": "roi-nobel-chimie-2026-molecules-miroir",
       "headline": "Nobel de chimie 2026 : Henri Kagan et Kenso Soai récompensés pour leurs travaux sur les molécules « miroir »",
       "dek": "News · Oct 14, 2026",
+      "summary": "Le Nobel de chimie 2026 revient à Henri Kagan et Kenso Soai pour leurs travaux sur la synthèse asymétrique et les molécules miroir, clés de la fabrication de médicaments.",
       "category": "Awards",
       "byline": "Republic of Innovation",
       "blocks": [
@@ -3146,6 +3169,7 @@
       "id": "roi-greffes-cellules-souches-sanguines",
       "headline": "Une nouvelle piste pour améliorer les greffes de cellules souches sanguines",
       "dek": "News · Oct 14, 2026",
+      "summary": "À l’UZH, une exposition d’une heure à la protéine C activée a mieux préservé des cellules souches sanguines avant greffe chez la souris, un résultat encore préclinique.",
       "category": "Health",
       "byline": "Republic of Innovation",
       "blocks": [
