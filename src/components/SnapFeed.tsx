@@ -59,6 +59,51 @@ function scrollToSlide(root: HTMLElement, index0: number) {
   root.style.scrollBehavior = prev;
 }
 
+/**
+ * Smooth scroll to the first snap slide.
+ * iOS Safari often ignores scrollTo({ behavior: "smooth" }) while
+ * scroll-snap is mandatory, so we disable snap for the animation.
+ */
+function smoothScrollFeedToTop(root: HTMLElement): void {
+  const start = root.scrollTop;
+  if (start <= 0) return;
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const prevSnap = root.style.scrollSnapType;
+  const prevBehavior = root.style.scrollBehavior;
+  root.style.scrollSnapType = "none";
+  root.style.scrollBehavior = "auto";
+
+  if (reduceMotion) {
+    root.scrollTop = 0;
+    root.style.scrollSnapType = prevSnap;
+    root.style.scrollBehavior = prevBehavior;
+    return;
+  }
+
+  const duration = Math.min(720, Math.max(320, start * 0.28));
+  const t0 = performance.now();
+
+  const frame = (now: number) => {
+    const t = Math.min(1, (now - t0) / duration);
+    // ease-out cubic
+    const eased = 1 - (1 - t) ** 3;
+    root.scrollTop = start * (1 - eased);
+    if (t < 1) {
+      requestAnimationFrame(frame);
+      return;
+    }
+    root.scrollTop = 0;
+    root.style.scrollSnapType = prevSnap;
+    root.style.scrollBehavior = prevBehavior;
+  };
+
+  requestAnimationFrame(frame);
+}
+
 /** Returns 0-based index to restore, or null if there is nothing saved. */
 function resolveRestoreIndex(articles: Article[]): number | null {
   if (articles.length === 0) return null;
@@ -247,22 +292,12 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         <div className="feed-chrome-brand">
           <BrandLogo
             title={issue.title}
-            href="/"
+            href={null}
             size="chrome"
-            onClick={(event) => {
-              // Already on the feed — stay put and ease back to the first slide.
-              event.preventDefault();
+            onClick={() => {
               clearFeedPosition();
               const root = scrollerRef.current;
-              if (root) {
-                const reduceMotion = window.matchMedia(
-                  "(prefers-reduced-motion: reduce)",
-                ).matches;
-                root.scrollTo({
-                  top: 0,
-                  behavior: reduceMotion ? "auto" : "smooth",
-                });
-              }
+              if (root) smoothScrollFeedToTop(root);
               setActiveIndex(1);
               triggerHaptic();
             }}

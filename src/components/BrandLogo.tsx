@@ -7,10 +7,16 @@ import { clearFeedPosition } from "@/lib/feedPosition";
 
 type BrandLogoProps = {
   title: string;
-  href?: string;
+  /**
+   * Destination for the logo link. Pass `null` to render a button instead
+   * (same-page controls like scroll-to-top on the feed).
+   */
+  href?: string | null;
   /** Compact mark for chrome / back nav */
   size?: "chrome" | "inline";
-  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+  onClick?: (
+    event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => void;
 };
 
 export function BrandLogo({
@@ -32,6 +38,19 @@ export function BrandLogo({
       priority={size === "chrome"}
     />
   );
+
+  if (href === null) {
+    return (
+      <button
+        type="button"
+        className={className}
+        aria-label={title}
+        onClick={onClick}
+      >
+        {mark}
+      </button>
+    );
+  }
 
   if (href) {
     return (

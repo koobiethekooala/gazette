@@ -615,6 +615,15 @@ html[data-theme="light"] .feed-chrome::before {
   display: inline-flex;
   line-height: 0;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .brand-logo-img {
