@@ -462,11 +462,11 @@ html[data-theme="light"] .article-publication-avatar {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  min-width: 11rem;
+  width: 100%;
   margin: 0;
-  padding: 0.7rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   border: 1px solid var(--ink);
-  border-radius: 0;
+  border-radius: 0.65rem;
   background: var(--ink);
   color: var(--paper);
   font: inherit;
