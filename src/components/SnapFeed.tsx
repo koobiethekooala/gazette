@@ -245,7 +245,28 @@ export function SnapFeed({ issue }: SnapFeedProps) {
         style={{ viewTransitionName: "site-chrome" }}
       >
         <div className="feed-chrome-brand">
-          <BrandLogo title={issue.title} href="/" size="chrome" />
+          <BrandLogo
+            title={issue.title}
+            href="/"
+            size="chrome"
+            onClick={(event) => {
+              // Already on the feed — stay put and ease back to the first slide.
+              event.preventDefault();
+              clearFeedPosition();
+              const root = scrollerRef.current;
+              if (root) {
+                const reduceMotion = window.matchMedia(
+                  "(prefers-reduced-motion: reduce)",
+                ).matches;
+                root.scrollTo({
+                  top: 0,
+                  behavior: reduceMotion ? "auto" : "smooth",
+                });
+              }
+              setActiveIndex(1);
+              triggerHaptic();
+            }}
+          />
         </div>
       </header>
 
