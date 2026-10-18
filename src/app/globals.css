@@ -449,6 +449,70 @@ html[data-theme="light"] .article-publication-avatar {
   opacity: 0.85;
 }
 
+.article-read-actions {
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: center;
+}
+
+.article-read-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.article-read-button:hover {
+  opacity: 0.9;
+}
+
+.article-read-button:active {
+  opacity: 0.75;
+}
+
+.article-read-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.article-read-button:focus-visible {
+  outline: 1px solid var(--ink-mute);
+  outline-offset: 3px;
+}
+
+.article-read-button-done {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+.article-read-button-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
 /* Vertical snap feed (home) */
 .feed-shell {
   position: relative;

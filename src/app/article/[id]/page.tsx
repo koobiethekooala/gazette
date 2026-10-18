@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ArticleBody } from "@/components/ArticleBody";
 import { BrandLogo } from "@/components/BrandLogo";
+import { MarkAsReadButton } from "@/components/MarkAsReadButton";
 import { NavTransition } from "@/components/NavTransition";
 import { PublicationByline } from "@/components/PublicationByline";
 import { ReaderBack } from "@/components/ReaderBack";
@@ -47,6 +48,7 @@ async function ArticleContent({ params }: ArticlePageProps) {
           <PublicationByline name={article.byline} />
         ) : null}
         <ArticleBody article={article} />
+        <MarkAsReadButton articleId={article.id} />
       </div>
     </>
   );
