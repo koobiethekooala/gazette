@@ -450,6 +450,14 @@ html[data-theme="light"] .article-publication-avatar {
 }
 
 /* Vertical snap feed (home) */
+
+/* DEBUG — remove when layout inspection is done */
+.feed-shell,
+.feed-shell * {
+  outline: 1px solid rgba(0, 220, 255, 0.65) !important;
+  outline-offset: -1px;
+}
+
 .feed-shell {
   position: relative;
   height: 100dvh;
