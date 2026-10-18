@@ -25,7 +25,7 @@ After editing, run `npm run build` (or rely on the running `npm run dev`) and op
 ```
 
 - `weekOf`: ISO date (`YYYY-MM-DD`) for the week being covered. Shown on the feed chrome.
-- `articles`: ordered list; the home snap feed shows the **first 25**.
+- `articles`: ordered list; the home snap feed shows every article in array order.
 
 ## Article fields
 
@@ -149,8 +149,7 @@ Rules of thumb:
 3. For each newsletter story: choose `id`, fill metadata, port body to `blocks`.
 4. Drop local images into `public/images/articles/` when not using remote URLs.
 5. Put the lead story first in `articles` (feed order = array order).
-6. Cap at 25 stories on the feed (extras are omitted from home).
-7. Smoke-check `/` and a couple of article URLs (especially ones with images).
+6. Smoke-check `/` and a couple of article URLs (especially ones with images).
 
 ## Do not
 

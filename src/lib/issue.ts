@@ -1,8 +1,5 @@
 import issueData from "../../content/issue.json";
 
-/** Home index shows at most this many stories. */
-export const MAX_HOME_ARTICLES = 25;
-
 /** Preferred article body: ordered blocks (maps cleanly from newsletter HTML). */
 export type ParagraphBlock = {
   type: "p";
@@ -79,9 +76,9 @@ export function getIssue(): Issue {
   return issueData as Issue;
 }
 
-/** Articles for the home broadsheet, capped at MAX_HOME_ARTICLES. */
+/** Articles for the home snap feed — full issue order, no cap. */
 export function getHomeArticles(issue: Issue = getIssue()): Article[] {
-  return issue.articles.slice(0, MAX_HOME_ARTICLES);
+  return issue.articles;
 }
 
 export function getArticleById(id: string): Article | undefined {

@@ -15,7 +15,7 @@ Open [http://localhost:4317](http://localhost:4317).
 
 | Route | Description |
 |-------|-------------|
-| `/` | Vertical snap feed of this week’s stories (max 25) |
+| `/` | Vertical snap feed of this week’s stories |
 | `/article/[id]` | Full article |
 | `/feed` | Redirects to `/` (legacy) |
 
