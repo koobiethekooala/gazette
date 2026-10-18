@@ -5,6 +5,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { NavTransition } from "@/components/NavTransition";
 import { PublicationByline } from "@/components/PublicationByline";
 import { ReaderBack } from "@/components/ReaderBack";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { getArticleById, getIssue } from "@/lib/issue";
 
 type ArticlePageProps = {
@@ -25,6 +26,7 @@ async function ArticleContent({ params }: ArticlePageProps) {
   return (
     <>
       <ReaderBack />
+      <ThemeToggle />
 
       <header
         className="reader-chrome"
