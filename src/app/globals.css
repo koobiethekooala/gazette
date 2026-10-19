@@ -829,13 +829,6 @@ html[data-theme="light"] .brand-logo-img {
   outline-offset: -4px;
 }
 
-@media (min-width: 768px) {
-  .feed-slide-link {
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
-  }
-}
-
 /* Feed slides with a portrait lead image (full-bleed cover + legibility scrim).
    Keep these ABOVE view-transition rules — Lightning CSS can drop trailing
    rules after unsupported ::view-transition-* (*) selectors. */
@@ -964,6 +957,71 @@ html[data-theme="light"] .brand-logo-img {
 
 .feed-slide-has-media .feed-slide-link:focus-visible {
   outline-color: #fff;
+}
+
+/* Desktop / tablet: wider slide copy + modest type bump (phone stays 28rem). */
+@media (min-width: 768px) {
+  .feed-slide-link {
+    width: min(100%, 40rem);
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+
+  .feed-slide-has-media .feed-slide-link {
+    max-width: 40rem;
+  }
+
+  .feed-slide-byline .article-publication-avatar {
+    width: 1.45rem;
+    height: 1.45rem;
+    font-size: 0.5rem;
+  }
+
+  .feed-slide-byline .article-publication-name {
+    font-size: 0.74rem;
+  }
+
+  .feed-slide-headline {
+    font-size: clamp(1.75rem, 4vw, 2.45rem);
+  }
+
+  .feed-slide-subtitle {
+    max-width: 48ch;
+    font-size: 1.05rem;
+  }
+
+  .feed-tag {
+    font-size: 0.72rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feed-slide-link {
+    width: min(100%, 52rem);
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+
+  .feed-slide-has-media .feed-slide-link {
+    max-width: 52rem;
+  }
+
+  .feed-slide-byline .article-publication-name {
+    font-size: 0.78rem;
+  }
+
+  .feed-slide-headline {
+    font-size: clamp(2rem, 3.2vw, 2.85rem);
+  }
+
+  .feed-slide-subtitle {
+    max-width: 56ch;
+    font-size: 1.12rem;
+  }
+
+  .feed-tag {
+    font-size: 0.75rem;
+  }
 }
 
 /* Sticky meta sits on top of the photo when slides have images */
