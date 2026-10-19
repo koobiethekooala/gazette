@@ -1013,6 +1013,7 @@ html[data-theme="light"] .brand-logo-img {
   .feed-slide-has-media .feed-slide-link {
     width: 100%;
     max-width: none;
+    align-items: center;
   }
 
   .feed-slide-has-media .feed-slide-copy {
