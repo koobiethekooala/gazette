@@ -959,7 +959,9 @@ html[data-theme="light"] .brand-logo-img {
   outline-color: #fff;
 }
 
-/* Desktop / tablet: wider slide copy + modest type bump (phone stays 28rem). */
+/* Desktop / tablet: wider slide copy + modest type bump (phone stays 28rem).
+   On photo slides the link goes full-bleed so the bottom blur/veil spans the
+   viewport; copy keeps the wider column width. */
 @media (min-width: 768px) {
   .feed-slide-link {
     width: min(100%, 40rem);
@@ -968,7 +970,13 @@ html[data-theme="light"] .brand-logo-img {
   }
 
   .feed-slide-has-media .feed-slide-link {
-    max-width: 40rem;
+    width: 100%;
+    max-width: none;
+    align-items: center;
+  }
+
+  .feed-slide-has-media .feed-slide-copy {
+    width: min(100%, 40rem);
   }
 
   .feed-slide-byline .article-publication-avatar {
@@ -1003,7 +1011,12 @@ html[data-theme="light"] .brand-logo-img {
   }
 
   .feed-slide-has-media .feed-slide-link {
-    max-width: 52rem;
+    width: 100%;
+    max-width: none;
+  }
+
+  .feed-slide-has-media .feed-slide-copy {
+    width: min(100%, 52rem);
   }
 
   .feed-slide-byline .article-publication-name {
